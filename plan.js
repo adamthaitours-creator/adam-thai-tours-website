@@ -8,8 +8,6 @@
     dests: DESTS.map(function (d) { return d[0]; }),
     type: ['شهر عسل', 'عائلية', 'استرخاء وشواطئ', 'مغامرة', 'رحلة منظمة', 'أصدقاء'],
     stay: ['اقتصادي', '٤ نجوم', '٥ نجوم', 'فلل ومنتجعات خاصة'],
-    // \u2066…\u2069 isolate the dollar amounts so they read left-to-right inside Arabic text.
-    budget: ['أقل من \u2066$1,000\u2069', '\u2066$1,000–2,000\u2069', '\u2066$2,000–3,500\u2069', 'أكثر من \u2066$3,500\u2069'],
     interests: ['شواطئ وجزر', 'طبيعة', 'ثقافة ومعابد', 'تسوق', 'مغامرات وأنشطة', 'سبا واسترخاء', 'مطاعم حلال', 'حياة ليلية'],
     services: ['تذاكر طيران', 'فنادق', 'استقبال وتنقلات', 'جولات يومية', 'تأشيرة', 'تأمين سفر']
   };
@@ -17,9 +15,9 @@
   var LIMITS = { adults: [1, 20], children: [0, 10], infants: [0, 5], nights: [1, 60] };
 
   var state = {
-    dests: [], type: -1, stay: -1, budget: -1, interests: [], services: [0, 1],
+    dests: [], type: -1, stay: -1, budgetMin: '', budgetMax: '', interests: [], services: [0, 1],
     adults: 2, children: 0, infants: 0, nights: 7, depart: '', ret: '', flex: 0,
-    cities: '', name: '', from: '', notes: ''
+    cities: '', name: '', from: '', phone: '', email: '', notes: ''
   };
 
   function $(sel) { return document.querySelector(sel); }
@@ -42,6 +40,16 @@
     if (state.infants) parts.push(state.infants === 1 ? 'رضيع' : state.infants + ' رضّع');
     return parts.join(' + ');
   }
+  // \u2066…\u2069 isolate the dollar amounts so they read left-to-right inside Arabic text.
+  function money(n) { return '\u2066$' + Number(n).toLocaleString('en-US') + '\u2069'; }
+  function budgetLabel() {
+    var lo = state.budgetMin, hi = state.budgetMax;
+    if (lo && hi) return money(Math.min(lo, hi)) + ' – ' + money(Math.max(lo, hi));
+    if (lo) return 'من ' + money(lo);
+    if (hi) return 'حتى ' + money(hi);
+    return '';
+  }
+
   function pick(key) {
     var v = state[key];
     if (Array.isArray(v)) return v.map(function (i) { return OPTIONS[key][i]; });
@@ -117,7 +125,16 @@
   });
   flexSelect.addEventListener('change', function () { state.flex = +flexSelect.value; render(); });
 
-  ['cities', 'name', 'from', 'notes'].forEach(function (id) {
+  ['budgetMin', 'budgetMax'].forEach(function (id) {
+    var input = document.getElementById(id);
+    input.addEventListener('input', function () {
+      var n = Math.floor(Math.abs(parseFloat(input.value)));
+      state[id] = isFinite(n) && n > 0 ? n : '';
+      render();
+    });
+  });
+
+  ['cities', 'name', 'from', 'phone', 'email', 'notes'].forEach(function (id) {
     var input = document.getElementById(id);
     input.addEventListener('input', function () { state[id] = input.value.trim(); render(); });
   });
@@ -126,6 +143,8 @@
     var lines = ['مرحبا، أريد التخطيط لرحلة:'];
     function add(label, value) { if (value) lines.push(label + ': ' + value); }
     add('الاسم', state.name);
+    add('الهاتف', state.phone);
+    add('البريد الإلكتروني', state.email);
     add('مدينة المغادرة', state.from);
     add('الوجهة', pick('dests').join('، ') || 'لم أقرر بعد');
     add('مدن تهمني', state.cities);
@@ -136,7 +155,7 @@
     add('عدد الليالي', String(state.nights));
     add('مرونة التاريخ', state.flex ? FLEX[state.flex] : 'تواريخ ثابتة');
     add('مستوى الإقامة', pick('stay'));
-    add('الميزانية للشخص', pick('budget'));
+    add('الميزانية للشخص', budgetLabel());
     add('الاهتمامات', pick('interests').join('، '));
     add('الخدمات المطلوبة', pick('services').join('، '));
     add('ملاحظات', state.notes);
@@ -146,7 +165,8 @@
   function progress() {
     var checks = [
       state.dests.length > 0, state.type >= 0, !!state.depart, state.stay >= 0,
-      state.budget >= 0, state.interests.length > 0, state.services.length > 0, !!state.name, !!state.from
+      !!(state.budgetMin || state.budgetMax), state.interests.length > 0, state.services.length > 0,
+      !!state.name, !!state.from, !!(state.phone || state.email)
     ];
     return Math.round(checks.filter(Boolean).length / checks.length * 100);
   }
@@ -166,7 +186,7 @@
       nightsLabel: nightsLabel(state.nights),
       departLabel: fmt(state.depart), returnLabel: fmt(state.ret), flexLabel: FLEX[state.flex],
       stayLabel: pick('stay') || '—',
-      budgetLabel: pick('budget') || '—',
+      budgetLabel: budgetLabel() || '—',
       servicesLabel: services.length ? services.length + ' خدمات' : '—',
       progress: pct + '%'
     };

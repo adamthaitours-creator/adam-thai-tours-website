@@ -160,8 +160,20 @@
           <div class="chips" role="group" aria-label="مستوى الإقامة" data-chips="stay"></div>
         </div>
         <div class="field">
-          <span class="field-label">الميزانية للشخص</span>
-          <div class="chips" role="group" aria-label="الميزانية" data-chips="budget"></div>
+          <span class="field-label" id="lbl-budget">الميزانية للشخص <small>(بالدولار)</small></span>
+          <div class="budget-row" role="group" aria-labelledby="lbl-budget">
+            <label class="money-input">
+              <span>من</span>
+              <input type="number" id="budgetMin" inputmode="numeric" min="0" step="100" placeholder="1000" dir="ltr">
+              <span class="mono">$</span>
+            </label>
+            <span class="budget-dash" aria-hidden="true">—</span>
+            <label class="money-input">
+              <span>إلى</span>
+              <input type="number" id="budgetMax" inputmode="numeric" min="0" step="100" placeholder="2500" dir="ltr">
+              <span class="mono">$</span>
+            </label>
+          </div>
         </div>
         <div class="field">
           <span class="field-label">ما الذي يهمك؟ <small>(اختر ما يناسبك)</small></span>
@@ -189,6 +201,16 @@
           <div class="field">
             <label class="field-label" for="from">مدينة المغادرة</label>
             <input type="text" id="from" class="text-input" placeholder="مثلاً: تل أبيب، عمّان…">
+          </div>
+        </div>
+        <div class="field-row wide">
+          <div class="field">
+            <label class="field-label" for="phone">رقم الهاتف / واتساب</label>
+            <input type="tel" id="phone" class="text-input" autocomplete="tel" inputmode="tel" placeholder="+972 5X XXX XXXX" dir="ltr">
+          </div>
+          <div class="field">
+            <label class="field-label" for="email">البريد الإلكتروني</label>
+            <input type="email" id="email" class="text-input" autocomplete="email" inputmode="email" placeholder="name@example.com" dir="ltr">
           </div>
         </div>
         <div class="field">

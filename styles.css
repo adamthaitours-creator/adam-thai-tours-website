@@ -371,6 +371,7 @@ select.pill-input { -webkit-appearance: menulist; appearance: auto; }
 .plan-fields { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
 .plan-fields .field-row .field { flex: 1 1 200px; min-width: 0; }
 .plan-fields .pill-input { width: 100%; min-width: 0; }
+.plan-fields .field-row.wide .field { flex-basis: 240px; }
 .field-label small { font-weight: 500; opacity: .8; }
 .text-input {
   font-family: inherit; font-size: 16px; font-weight: 500; height: 54px; padding: 0 20px; border-radius: 999px;
@@ -378,6 +379,24 @@ select.pill-input { -webkit-appearance: menulist; appearance: auto; }
 }
 .text-input::placeholder { color: #8a929c; }
 .text-input:focus, .pill-input:focus { outline: 3px solid rgba(15, 143, 136, .35); outline-offset: 2px; }
+.budget-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.budget-dash { color: var(--muted); font-weight: 600; }
+.money-input {
+  flex: 1 1 140px; min-width: 0; display: flex; align-items: center; gap: 10px; height: 54px; padding: 0 20px;
+  border: 1.5px solid var(--navy); border-radius: 999px; background: var(--sand); color: var(--muted);
+  font-size: 14px; font-weight: 600; cursor: text;
+}
+.money-input:focus-within { outline: 3px solid rgba(15, 143, 136, .35); outline-offset: 2px; }
+.money-input input {
+  flex: 1; min-width: 0; border: none; background: transparent; outline: none; padding: 0;
+  font-family: var(--mono); font-size: 18px; font-weight: 600; color: var(--navy); text-align: left;
+  -moz-appearance: textfield;
+}
+.money-input input::-webkit-outer-spin-button, .money-input input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.money-input input::placeholder { color: #a3a9b0; }
+.money-input .mono { color: var(--navy); font-size: 16px; }
+.text-input[dir="ltr"] { text-align: right; }
+.text-input[dir="ltr"]:not(:placeholder-shown) { text-align: left; }
 .text-area { height: auto; padding: 16px 20px; border-radius: 22px; resize: vertical; line-height: 1.7; }
 
 .plan-summary { position: sticky; top: 96px; display: flex; flex-direction: column; gap: 16px; }
