@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>آدم للسياحة | Adam Thai Tours</title>
+<meta name="description" content="طيران، فنادق، باقات سياحية ورحلات منظمة حول العالم — مع خبرة خاصة في تايلاند وفيتنام وشرق آسيا.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="main.js" defer></script>
+</head>
+<body>
+<div class="page">
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <div class="brand-mark">آ</div>
+      <div class="brand-text">
+        <span class="brand-name">آدم للسياحة</span>
+        <span class="brand-latin" dir="ltr">ADAM THAI TOURS</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="#services">خدماتنا</a>
+      <a href="#asia">شرق آسيا</a>
+      <a href="#board">وجهات العالم</a>
+      <a href="#how">كيف نعمل</a>
+    </nav>
+    <a href="#plan" class="btn btn-dark header-cta">خطط رحلتك ←</a>
+  </div>
+</header>
+
+<section id="top" class="hero wrap">
+  <div class="hero-meta">
+    <span class="services-line">طيران · فنادق · باقات · رحلات منظمة</span>
+    <span dir="ltr">13.7563° N, 100.5018° E — BANGKOK</span>
+  </div>
+  <div class="hero-grid">
+    <div class="hero-copy stack">
+      <h1>العالم ينتظرك.<br><span class="accent">ونحن</span> نرتّب الرحلة.</h1>
+      <p class="hero-lead">من تذكرة الطيران والفندق إلى باقة متكاملة أو رحلة منظمة — نبني رحلتك حول وقتك وميزانيتك، مع خبرة خاصة في تايلاند وفيتنام وشرق آسيا.</p>
+      <div class="hero-actions">
+        <a href="#plan" class="btn btn-dark">صمّم رحلتك الآن</a>
+        <a href="#" class="btn btn-outline" data-wa-plan target="_blank" rel="noopener">اطلب عرض طيران أو فندق</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="hero-arch">
+        <img src="https://adam.adam-thai-tours.chatgpt.site/thai-white-beach.webp" alt="شواطئ تايلاند">
+      </div>
+      <div class="hero-overlay">
+        <div class="hero-tag">
+          <span class="mono" dir="ltr">KRABI · TH</span>
+          <span class="kufi">أيام البحر والجزر</span>
+        </div>
+        <div class="hero-seal">خبرة<br>شرق آسيا</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track"></div>
+</div>
+
+<section id="plan" class="section wrap">
+  <div class="planner-grid">
+    <div class="planner-form stack">
+      <div class="planner-intro stack">
+        <span class="eyebrow">٠١ — مخطط الرحلة</span>
+        <h2 class="h2">احجز تذكرة أحلامك في ٣٠ ثانية.</h2>
+        <p class="lead">اختر الوجهة ونوع الرحلة وعدد المسافرين، وسنستلم طلبك مباشرة على واتساب لنبدأ ترتيب الخيارات.</p>
+      </div>
+      <div class="field">
+        <span class="field-label" id="lbl-dest">الوجهة</span>
+        <div class="chips" role="group" aria-labelledby="lbl-dest" data-chips="dest"></div>
+      </div>
+      <div class="field">
+        <span class="field-label" id="lbl-type">نوع الرحلة</span>
+        <div class="chips" role="group" aria-labelledby="lbl-type" data-chips="type"></div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <span class="field-label" id="lbl-pax">المسافرون</span>
+          <div class="stepper" role="group" aria-labelledby="lbl-pax">
+            <button type="button" class="inc" data-pax="1" aria-label="زيادة">+</button>
+            <output data-out="pax">2</output>
+            <button type="button" class="dec" data-pax="-1" aria-label="إنقاص">−</button>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label" for="month">شهر السفر</label>
+          <select id="month" class="month-select"></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="pass-col stack">
+      <div class="pass">
+        <div class="pass-head">
+          <span class="kufi">بطاقة صعود · آدم للسياحة</span>
+          <span class="mono" dir="ltr">BOARDING PASS</span>
+        </div>
+        <div class="pass-route">
+          <div class="pass-end">
+            <span class="pass-small">من</span>
+            <span class="pass-code" dir="ltr">YOU</span>
+            <span class="pass-city">مدينتك</span>
+          </div>
+          <div class="pass-path" aria-hidden="true">
+            <span class="dot"></span><span class="line"></span><span class="plane">✈</span>
+          </div>
+          <div class="pass-end to">
+            <span class="pass-small">إلى</span>
+            <span class="pass-code" dir="ltr" data-out="code">BKK</span>
+            <span class="pass-city" data-out="destName">تايلاند</span>
+          </div>
+        </div>
+        <div class="pass-details">
+          <div><span class="pass-small">نوع الرحلة</span><strong data-out="typeName">شهر عسل</strong></div>
+          <div><span class="pass-small">المسافرون</span><strong data-out="paxLabel">مسافران</strong></div>
+          <div><span class="pass-small">الموعد</span><strong data-out="month">ديسمبر</strong></div>
+        </div>
+        <div class="pass-tear"><span></span><span></span></div>
+        <div class="pass-foot">
+          <div class="barcode" aria-hidden="true"></div>
+          <a href="#" class="pass-send" data-wa-plan target="_blank" rel="noopener">أرسل الطلب على واتساب</a>
+        </div>
+      </div>
+      <span class="pass-note">لا حجز ولا دفع الآن — نتواصل معك أولاً لنناقش الخيارات.</span>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="section wrap">
+    <div class="section-head">
+      <div class="stack">
+        <span class="eyebrow">٠٢ — كل تفاصيل السفر في مكان واحد</span>
+        <h2 class="h2">اختر كيف تريد أن تسافر</h2>
+      </div>
+      <p class="lead">رحلة سريعة، إجازة عائلية، شهر عسل أو برنامج مليء بالتجارب — نبدأ من احتياجك ونبني الخيارات حوله.</p>
+    </div>
+    <div class="service-list">
+      <a class="service-row" data-wa="مرحبا، أريد الاستفسار عن: تذاكر طيران" target="_blank" rel="noopener">
+        <span class="service-code" dir="ltr">01 / FLIGHTS</span>
+        <span class="service-title">تذاكر طيران</span>
+        <span class="service-desc">خيارات رحلات تناسب مواعيدك ومسارك، مع توضيح التوقفات والأمتعة قبل القرار.</span>
+        <span class="service-arrow" aria-hidden="true">←</span>
+      </a>
+      <a class="service-row" data-wa="مرحبا، أريد الاستفسار عن: فنادق وإقامات" target="_blank" rel="noopener">
+        <span class="service-code" dir="ltr">02 / HOTELS</span>
+        <span class="service-title">فنادق وإقامات</span>
+        <span class="service-desc">اختيار موقع ومستوى إقامة مناسبين لطبيعة رحلتك، من المدن إلى الشواطئ.</span>
+        <span class="service-arrow" aria-hidden="true">←</span>
+      </a>
+      <a class="service-row" data-wa="مرحبا، أريد الاستفسار عن: باقات سياحية" target="_blank" rel="noopener">
+        <span class="service-code" dir="ltr">03 / PACKAGES</span>
+        <span class="service-title">باقات سياحية</span>
+        <span class="service-desc">نجمع الطيران والإقامة والتجارب في برنامج واضح وقابل للتخصيص.</span>
+        <span class="service-arrow" aria-hidden="true">←</span>
+      </a>
+      <a class="service-row" data-wa="مرحبا، أريد الاستفسار عن: رحلات منظمة" target="_blank" rel="noopener">
+        <span class="service-code" dir="ltr">04 / GROUPS</span>
+        <span class="service-title">رحلات منظمة</span>
+        <span class="service-desc">برامج جماعية لمن يحب السفر بخطة جاهزة وتفاصيل مرتبة مسبقًا.</span>
+        <span class="service-arrow" aria-hidden="true">←</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="asia" class="section wrap">
+  <div class="asia-grid">
+    <div class="asia-copy stack">
+      <div class="stack">
+        <span class="eyebrow">٠٣ — تخصصنا</span>
+        <h2 class="h2">شرق آسيا،<br>بطريقتك.</h2>
+        <p class="lead">تايلاند وفيتنام في قلب خبرتنا. نساعدك في اختيار المدن، ترتيب التنقلات، وموازنة أيام الاسترخاء مع التجارب التي تهمك.</p>
+      </div>
+      <div class="chips">
+        <span class="pill">تايلاند</span>
+        <span class="pill">فيتنام</span>
+        <span class="pill">شهر عسل</span>
+        <span class="pill">رحلات عائلية</span>
+        <span class="pill">برامج متعددة المدن</span>
+      </div>
+      <a href="#plan" class="btn btn-dark asia-cta">صمّم رحلتك إلى آسيا</a>
+    </div>
+    <figure class="photo">
+      <img src="https://adam.adam-thai-tours.chatgpt.site/thai-white-beach.webp" alt="تايلاند" loading="lazy">
+      <figcaption>
+        <span class="mono" dir="ltr">TH · BKK / HKT / KBV</span>
+        <span class="kufi">تايلاند</span>
+        <span class="sub">أيام البحر والجزر</span>
+      </figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="https://adam.adam-thai-tours.chatgpt.site/vietnam-white-beach.webp" alt="فيتنام" loading="lazy">
+      <figcaption>
+        <span class="mono" dir="ltr">VN · SGN / DAD / HAN</span>
+        <span class="kufi">فيتنام</span>
+        <span class="sub">هدوء الساحل الاستوائي</span>
+      </figcaption>
+    </figure>
+  </div>
+  <p class="disclaimer">الصور تعبيرية لإلهام رحلتك، وليست عرضًا لفندق أو نشاط محدد.</p>
+</section>
+
+<section id="board" class="board">
+  <div class="section wrap">
+    <div class="section-head">
+      <div class="stack">
+        <span class="eyebrow">٠٤ — لوحة المغادرة</span>
+        <h2 class="h2">وجهتك ليست محدودة.</h2>
+      </div>
+      <div class="live">
+        <span class="dot"></span>
+        <span>نرتّب رحلات حول العالم حسب الموسم</span>
+      </div>
+    </div>
+    <div class="board-table">
+      <div class="board-row head">
+        <span>الرمز</span><span>الوجهة</span><span>التجربة</span><span>الحالة</span>
+      </div>
+      <a class="board-row" data-wa="مرحبا، أستفسر عن رحلة إلى شرق آسيا" target="_blank" rel="noopener">
+        <span class="board-code" dir="ltr">BKK</span>
+        <span class="board-name">شرق آسيا</span>
+        <span class="board-desc">تايلاند، فيتنام ووجهات أخرى في المنطقة</span>
+        <span class="badge hot">تخصصنا</span>
+      </a>
+      <a class="board-row" data-wa="مرحبا، أستفسر عن رحلة إلى أوروبا" target="_blank" rel="noopener">
+        <span class="board-code" dir="ltr">CDG</span>
+        <span class="board-name">أوروبا</span>
+        <span class="board-desc">إجازات المدن، الطبيعة والرحلات المنظمة</span>
+        <span class="badge">متاح</span>
+      </a>
+      <a class="board-row" data-wa="مرحبا، أستفسر عن رحلة إلى الشرق الأوسط" target="_blank" rel="noopener">
+        <span class="board-code" dir="ltr">DXB</span>
+        <span class="board-name">الشرق الأوسط</span>
+        <span class="board-desc">عطلات قصيرة، تجارب عائلية ومدن نابضة</span>
+        <span class="badge">متاح</span>
+      </a>
+      <a class="board-row" data-wa="مرحبا، أستفسر عن رحلة إلى الأمريكيتان" target="_blank" rel="noopener">
+        <span class="board-code" dir="ltr">JFK</span>
+        <span class="board-name">الأمريكيتان</span>
+        <span class="board-desc">مسارات متنوعة لعشاق الاستكشاف</span>
+        <span class="badge">متاح</span>
+      </a>
+      <a class="board-row" data-wa="مرحبا، أستفسر عن رحلة إلى أفريقيا" target="_blank" rel="noopener">
+        <span class="board-code" dir="ltr">ZNZ</span>
+        <span class="board-name">أفريقيا</span>
+        <span class="board-desc">مدن، سواحل وطبيعة</span>
+        <span class="badge">متاح</span>
+      </a>
+      <a class="board-row" data-wa="مرحبا، أستفسر عن رحلة إلى وجهة أخرى؟" target="_blank" rel="noopener">
+        <span class="board-code" dir="ltr">???</span>
+        <span class="board-name">وجهة أخرى؟</span>
+        <span class="board-desc">أخبرنا أين تريد الذهاب وسنبحث لك عن الخيار المناسب</span>
+        <span class="badge">اسألنا</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="section wrap">
+  <div class="how-head stack">
+    <span class="eyebrow">٠٥ — بداية سهلة</span>
+    <h2 class="h2">ثلاث خطوات، ثم حقيبتك.</h2>
+  </div>
+  <div class="steps">
+    <div class="step stack">
+      <span class="step-num">١</span>
+      <h3>شارك فكرتك</h3>
+      <p>الوجهة أو نوع الرحلة، التواريخ، عدد المسافرين والميزانية التقريبية.</p>
+    </div>
+    <div class="step stack">
+      <span class="step-num">٢</span>
+      <h3>نرتّب الخيارات</h3>
+      <p>نراجع المسار والطيران والإقامة والأنشطة وفق أولوياتك.</p>
+    </div>
+    <div class="step stack">
+      <span class="step-num">٣</span>
+      <h3>راجع التفاصيل</h3>
+      <p>تحصل على تصوّر واضح للرحلة قبل اتخاذ قرار الحجز.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-card">
+    <div class="contact-copy stack">
+      <span class="eyebrow">جاهز للرحلة القادمة؟</span>
+      <h2>أخبرنا أين تريد الذهاب.</h2>
+      <p>أرسل الوجهة، تاريخ السفر، عدد المسافرين وما يهمك في الرحلة. سنعود إليك لمناقشة الخيارات المتاحة.</p>
+    </div>
+    <div class="contact-links stack">
+      <a href="#" class="contact-link wa" data-wa-plan target="_blank" rel="noopener">
+        <span class="kufi">راسلنا واتساب</span>
+        <span class="mono" dir="ltr">+972 58 764 3159</span>
+      </a>
+      <a href="mailto:Adam.thai.tours@gmail.com" class="contact-link mail">
+        <span class="label">البريد الإلكتروني</span>
+        <span class="mono" dir="ltr">Adam.thai.tours@gmail.com</span>
+      </a>
+      <div class="socials">
+        <a href="https://www.instagram.com/adam.thai.tours/" target="_blank" rel="noopener">إنستغرام</a>
+        <a href="https://www.facebook.com/adam.thai.tours" target="_blank" rel="noopener">فيسبوك</a>
+        <a href="https://www.tiktok.com/@adam.thai.tours" target="_blank" rel="noopener">تيك توك</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer wrap">
+  <span>© 2026 Adam Thai Tours</span>
+  <span>رحلات حول العالم · خبرة خاصة في شرق آسيا</span>
+</footer>
+
+<a href="#" class="float-wa" data-wa-plan target="_blank" rel="noopener">واتساب</a>
+</div>
+</body>
+</html>
