@@ -329,6 +329,10 @@ a:hover { color: var(--teal); }
 
 /* Small screens: stack the 4-column list rows so text isn't squeezed */
 @media (max-width: 640px) {
+  .site-header .wrap { display: grid; grid-template-columns: 1fr auto; gap: 10px 16px; padding-top: 10px; padding-bottom: 10px; }
+  .nav { grid-column: 1 / -1; grid-row: 2; flex-wrap: nowrap; overflow-x: auto; gap: 20px; font-size: 14px; white-space: nowrap; scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+  .header-cta { padding: 9px 16px; font-size: 13px; }
   .service-row { grid-template-columns: 1fr auto; row-gap: 8px; }
   .service-code { grid-column: 1 / -1; }
   .service-desc { grid-column: 1 / -1; grid-row: 3; }
