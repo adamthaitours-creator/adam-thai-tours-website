@@ -1,0 +1,201 @@
+// Full trip planner page: form state, live summary and WhatsApp/email handoff.
+(function () {
+  var PHONE = '972587643159';
+  var EMAIL = 'Adam.thai.tours@gmail.com';
+
+  var DESTS = [['تايلاند', 'BKK'], ['فيتنام', 'SGN'], ['بالي', 'DPS'], ['اليابان', 'TYO'], ['أوروبا', 'EUR'], ['الشرق الأوسط', 'DXB'], ['وجهة أخرى', '???']];
+  var OPTIONS = {
+    dests: DESTS.map(function (d) { return d[0]; }),
+    type: ['شهر عسل', 'عائلية', 'استرخاء وشواطئ', 'مغامرة', 'رحلة منظمة', 'أصدقاء'],
+    stay: ['اقتصادي', '٤ نجوم', '٥ نجوم', 'فلل ومنتجعات خاصة'],
+    // \u2066…\u2069 isolate the dollar amounts so they read left-to-right inside Arabic text.
+    budget: ['أقل من \u2066$1,000\u2069', '\u2066$1,000–2,000\u2069', '\u2066$2,000–3,500\u2069', 'أكثر من \u2066$3,500\u2069'],
+    interests: ['شواطئ وجزر', 'طبيعة', 'ثقافة ومعابد', 'تسوق', 'مغامرات وأنشطة', 'سبا واسترخاء', 'مطاعم حلال', 'حياة ليلية'],
+    services: ['تذاكر طيران', 'فنادق', 'استقبال وتنقلات', 'جولات يومية', 'تأشيرة', 'تأمين سفر']
+  };
+  var FLEX = ['ثابتة', '± يوم واحد', '± يومان', '± ٣ أيام'];
+  var LIMITS = { adults: [1, 20], children: [0, 10], infants: [0, 5], nights: [1, 60] };
+
+  var state = {
+    dests: [], type: -1, stay: -1, budget: -1, interests: [], services: [0, 1],
+    adults: 2, children: 0, infants: 0, nights: 7, depart: '', ret: '', flex: 0,
+    cities: '', name: '', from: '', notes: ''
+  };
+
+  function $(sel) { return document.querySelector(sel); }
+  function $$(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
+
+  // Dates are kept as YYYY-MM-DD strings and computed in UTC to avoid timezone shifts.
+  var DAY = 864e5;
+  function toDate(iso) { var p = iso.split('-'); return Date.UTC(+p[0], +p[1] - 1, +p[2]); }
+  function toIso(ms) { return new Date(ms).toISOString().slice(0, 10); }
+  function addDays(iso, n) { return toIso(toDate(iso) + n * DAY); }
+  function fmt(iso) {
+    return iso ? new Date(toDate(iso)).toLocaleDateString('ar', { day: 'numeric', month: 'long', timeZone: 'UTC' }) : '—';
+  }
+  function nightsLabel(n) {
+    return n === 1 ? 'ليلة واحدة' : n === 2 ? 'ليلتان' : n <= 10 ? n + ' ليالٍ' : n + ' ليلة';
+  }
+  function paxLabel() {
+    var parts = [state.adults === 1 ? 'بالغ' : state.adults === 2 ? 'بالغان' : state.adults + ' بالغين'];
+    if (state.children) parts.push(state.children === 1 ? 'طفل' : state.children + ' أطفال');
+    if (state.infants) parts.push(state.infants === 1 ? 'رضيع' : state.infants + ' رضّع');
+    return parts.join(' + ');
+  }
+  function pick(key) {
+    var v = state[key];
+    if (Array.isArray(v)) return v.map(function (i) { return OPTIONS[key][i]; });
+    return v < 0 ? null : OPTIONS[key][v];
+  }
+
+  // Prefill from the homepage quick planner (?dest=…&type=…&pax=…&depart=…&ret=…&nights=…&flex=…).
+  (function prefill() {
+    var q = new URLSearchParams(location.search);
+    var d = OPTIONS.dests.indexOf(q.get('dest'));
+    if (d >= 0) state.dests = [d];
+    var t = OPTIONS.type.indexOf(q.get('type'));
+    if (t >= 0) state.type = t;
+    var pax = parseInt(q.get('pax'), 10);
+    if (pax >= 1 && pax <= 20) state.adults = pax;
+    var nights = parseInt(q.get('nights'), 10);
+    if (nights >= 1 && nights <= 60) state.nights = nights;
+    var iso = /^\d{4}-\d{2}-\d{2}$/;
+    if (iso.test(q.get('depart') || '')) state.depart = q.get('depart');
+    if (iso.test(q.get('ret') || '')) state.ret = q.get('ret');
+    var flex = parseInt(q.get('flex'), 10);
+    if (flex >= 0 && flex <= 3) state.flex = flex;
+  })();
+
+  // Chip groups: single choice toggles off when tapped again; data-multi allows several.
+  $$('[data-chips]').forEach(function (box) {
+    var key = box.getAttribute('data-chips');
+    var multi = box.hasAttribute('data-multi');
+    OPTIONS[key].forEach(function (label, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip';
+      b.textContent = label;
+      b.addEventListener('click', function () {
+        if (multi) {
+          var at = state[key].indexOf(i);
+          if (at >= 0) state[key].splice(at, 1); else state[key].push(i);
+        } else {
+          state[key] = state[key] === i ? -1 : i;
+        }
+        render();
+      });
+      box.appendChild(b);
+    });
+  });
+
+  $$('[data-step]').forEach(function (b) {
+    var parts = b.getAttribute('data-step').split(':'), key = parts[0], delta = +parts[1];
+    b.addEventListener('click', function () {
+      state[key] = Math.max(LIMITS[key][0], Math.min(LIMITS[key][1], state[key] + delta));
+      if (key === 'nights' && state.depart) state.ret = addDays(state.depart, state.nights);
+      render();
+    });
+  });
+
+  var departInput = $('#depart'), returnInput = $('#return'), flexSelect = $('#flex');
+  var now = new Date();
+  departInput.min = toIso(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+
+  departInput.addEventListener('change', function () {
+    state.depart = departInput.value;
+    if (state.depart) state.ret = addDays(state.depart, state.nights);
+    render();
+  });
+  returnInput.addEventListener('change', function () {
+    state.ret = returnInput.value;
+    if (state.depart && state.ret) {
+      var n = Math.round((toDate(state.ret) - toDate(state.depart)) / DAY);
+      if (n >= 1) state.nights = n;
+      else state.ret = addDays(state.depart, state.nights);
+    }
+    render();
+  });
+  flexSelect.addEventListener('change', function () { state.flex = +flexSelect.value; render(); });
+
+  ['cities', 'name', 'from', 'notes'].forEach(function (id) {
+    var input = document.getElementById(id);
+    input.addEventListener('input', function () { state[id] = input.value.trim(); render(); });
+  });
+
+  function message() {
+    var lines = ['مرحبا، أريد التخطيط لرحلة:'];
+    function add(label, value) { if (value) lines.push(label + ': ' + value); }
+    add('الاسم', state.name);
+    add('مدينة المغادرة', state.from);
+    add('الوجهة', pick('dests').join('، ') || 'لم أقرر بعد');
+    add('مدن تهمني', state.cities);
+    add('المسافرون', paxLabel());
+    add('نوع الرحلة', pick('type'));
+    add('الذهاب', state.depart ? fmt(state.depart) + ' (' + state.depart + ')' : 'لم يحدد بعد');
+    add('العودة', state.ret ? fmt(state.ret) + ' (' + state.ret + ')' : 'لم يحدد بعد');
+    add('عدد الليالي', String(state.nights));
+    add('مرونة التاريخ', state.flex ? FLEX[state.flex] : 'تواريخ ثابتة');
+    add('مستوى الإقامة', pick('stay'));
+    add('الميزانية للشخص', pick('budget'));
+    add('الاهتمامات', pick('interests').join('، '));
+    add('الخدمات المطلوبة', pick('services').join('، '));
+    add('ملاحظات', state.notes);
+    return lines.join('\n');
+  }
+
+  function progress() {
+    var checks = [
+      state.dests.length > 0, state.type >= 0, !!state.depart, state.stay >= 0,
+      state.budget >= 0, state.interests.length > 0, state.services.length > 0, !!state.name, !!state.from
+    ];
+    return Math.round(checks.filter(Boolean).length / checks.length * 100);
+  }
+
+  function render() {
+    var dests = pick('dests');
+    var first = state.dests.length ? DESTS[state.dests[0]] : null;
+    var services = pick('services');
+    var pct = progress();
+    var out = {
+      adults: state.adults, children: state.children, infants: state.infants, nights: state.nights,
+      fromName: state.from || 'مدينتك',
+      toCode: first ? first[1] + (dests.length > 1 ? '+' + (dests.length - 1) : '') : '???',
+      toName: dests.join('، ') || 'اختر وجهة',
+      paxLabel: paxLabel(),
+      typeLabel: pick('type') || '—',
+      nightsLabel: nightsLabel(state.nights),
+      departLabel: fmt(state.depart), returnLabel: fmt(state.ret), flexLabel: FLEX[state.flex],
+      stayLabel: pick('stay') || '—',
+      budgetLabel: pick('budget') || '—',
+      servicesLabel: services.length ? services.length + ' خدمات' : '—',
+      progress: pct + '%'
+    };
+    if (services.length === 1) out.servicesLabel = services[0];
+    if (services.length === 2) out.servicesLabel = 'خدمتان';
+    Object.keys(out).forEach(function (k) {
+      $$('[data-out="' + k + '"]').forEach(function (n) { n.textContent = out[k]; });
+    });
+    $('[data-meter]').style.width = pct + '%';
+
+    $$('[data-chips]').forEach(function (box) {
+      var v = state[box.getAttribute('data-chips')];
+      Array.prototype.forEach.call(box.children, function (b, i) {
+        b.setAttribute('aria-pressed', String(Array.isArray(v) ? v.indexOf(i) >= 0 : v === i));
+      });
+    });
+
+    departInput.value = state.depart;
+    returnInput.value = state.ret;
+    returnInput.min = state.depart ? addDays(state.depart, 1) : departInput.min;
+    flexSelect.value = String(state.flex);
+
+    var text = message();
+    var wa = 'https://api.whatsapp.com/send?phone=' + PHONE + '&text=' + encodeURIComponent(text);
+    var mail = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('طلب رحلة' + (dests.length ? ' — ' + dests.join('، ') : '')) +
+      '&body=' + encodeURIComponent(text);
+    $$('[data-send="wa"]').forEach(function (a) { a.href = wa; });
+    $$('[data-send="mail"]').forEach(function (a) { a.href = mail; });
+  }
+
+  render();
+})();

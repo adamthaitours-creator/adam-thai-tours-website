@@ -141,6 +141,11 @@
       '\nمرونة التاريخ: ' + (state.flex ? FLEX[state.flex] : 'تواريخ ثابتة');
     var link = wa(msg);
     $$('[data-wa-plan]').forEach(function (a) { a.href = link; });
+
+    var q = new URLSearchParams({ dest: d[0], type: t, pax: state.pax, nights: state.nights, flex: state.flex });
+    if (state.depart) q.set('depart', state.depart);
+    if (state.ret) q.set('ret', state.ret);
+    $('[data-plan-link]').href = 'plan.html?' + q.toString();
   }
 
   render();
