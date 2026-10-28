@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>תכננו טיול | אדם תיירות</title>
+<meta name="description" content="תכננו את הטיול עם אדם תיירות: יעד, נוסעים, תאריכים, סגנון ושירותים — ואנחנו נשלח לכם את האפשרויות המתאימות.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800;900&family=IBM+Plex+Sans+Hebrew:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="alternate" hreflang="ar" href="https://adam-thai-tours.com/plan.html">
+<link rel="alternate" hreflang="he" href="https://adam-thai-tours.com/he/plan.html">
+<link rel="stylesheet" href="../styles.css">
+<script src="../common.js" defer></script>
+<script src="../plan.js" defer></script>
+</head>
+<body>
+<div class="page">
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">א</div>
+      <div class="brand-text">
+        <span class="brand-name">אדם תיירות</span>
+        <span class="brand-latin" dir="ltr">ADAM THAI TOURS</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html#services">השירותים שלנו</a>
+      <a href="flights-hotels.html">טיסות ומלונות</a>
+      <a href="index.html#asia">מזרח אסיה</a>
+      <a href="index.html#board">יעדים בעולם</a>
+      <a href="index.html#how">איך זה עובד</a>
+    </nav>
+    <div class="header-actions">
+      <a href="../plan.html" class="lang-switch" hreflang="ar" lang="ar">العربية</a>
+      <a href="plan.html" class="btn btn-dark header-cta" aria-current="page">תכננו טיול ←</a>
+    </div>
+  </div>
+</header>
+
+<section class="plan-hero wrap">
+  <div class="hero-meta">
+    <span class="services-line">מתכנן הטיול המלא · 5 שלבים · שתי דקות</span>
+    <span dir="ltr">TRIP REQUEST — FORM 01</span>
+  </div>
+  <div class="plan-hero-grid">
+    <h1>תכננו טיול<br><span class="accent">במידה שלכם.</span></h1>
+    <p class="hero-lead">ככל שתספרו לנו יותר, האפשרויות שנשלח יהיו מדויקות יותר. מלאו רק את מה שאתם יודעים — ואת השאר נחליט יחד.</p>
+  </div>
+  <ol class="plan-steps" aria-label="שלבי הטופס">
+    <li><a href="#s-dest"><span>01</span>יעד</a></li>
+    <li><a href="#s-pax"><span>02</span>נוסעים</a></li>
+    <li><a href="#s-dates"><span>03</span>תאריכים</a></li>
+    <li><a href="#s-style"><span>04</span>סגנון הטיול</a></li>
+    <li><a href="#s-contact"><span>05</span>יצירת קשר</a></li>
+  </ol>
+</section>
+
+<section class="section wrap plan-body">
+  <form class="plan-form" id="plan-form" novalidate>
+
+    <fieldset class="plan-block" id="s-dest">
+      <legend class="plan-block-head">
+        <span class="plan-num">01</span>
+        <span class="plan-title">לאן?</span>
+        <span class="plan-hint">בחרו יעד אחד או יותר — אפשר לשלב שתי מדינות בטיול אחד.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="chips" role="group" aria-label="יעדים" data-chips="dests" data-multi></div>
+        <div class="field">
+          <label class="field-label" for="cities">ערים או מקומות שמעניינים אתכם (לא חובה)</label>
+          <input type="text" id="cities" class="text-input" placeholder="למשל: פוקט, קראבי, האנוי…">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" id="s-pax">
+      <legend class="plan-block-head">
+        <span class="plan-num">02</span>
+        <span class="plan-title">מי טס?</span>
+        <span class="plan-hint">אנחנו מתאימים חדרים והסעות לפי הרכב הקבוצה.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field-row">
+          <div class="field">
+            <span class="field-label" id="lbl-adults">מבוגרים</span>
+            <div class="stepper" role="group" aria-labelledby="lbl-adults">
+              <button type="button" class="inc" data-step="adults:1" aria-label="הוספה">+</button>
+              <output data-out="adults">2</output>
+              <button type="button" class="dec" data-step="adults:-1" aria-label="הפחתה">−</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="field-label" id="lbl-children">ילדים <small>(2–11)</small></span>
+            <div class="stepper" role="group" aria-labelledby="lbl-children">
+              <button type="button" class="inc" data-step="children:1" aria-label="הוספה">+</button>
+              <output data-out="children">0</output>
+              <button type="button" class="dec" data-step="children:-1" aria-label="הפחתה">−</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="field-label" id="lbl-infants">תינוקות <small>(עד גיל 2)</small></span>
+            <div class="stepper" role="group" aria-labelledby="lbl-infants">
+              <button type="button" class="inc" data-step="infants:1" aria-label="הוספה">+</button>
+              <output data-out="infants">0</output>
+              <button type="button" class="dec" data-step="infants:-1" aria-label="הפחתה">−</button>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <span class="field-label">סוג הטיול</span>
+          <div class="chips" role="group" aria-label="סוג הטיול" data-chips="type"></div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" id="s-dates">
+      <legend class="plan-block-head">
+        <span class="plan-num">03</span>
+        <span class="plan-title">מתי?</span>
+        <span class="plan-hint">אם התאריכים גמישים, בדרך כלל נמצא מחירים טובים יותר.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="depart">תאריך יציאה</label>
+            <input type="date" id="depart" class="pill-input">
+          </div>
+          <div class="field">
+            <label class="field-label" for="return">תאריך חזרה</label>
+            <input type="date" id="return" class="pill-input">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <span class="field-label" id="lbl-nights">מספר לילות</span>
+            <div class="stepper" role="group" aria-labelledby="lbl-nights">
+              <button type="button" class="inc" data-step="nights:1" aria-label="הוספה">+</button>
+              <output data-out="nights">7</output>
+              <button type="button" class="dec" data-step="nights:-1" aria-label="הפחתה">−</button>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="flex">גמישות בתאריכים</label>
+            <select id="flex" class="pill-input">
+              <option value="0">תאריכים קבועים</option>
+              <option value="1">± יום</option>
+              <option value="2">± יומיים</option>
+              <option value="3">± 3 ימים</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" id="s-style">
+      <legend class="plan-block-head">
+        <span class="plan-num">04</span>
+        <span class="plan-title">איך אתם אוהבים לטייל?</span>
+        <span class="plan-hint">התקציב משוער לאדם, כולל טיסות ולינה.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field">
+          <span class="field-label">רמת לינה</span>
+          <div class="chips" role="group" aria-label="רמת לינה" data-chips="stay"></div>
+        </div>
+        <div class="field">
+          <span class="field-label" id="lbl-budget">תקציב לאדם <small>(בדולרים)</small></span>
+          <div class="budget-row" role="group" aria-labelledby="lbl-budget">
+            <label class="money-input">
+              <span>מ-</span>
+              <input type="number" id="budgetMin" inputmode="numeric" min="0" step="100" placeholder="1000" dir="ltr">
+              <span class="mono">$</span>
+            </label>
+            <span class="budget-dash" aria-hidden="true">—</span>
+            <label class="money-input">
+              <span>עד</span>
+              <input type="number" id="budgetMax" inputmode="numeric" min="0" step="100" placeholder="2500" dir="ltr">
+              <span class="mono">$</span>
+            </label>
+          </div>
+        </div>
+        <div class="field">
+          <span class="field-label">מה חשוב לכם? <small>(אפשר לבחור כמה)</small></span>
+          <div class="chips" role="group" aria-label="תחומי עניין" data-chips="interests" data-multi></div>
+        </div>
+        <div class="field">
+          <span class="field-label">מה תרצו שנסדר לכם?</span>
+          <div class="chips" role="group" aria-label="שירותים" data-chips="services" data-multi></div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" id="s-contact">
+      <legend class="plan-block-head">
+        <span class="plan-num">05</span>
+        <span class="plan-title">איך נחזור אליכם?</span>
+        <span class="plan-hint">בדרך כלל אנחנו עונים תוך כמה שעות בוואטסאפ.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="name">שם</label>
+            <input type="text" id="name" class="text-input" autocomplete="name" placeholder="השם שלכם">
+          </div>
+          <div class="field">
+            <label class="field-label" for="from">עיר יציאה</label>
+            <input type="text" id="from" class="text-input" placeholder="למשל: תל אביב, חיפה…">
+          </div>
+        </div>
+        <div class="field-row wide">
+          <div class="field">
+            <label class="field-label" for="phone">טלפון / וואטסאפ</label>
+            <input type="tel" id="phone" class="text-input" autocomplete="tel" inputmode="tel" placeholder="+972 5X XXX XXXX" dir="ltr">
+          </div>
+          <div class="field">
+            <label class="field-label" for="email">אימייל</label>
+            <input type="email" id="email" class="text-input" autocomplete="email" inputmode="email" placeholder="name@example.com" dir="ltr">
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label" for="notes">הערות</label>
+          <textarea id="notes" class="text-input text-area" rows="4" placeholder="אירוע מיוחד, צרכים מיוחדים, מלון שראיתם ואהבתם…"></textarea>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+  <aside class="plan-summary" aria-label="סיכום הבקשה">
+    <div class="pass">
+      <div class="pass-head">
+        <span class="kufi">בקשת טיול · אדם תיירות</span>
+        <span class="mono" dir="ltr">TRIP REQUEST</span>
+      </div>
+      <div class="pass-route">
+        <div class="pass-end">
+          <span class="pass-small">מ-</span>
+          <span class="pass-code" dir="ltr">YOU</span>
+          <span class="pass-city" data-out="fromName">העיר שלך</span>
+        </div>
+        <div class="pass-path" aria-hidden="true">
+          <span class="dot"></span><span class="line"></span><span class="plane">✈</span>
+        </div>
+        <div class="pass-end to">
+          <span class="pass-small">אל</span>
+          <span class="pass-code" dir="ltr" data-out="toCode">???</span>
+          <span class="pass-city" data-out="toName">בחרו יעד</span>
+        </div>
+      </div>
+      <div class="pass-details">
+        <div><span class="pass-small">נוסעים</span><strong data-out="paxLabel">2 מבוגרים</strong></div>
+        <div><span class="pass-small">סוג הטיול</span><strong data-out="typeLabel">—</strong></div>
+        <div><span class="pass-small">לילות</span><strong data-out="nightsLabel">7 לילות</strong></div>
+        <div><span class="pass-small">יציאה</span><strong data-out="departLabel">—</strong></div>
+        <div><span class="pass-small">חזרה</span><strong data-out="returnLabel">—</strong></div>
+        <div><span class="pass-small">גמישות</span><strong data-out="flexLabel">קבועים</strong></div>
+        <div><span class="pass-small">לינה</span><strong data-out="stayLabel">—</strong></div>
+        <div><span class="pass-small">תקציב</span><strong data-out="budgetLabel">—</strong></div>
+        <div><span class="pass-small">שירותים</span><strong data-out="servicesLabel">—</strong></div>
+      </div>
+      <div class="pass-tear"><span></span><span></span></div>
+      <div class="pass-progress">
+        <div class="pass-progress-top">
+          <span>הבקשה מולאה</span>
+          <span class="mono" data-out="progress">0%</span>
+        </div>
+        <div class="meter"><span data-meter></span></div>
+      </div>
+      <div class="pass-foot">
+        <a href="#" class="pass-send" data-send="wa" target="_blank" rel="noopener">שליחת הבקשה בוואטסאפ</a>
+        <a href="#" class="pass-mail" data-send="mail">או באימייל</a>
+      </div>
+    </div>
+    <span class="pass-note">בלי הזמנה ובלי תשלום עכשיו — נעבור על הבקשה ונשלח לכם אפשרויות קודם.</span>
+  </aside>
+</section>
+
+<footer class="site-footer wrap">
+  <span>© 2026 Adam Thai Tours</span>
+  <span>טיולים בכל העולם · מומחיות מיוחדת במזרח אסיה</span>
+</footer>
+
+<a href="#" class="float-wa" data-send="wa" target="_blank" rel="noopener">וואטסאפ</a>
+</div>
+</body>
+</html>

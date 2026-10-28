@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>אדם תיירות | Adam Thai Tours</title>
+<meta name="description" content="טיסות, מלונות, חבילות נופש וטיולים מאורגנים בכל העולם — עם מומחיות מיוחדת בתאילנד, וייטנאם ומזרח אסיה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800;900&family=IBM+Plex+Sans+Hebrew:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="alternate" hreflang="ar" href="https://adam-thai-tours.com/">
+<link rel="alternate" hreflang="he" href="https://adam-thai-tours.com/he/">
+<link rel="stylesheet" href="../styles.css">
+<script src="../common.js" defer></script>
+<script src="../main.js" defer></script>
+</head>
+<body>
+<div class="page">
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <div class="brand-mark">א</div>
+      <div class="brand-text">
+        <span class="brand-name">אדם תיירות</span>
+        <span class="brand-latin" dir="ltr">ADAM THAI TOURS</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="#services">השירותים שלנו</a>
+      <a href="flights-hotels.html">טיסות ומלונות</a>
+      <a href="#asia">מזרח אסיה</a>
+      <a href="#board">יעדים בעולם</a>
+      <a href="#how">איך זה עובד</a>
+    </nav>
+    <div class="header-actions">
+      <a href="../index.html" class="lang-switch" hreflang="ar" lang="ar">العربية</a>
+      <a href="plan.html" class="btn btn-dark header-cta">תכננו טיול ←</a>
+    </div>
+  </div>
+</header>
+
+<section id="top" class="hero wrap">
+  <div class="hero-meta">
+    <span class="services-line">טיסות · מלונות · חבילות · טיולים מאורגנים</span>
+    <span dir="ltr">13.7563° N, 100.5018° E — BANGKOK</span>
+  </div>
+  <div class="hero-grid">
+    <div class="hero-copy stack">
+      <h1>העולם מחכה לכם.<br><span class="accent">ואנחנו</span> נסדר את הדרך.</h1>
+      <p class="hero-lead">מכרטיס טיסה ומלון ועד חבילה מלאה או טיול מאורגן — אנחנו בונים את הטיול סביב הזמן והתקציב שלכם, עם מומחיות מיוחדת בתאילנד, וייטנאם ומזרח אסיה.</p>
+      <div class="hero-actions">
+        <a href="#plan" class="btn btn-dark">תכננו את הטיול עכשיו</a>
+        <a href="flights-hotels.html" class="btn btn-outline">הצעת מחיר לטיסה או מלון</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="hero-arch">
+        <img src="https://adam.adam-thai-tours.chatgpt.site/thai-white-beach.webp" alt="חופי תאילנד">
+      </div>
+      <div class="hero-overlay">
+        <div class="hero-tag">
+          <span class="mono" dir="ltr">KRABI · TH</span>
+          <span class="kufi">ימים של ים ואיים</span>
+        </div>
+        <div class="hero-seal">מומחים<br>למזרח אסיה</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track"></div>
+</div>
+
+<section id="plan" class="section wrap">
+  <div class="planner-grid">
+    <div class="planner-form stack">
+      <div class="planner-intro stack">
+        <span class="eyebrow">01 — מתכנן הטיול</span>
+        <h2 class="h2">כרטיס לטיול החלומות ב-30 שניות.</h2>
+        <p class="lead">בחרו יעד, סוג טיול ומספר נוסעים — והבקשה תגיע אלינו ישירות לוואטסאפ כדי שנתחיל לבנות לכם אפשרויות.</p>
+      </div>
+      <div class="field">
+        <span class="field-label" id="lbl-dest">יעד</span>
+        <div class="chips" role="group" aria-labelledby="lbl-dest" data-chips="dest"></div>
+      </div>
+      <div class="field">
+        <span class="field-label" id="lbl-type">סוג הטיול</span>
+        <div class="chips" role="group" aria-labelledby="lbl-type" data-chips="type"></div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <span class="field-label" id="lbl-pax">נוסעים</span>
+          <div class="stepper" role="group" aria-labelledby="lbl-pax">
+            <button type="button" class="inc" data-pax="1" aria-label="הוספה">+</button>
+            <output data-out="pax">2</output>
+            <button type="button" class="dec" data-pax="-1" aria-label="הפחתה">−</button>
+          </div>
+        </div>
+        <div class="field">
+          <span class="field-label" id="lbl-nights">מספר לילות</span>
+          <div class="stepper" role="group" aria-labelledby="lbl-nights">
+            <button type="button" class="inc" data-nights="1" aria-label="הוספה">+</button>
+            <output data-out="nights">7</output>
+            <button type="button" class="dec" data-nights="-1" aria-label="הפחתה">−</button>
+          </div>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label" for="depart">תאריך יציאה</label>
+          <input type="date" id="depart" class="pill-input">
+        </div>
+        <div class="field">
+          <label class="field-label" for="return">תאריך חזרה</label>
+          <input type="date" id="return" class="pill-input">
+        </div>
+        <div class="field">
+          <label class="field-label" for="flex">גמישות בתאריכים</label>
+          <select id="flex" class="pill-input">
+            <option value="0">תאריכים קבועים</option>
+            <option value="1">± יום</option>
+            <option value="2">± יומיים</option>
+            <option value="3">± 3 ימים</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="pass-col stack">
+      <div class="pass">
+        <div class="pass-head">
+          <span class="kufi">כרטיס עלייה למטוס · אדם תיירות</span>
+          <span class="mono" dir="ltr">BOARDING PASS</span>
+        </div>
+        <div class="pass-route">
+          <div class="pass-end">
+            <span class="pass-small">מ-</span>
+            <span class="pass-code" dir="ltr">YOU</span>
+            <span class="pass-city">העיר שלך</span>
+          </div>
+          <div class="pass-path" aria-hidden="true">
+            <span class="dot"></span><span class="line"></span><span class="plane">✈</span>
+          </div>
+          <div class="pass-end to">
+            <span class="pass-small">אל</span>
+            <span class="pass-code" dir="ltr" data-out="code">BKK</span>
+            <span class="pass-city" data-out="destName">תאילנד</span>
+          </div>
+        </div>
+        <div class="pass-details">
+          <div><span class="pass-small">סוג הטיול</span><strong data-out="typeName">ירח דבש</strong></div>
+          <div><span class="pass-small">נוסעים</span><strong data-out="paxLabel">2 נוסעים</strong></div>
+          <div><span class="pass-small">לילות</span><strong data-out="nightsLabel">7 לילות</strong></div>
+          <div><span class="pass-small">יציאה</span><strong data-out="departLabel">—</strong></div>
+          <div><span class="pass-small">חזרה</span><strong data-out="returnLabel">—</strong></div>
+          <div><span class="pass-small">גמישות</span><strong data-out="flexLabel">קבועים</strong></div>
+        </div>
+        <div class="pass-tear"><span></span><span></span></div>
+        <div class="pass-foot">
+          <div class="barcode" aria-hidden="true"></div>
+          <a href="#" class="pass-send" data-wa-plan target="_blank" rel="noopener">שליחת הבקשה בוואטסאפ</a>
+        </div>
+      </div>
+      <span class="pass-note">בלי הזמנה ובלי תשלום עכשיו — קודם נחזור אליכם לדבר על האפשרויות.</span>
+      <a href="plan.html" class="pass-more" data-plan-link>רוצים לפרט יותר? המשיכו למתכנן המלא ←</a>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="section wrap">
+    <div class="section-head">
+      <div class="stack">
+        <span class="eyebrow">02 — כל פרטי הנסיעה במקום אחד</span>
+        <h2 class="h2">איך תרצו לטוס?</h2>
+      </div>
+      <p class="lead">חופשה קצרה, חופשה משפחתית, ירח דבש או תוכנית מלאה בחוויות — מתחילים מהצרכים שלכם ובונים סביבם את האפשרויות.</p>
+    </div>
+    <div class="service-list">
+      <a class="service-row" href="flights-hotels.html?tab=flight">
+        <span class="service-code" dir="ltr">01 / FLIGHTS</span>
+        <span class="service-title">כרטיסי טיסה</span>
+        <span class="service-desc">טיסות שמתאימות למועדים ולמסלול שלכם, עם פירוט עצירות וכבודה לפני שמחליטים.</span>
+        <span class="service-arrow" aria-hidden="true">←</span>
+      </a>
+      <a class="service-row" href="flights-hotels.html?tab=hotel">
+        <span class="service-code" dir="ltr">02 / HOTELS</span>
+        <span class="service-title">מלונות ולינה</span>
+        <span class="service-desc">מיקום ורמת לינה שמתאימים לאופי הטיול — מהעיר הגדולה ועד החוף.</span>
+        <span class="service-arrow" aria-hidden="true">←</span>
+      </a>
+      <a class="service-row" href="plan.html">
+        <span class="service-code" dir="ltr">03 / PACKAGES</span>
+        <span class="service-title">חבילות נופש</span>
+        <span class="service-desc">טיסה, לינה וחוויות בתוכנית אחת ברורה — שאפשר להתאים בדיוק לכם.</span>
+        <span class="service-arrow" aria-hidden="true">←</span>
+      </a>
+      <a class="service-row" href="plan.html?type=%D7%98%D7%99%D7%95%D7%9C%20%D7%9E%D7%90%D7%95%D7%A8%D7%92%D7%9F">
+        <span class="service-code" dir="ltr">04 / GROUPS</span>
+        <span class="service-title">טיולים מאורגנים</span>
+        <span class="service-desc">תוכניות קבוצתיות למי שאוהב לטוס עם תוכנית מוכנה וכל הפרטים מסודרים מראש.</span>
+        <span class="service-arrow" aria-hidden="true">←</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="asia" class="section wrap">
+  <div class="asia-grid">
+    <div class="asia-copy stack">
+      <div class="stack">
+        <span class="eyebrow">03 — ההתמחות שלנו</span>
+        <h2 class="h2">מזרח אסיה,<br>בדרך שלכם.</h2>
+        <p class="lead">תאילנד ווייטנאם הן לב המומחיות שלנו. נעזור לכם לבחור ערים, לסדר מעברים, ולאזן בין ימי מנוחה לחוויות שחשובות לכם.</p>
+      </div>
+      <div class="chips">
+        <span class="pill">תאילנד</span>
+        <span class="pill">וייטנאם</span>
+        <span class="pill">ירח דבש</span>
+        <span class="pill">טיולים משפחתיים</span>
+        <span class="pill">מסלולים רב-עירוניים</span>
+      </div>
+      <a href="#plan" class="btn btn-dark asia-cta">תכננו טיול לאסיה</a>
+    </div>
+    <figure class="photo">
+      <img src="https://adam.adam-thai-tours.chatgpt.site/thai-white-beach.webp" alt="תאילנד" loading="lazy">
+      <figcaption>
+        <span class="mono" dir="ltr">TH · BKK / HKT / KBV</span>
+        <span class="kufi">תאילנד</span>
+        <span class="sub">ימים של ים ואיים</span>
+      </figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="https://adam.adam-thai-tours.chatgpt.site/vietnam-white-beach.webp" alt="וייטנאם" loading="lazy">
+      <figcaption>
+        <span class="mono" dir="ltr">VN · SGN / DAD / HAN</span>
+        <span class="kufi">וייטנאם</span>
+        <span class="sub">שקט של חוף טרופי</span>
+      </figcaption>
+    </figure>
+  </div>
+  <p class="disclaimer">התמונות להשראה בלבד ואינן מציגות מלון או פעילות מסוימים.</p>
+</section>
+
+<section id="board" class="board">
+  <div class="section wrap">
+    <div class="section-head">
+      <div class="stack">
+        <span class="eyebrow">04 — לוח המראות</span>
+        <h2 class="h2">היעד שלכם לא מוגבל.</h2>
+      </div>
+      <div class="live">
+        <span class="dot"></span>
+        <span>מארגנים טיולים בכל העולם לפי העונה</span>
+      </div>
+    </div>
+    <div class="board-table">
+      <div class="board-row head">
+        <span>קוד</span><span>יעד</span><span>החוויה</span><span>סטטוס</span>
+      </div>
+      <a class="board-row" data-wa="שלום, אני מתעניין/ת בטיול למזרח אסיה" target="_blank" rel="noopener">
+        <span class="board-code" dir="ltr">BKK</span>
+        <span class="board-name">מזרח אסיה</span>
+        <span class="board-desc">תאילנד, וייטנאם ויעדים נוספים באזור</span>
+        <span class="badge hot">ההתמחות שלנו</span>
+      </a>
+      <a class="board-row" data-wa="שלום, אני מתעניין/ת בטיול לאירופה" target="_blank" rel="noopener">
+        <span class="board-code" dir="ltr">CDG</span>
+        <span class="board-name">אירופה</span>
+        <span class="board-desc">חופשות עיר, טבע וטיולים מאורגנים</span>
+        <span class="badge">זמין</span>
+      </a>
+      <a class="board-row" data-wa="שלום, אני מתעניין/ת בטיול למזרח התיכון" target="_blank" rel="noopener">
+        <span class="board-code" dir="ltr">DXB</span>
+        <span class="board-name">המזרח התיכון</span>
+        <span class="board-desc">חופשות קצרות, חוויות משפחתיות וערים תוססות</span>
+        <span class="badge">זמין</span>
+      </a>
+      <a class="board-row" data-wa="שלום, אני מתעניין/ת בטיול לאמריקה" target="_blank" rel="noopener">
+        <span class="board-code" dir="ltr">JFK</span>
+        <span class="board-name">אמריקה</span>
+        <span class="board-desc">מסלולים מגוונים לאוהבי גילוי</span>
+        <span class="badge">זמין</span>
+      </a>
+      <a class="board-row" data-wa="שלום, אני מתעניין/ת בטיול לאפריקה" target="_blank" rel="noopener">
+        <span class="board-code" dir="ltr">ZNZ</span>
+        <span class="board-name">אפריקה</span>
+        <span class="board-desc">ערים, חופים וטבע</span>
+        <span class="badge">זמין</span>
+      </a>
+      <a class="board-row" data-wa="שלום, אני מחפש/ת יעד אחר — אשמח לעזרה" target="_blank" rel="noopener">
+        <span class="board-code" dir="ltr">???</span>
+        <span class="board-name">יעד אחר?</span>
+        <span class="board-desc">ספרו לנו לאן תרצו לטוס ונמצא לכם את האפשרות המתאימה</span>
+        <span class="badge">שאלו אותנו</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="section wrap">
+  <div class="how-head stack">
+    <span class="eyebrow">05 — התחלה פשוטה</span>
+    <h2 class="h2">שלושה צעדים, ואז המזוודה.</h2>
+  </div>
+  <div class="steps">
+    <div class="step stack">
+      <span class="step-num">1</span>
+      <h3>שתפו את הרעיון</h3>
+      <p>יעד או סוג טיול, תאריכים, מספר נוסעים ותקציב משוער.</p>
+    </div>
+    <div class="step stack">
+      <span class="step-num">2</span>
+      <h3>אנחנו מסדרים אפשרויות</h3>
+      <p>בודקים מסלול, טיסות, לינה ופעילויות לפי סדר העדיפויות שלכם.</p>
+    </div>
+    <div class="step stack">
+      <span class="step-num">3</span>
+      <h3>עוברים על הפרטים</h3>
+      <p>מקבלים תמונה ברורה של הטיול לפני שמחליטים להזמין.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-card">
+    <div class="contact-copy stack">
+      <span class="eyebrow">מוכנים לטיול הבא?</span>
+      <h2>ספרו לנו לאן תרצו לטוס.</h2>
+      <p>שלחו יעד, תאריך, מספר נוסעים ומה חשוב לכם בטיול. נחזור אליכם כדי לדבר על האפשרויות.</p>
+    </div>
+    <div class="contact-links stack">
+      <a href="#" class="contact-link wa" data-wa-plan target="_blank" rel="noopener">
+        <span class="kufi">כתבו לנו בוואטסאפ</span>
+        <span class="mono" dir="ltr">+972 58 764 3159</span>
+      </a>
+      <a href="mailto:Adam.thai.tours@gmail.com" class="contact-link mail">
+        <span class="label">אימייל</span>
+        <span class="mono" dir="ltr">Adam.thai.tours@gmail.com</span>
+      </a>
+      <div class="socials">
+        <a href="https://www.instagram.com/adam.thai.tours/" target="_blank" rel="noopener">אינסטגרם</a>
+        <a href="https://www.facebook.com/adam.thai.tours" target="_blank" rel="noopener">פייסבוק</a>
+        <a href="https://www.tiktok.com/@adam.thai.tours" target="_blank" rel="noopener">טיקטוק</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer wrap">
+  <span>© 2026 Adam Thai Tours</span>
+  <span>טיולים בכל העולם · מומחיות מיוחדת במזרח אסיה</span>
+</footer>
+
+<a href="#" class="float-wa" data-wa-plan target="_blank" rel="noopener">וואטסאפ</a>
+</div>
+</body>
+</html>

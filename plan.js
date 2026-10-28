@@ -2,14 +2,42 @@
 (function () {
   var U = window.ATT, $ = U.$, $$ = U.$$;
 
-  var DESTS = [['تايلاند', 'BKK'], ['فيتنام', 'SGN'], ['بالي', 'DPS'], ['اليابان', 'TYO'], ['أوروبا', 'EUR'], ['الشرق الأوسط', 'DXB'], ['وجهة أخرى', '???']];
-  var OPTIONS = {
-    dests: DESTS.map(function (d) { return d[0]; }),
-    type: ['شهر عسل', 'عائلية', 'استرخاء وشواطئ', 'مغامرة', 'رحلة منظمة', 'أصدقاء'],
-    stay: ['اقتصادي', '٤ نجوم', '٥ نجوم', 'فلل ومنتجعات خاصة'],
-    interests: ['شواطئ وجزر', 'طبيعة', 'ثقافة ومعابد', 'تسوق', 'مغامرات وأنشطة', 'سبا واسترخاء', 'مطاعم حلال', 'حياة ليلية'],
-    services: ['تذاكر طيران', 'فنادق', 'استقبال وتنقلات', 'جولات يومية', 'تأشيرة', 'تأمين سفر']
-  };
+  var CODES = ['BKK', 'SGN', 'DPS', 'TYO', 'EUR', 'DXB', '???'];
+  var L = {
+    ar: {
+      options: {
+        dests: ['تايلاند', 'فيتنام', 'بالي', 'اليابان', 'أوروبا', 'الشرق الأوسط', 'وجهة أخرى'],
+        type: ['شهر عسل', 'عائلية', 'استرخاء وشواطئ', 'مغامرة', 'رحلة منظمة', 'أصدقاء'],
+        stay: ['اقتصادي', '٤ نجوم', '٥ نجوم', 'فلل ومنتجعات خاصة'],
+        interests: ['شواطئ وجزر', 'طبيعة', 'ثقافة ومعابد', 'تسوق', 'مغامرات وأنشطة', 'سبا واسترخاء', 'مطاعم حلال', 'حياة ليلية'],
+        services: ['تذاكر طيران', 'فنادق', 'استقبال وتنقلات', 'جولات يومية', 'تأشيرة', 'تأمين سفر']
+      },
+      intro: 'مرحبا، أريد التخطيط لرحلة:', subject: 'طلب رحلة',
+      name: 'الاسم', phone: 'الهاتف', email: 'البريد الإلكتروني', from: 'مدينة المغادرة',
+      dest: 'الوجهة', undecided: 'لم أقرر بعد', cities: 'مدن تهمني', travellers: 'المسافرون', type: 'نوع الرحلة',
+      depart: 'الذهاب', ret: 'العودة', nights: 'عدد الليالي', flex: 'مرونة التاريخ', stay: 'مستوى الإقامة',
+      budget: 'الميزانية للشخص', interests: 'الاهتمامات', services: 'الخدمات المطلوبة', notes: 'ملاحظات',
+      yourCity: 'مدينتك', pickDest: 'اختر وجهة',
+      servicesCount: function (n) { return n === 2 ? 'خدمتان' : n + ' خدمات'; }
+    },
+    he: {
+      options: {
+        dests: ['תאילנד', 'וייטנאם', 'באלי', 'יפן', 'אירופה', 'המזרח התיכון', 'יעד אחר'],
+        type: ['ירח דבש', 'משפחתי', 'בטן-גב וחופים', 'הרפתקאות', 'טיול מאורגן', 'חברים'],
+        stay: ['חסכוני', '4 כוכבים', '5 כוכבים', 'וילות ואתרי נופש פרטיים'],
+        interests: ['חופים ואיים', 'טבע', 'תרבות ומקדשים', 'קניות', 'הרפתקאות ואטרקציות', 'ספא ורוגע', 'אוכל כשר', 'חיי לילה'],
+        services: ['טיסות', 'מלונות', 'איסוף והסעות', 'סיורים יומיים', 'ויזה', 'ביטוח נסיעות']
+      },
+      intro: 'שלום, אני רוצה לתכנן טיול:', subject: 'בקשה לתכנון טיול',
+      name: 'שם', phone: 'טלפון', email: 'אימייל', from: 'עיר יציאה',
+      dest: 'יעד', undecided: 'עדיין לא החלטתי', cities: 'ערים שמעניינות אותי', travellers: 'נוסעים', type: 'סוג הטיול',
+      depart: 'יציאה', ret: 'חזרה', nights: 'מספר לילות', flex: 'גמישות בתאריכים', stay: 'רמת לינה',
+      budget: 'תקציב לאדם', interests: 'תחומי עניין', services: 'שירותים מבוקשים', notes: 'הערות',
+      yourCity: 'העיר שלך', pickDest: 'בחרו יעד',
+      servicesCount: function (n) { return n + ' שירותים'; }
+    }
+  }[U.lang];
+  var OPTIONS = L.options;
   var LIMITS = { adults: [1, 20], children: [0, 10], infants: [0, 5], nights: [1, 60] };
 
   var state = {
@@ -50,10 +78,8 @@
     var key = box.getAttribute('data-chips');
     var multi = box.hasAttribute('data-multi');
     OPTIONS[key].forEach(function (label, i) {
-      var b = document.createElement('button');
+      var b = U.el('button', 'chip', label);
       b.type = 'button';
-      b.className = 'chip';
-      b.textContent = label;
       b.addEventListener('click', function () {
         if (multi) {
           var at = state[key].indexOf(i);
@@ -97,11 +123,7 @@
 
   ['budgetMin', 'budgetMax'].forEach(function (id) {
     var input = document.getElementById(id);
-    input.addEventListener('input', function () {
-      var n = Math.floor(Math.abs(parseFloat(input.value)));
-      state[id] = isFinite(n) && n > 0 ? n : '';
-      render();
-    });
+    input.addEventListener('input', function () { state[id] = U.amount(input.value); render(); });
   });
 
   ['cities', 'name', 'from', 'phone', 'email', 'notes'].forEach(function (id) {
@@ -110,25 +132,25 @@
   });
 
   function message() {
-    var lines = ['مرحبا، أريد التخطيط لرحلة:'];
+    var lines = [L.intro];
     function add(label, value) { if (value) lines.push(label + ': ' + value); }
-    add('الاسم', state.name);
-    add('الهاتف', state.phone);
-    add('البريد الإلكتروني', state.email);
-    add('مدينة المغادرة', state.from);
-    add('الوجهة', pick('dests').join('، ') || 'لم أقرر بعد');
-    add('مدن تهمني', state.cities);
-    add('المسافرون', paxLabel());
-    add('نوع الرحلة', pick('type'));
-    add('الذهاب', U.dateLine(state.depart));
-    add('العودة', U.dateLine(state.ret));
-    add('عدد الليالي', String(state.nights));
-    add('مرونة التاريخ', state.flex ? U.FLEX[state.flex] : 'تواريخ ثابتة');
-    add('مستوى الإقامة', pick('stay'));
-    add('الميزانية للشخص', budgetLabel());
-    add('الاهتمامات', pick('interests').join('، '));
-    add('الخدمات المطلوبة', pick('services').join('، '));
-    add('ملاحظات', state.notes);
+    add(L.name, state.name);
+    add(L.phone, state.phone);
+    add(L.email, state.email);
+    add(L.from, state.from);
+    add(L.dest, pick('dests').join(U.sep) || L.undecided);
+    add(L.cities, state.cities);
+    add(L.travellers, paxLabel());
+    add(L.type, pick('type'));
+    add(L.depart, U.dateLine(state.depart));
+    add(L.ret, U.dateLine(state.ret));
+    add(L.nights, String(state.nights));
+    add(L.flex, U.flexLine(state.flex));
+    add(L.stay, pick('stay'));
+    add(L.budget, budgetLabel());
+    add(L.interests, pick('interests').join(U.sep));
+    add(L.services, pick('services').join(U.sep));
+    add(L.notes, state.notes);
     return lines.join('\n');
   }
 
@@ -143,27 +165,21 @@
 
   function render() {
     var dests = pick('dests');
-    var first = state.dests.length ? DESTS[state.dests[0]] : null;
     var services = pick('services');
     var pct = progress();
-    var out = {
+    U.output({
       adults: state.adults, children: state.children, infants: state.infants, nights: state.nights,
-      fromName: state.from || 'مدينتك',
-      toCode: first ? first[1] + (dests.length > 1 ? '+' + (dests.length - 1) : '') : '???',
-      toName: dests.join('، ') || 'اختر وجهة',
+      fromName: state.from || L.yourCity,
+      toCode: dests.length ? CODES[state.dests[0]] + (dests.length > 1 ? '+' + (dests.length - 1) : '') : '???',
+      toName: dests.join(U.sep) || L.pickDest,
       paxLabel: paxLabel(),
       typeLabel: pick('type') || '—',
       nightsLabel: U.nightsLabel(state.nights),
       departLabel: U.fmt(state.depart), returnLabel: U.fmt(state.ret), flexLabel: U.FLEX[state.flex],
       stayLabel: pick('stay') || '—',
       budgetLabel: budgetLabel() || '—',
-      servicesLabel: services.length ? services.length + ' خدمات' : '—',
+      servicesLabel: services.length === 1 ? services[0] : services.length ? L.servicesCount(services.length) : '—',
       progress: pct + '%'
-    };
-    if (services.length === 1) out.servicesLabel = services[0];
-    if (services.length === 2) out.servicesLabel = 'خدمتان';
-    Object.keys(out).forEach(function (k) {
-      $$('[data-out="' + k + '"]').forEach(function (n) { n.textContent = out[k]; });
     });
     $('[data-meter]').style.width = pct + '%';
 
@@ -181,7 +197,7 @@
 
     var text = message();
     var wa = U.waLink(text);
-    var mail = U.mailLink('طلب رحلة' + (dests.length ? ' — ' + dests.join('، ') : ''), text);
+    var mail = U.mailLink(L.subject + (dests.length ? ' — ' + dests.join(U.sep) : ''), text);
     $$('[data-send="wa"]').forEach(function (a) { a.href = wa; });
     $$('[data-send="mail"]').forEach(function (a) { a.href = mail; });
   }

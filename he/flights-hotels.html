@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>טיסות ומלונות | אדם תיירות</title>
+<meta name="description" content="בקשו הצעת מחיר לטיסות, מלונות או שניהם מאדם תיירות — אנחנו נמצא לכם את האפשרויות הטובות ביותר, בלי התחייבות.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800;900&family=IBM+Plex+Sans+Hebrew:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="alternate" hreflang="ar" href="https://adam-thai-tours.com/flights-hotels.html">
+<link rel="alternate" hreflang="he" href="https://adam-thai-tours.com/he/flights-hotels.html">
+<link rel="stylesheet" href="../styles.css">
+<script src="../common.js" defer></script>
+<script src="../flights-hotels.js" defer></script>
+</head>
+<body>
+<div class="page">
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">א</div>
+      <div class="brand-text">
+        <span class="brand-name">אדם תיירות</span>
+        <span class="brand-latin" dir="ltr">ADAM THAI TOURS</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html#services">השירותים שלנו</a>
+      <a href="flights-hotels.html" aria-current="page">טיסות ומלונות</a>
+      <a href="index.html#asia">מזרח אסיה</a>
+      <a href="index.html#board">יעדים בעולם</a>
+      <a href="index.html#how">איך זה עובד</a>
+    </nav>
+    <div class="header-actions">
+      <a href="../flights-hotels.html" class="lang-switch" hreflang="ar" lang="ar">العربية</a>
+      <a href="plan.html" class="btn btn-dark header-cta">תכננו טיול ←</a>
+    </div>
+  </div>
+</header>
+
+<section class="plan-hero wrap">
+  <div class="hero-meta">
+    <span class="services-line">הצעת מחיר חינם · בלי התחייבות · תשובה תוך שעות</span>
+    <span dir="ltr">FLIGHTS &amp; HOTELS — QUOTE</span>
+  </div>
+  <div class="plan-hero-grid">
+    <h1>טיסות ומלונות.<br><span class="accent">אנחנו מחפשים, אתם בוחרים.</span></h1>
+    <p class="hero-lead">שלחו לנו את פרטי הטיסה או הלינה, ונחזור אליכם עם האפשרויות והמחירים הטובים ביותר — כולל פירוט עצירות, כבודה ותנאי ביטול לפני כל החלטה.</p>
+  </div>
+  <div class="mode-tabs" role="tablist" aria-label="סוג הבקשה">
+    <button type="button" role="tab" data-mode="flight"><span class="mono" dir="ltr">FLT</span>כרטיס טיסה</button>
+    <button type="button" role="tab" data-mode="hotel"><span class="mono" dir="ltr">HTL</span>מלון</button>
+    <button type="button" role="tab" data-mode="both"><span class="mono" dir="ltr">FLT + HTL</span>טיסה + מלון</button>
+  </div>
+</section>
+
+<section class="section wrap plan-body">
+  <form class="plan-form" novalidate>
+
+    <fieldset class="plan-block" data-show="flight both">
+      <legend class="plan-block-head">
+        <span class="plan-num"></span>
+        <span class="plan-title">הטיסה</span>
+        <span class="plan-hint">כתבו עיר או שדה תעופה — את חיפוש המסלול הטוב ביותר עלינו.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="chips" role="group" aria-label="סוג כרטיס" data-chips="trip"></div>
+        <div class="route-fields">
+          <div class="field">
+            <label class="field-label" for="fromCity">מ-</label>
+            <input type="text" id="fromCity" class="text-input" placeholder="עיר או שדה תעופה ליציאה">
+          </div>
+          <button type="button" class="swap-btn" data-swap aria-label="החלפת מוצא ויעד">⇄</button>
+          <div class="field">
+            <label class="field-label" for="toCity">אל</label>
+            <input type="text" id="toCity" class="text-input" placeholder="למשל: בנגקוק, פוקט…">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="fDepart">תאריך יציאה</label>
+            <input type="date" id="fDepart" class="pill-input">
+          </div>
+          <div class="field" data-roundtrip>
+            <label class="field-label" for="fReturn">תאריך חזרה</label>
+            <input type="date" id="fReturn" class="pill-input">
+          </div>
+          <div class="field">
+            <label class="field-label" for="flex">גמישות בתאריכים</label>
+            <select id="flex" class="pill-input">
+              <option value="0">תאריכים קבועים</option>
+              <option value="1">± יום</option>
+              <option value="2">± יומיים</option>
+              <option value="3">± 3 ימים</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <span class="field-label">מחלקה</span>
+          <div class="chips" role="group" aria-label="מחלקה" data-chips="cabin"></div>
+        </div>
+        <div class="field">
+          <span class="field-label">כבודה לכל נוסע</span>
+          <div class="chips" role="group" aria-label="כבודה" data-chips="bags"></div>
+        </div>
+        <div class="field-row wide">
+          <div class="field">
+            <span class="field-label">עצירות</span>
+            <div class="chips">
+              <button type="button" class="chip" data-toggle="direct">טיסות ישירות בלבד</button>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="airline">חברת תעופה מועדפת (לא חובה)</label>
+            <input type="text" id="airline" class="text-input" placeholder="למשל: אל על, טורקיש…">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" data-show="hotel both">
+      <legend class="plan-block-head">
+        <span class="plan-num"></span>
+        <span class="plan-title">הלינה</span>
+        <span class="plan-hint" data-hotel-hint>איפה וכמה לילות? ומה חשוב לכם במלון?</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field">
+          <label class="field-label" for="hotelCity">עיר או אזור</label>
+          <input type="text" id="hotelCity" class="text-input" placeholder="למשל: פטונג – פוקט, מרכז בנגקוק…">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="checkin">צ'ק-אין</label>
+            <input type="date" id="checkin" class="pill-input">
+          </div>
+          <div class="field">
+            <label class="field-label" for="checkout">צ'ק-אאוט</label>
+            <input type="date" id="checkout" class="pill-input">
+          </div>
+          <div class="field">
+            <span class="field-label" id="lbl-nights">מספר לילות</span>
+            <div class="stepper" role="group" aria-labelledby="lbl-nights">
+              <button type="button" class="inc" data-step="nights:1" aria-label="הוספה">+</button>
+              <output data-out="nights">5</output>
+              <button type="button" class="dec" data-step="nights:-1" aria-label="הפחתה">−</button>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <span class="field-label">דירוג המלון</span>
+          <div class="chips" role="group" aria-label="דירוג המלון" data-chips="stars"></div>
+        </div>
+        <div class="field">
+          <span class="field-label">ארוחות</span>
+          <div class="chips" role="group" aria-label="ארוחות" data-chips="board"></div>
+        </div>
+        <div class="field">
+          <span class="field-label">מה חשוב לכם? <small>(אפשר לבחור כמה)</small></span>
+          <div class="chips" role="group" aria-label="העדפות מלון" data-chips="prefs" data-multi></div>
+        </div>
+        <div class="field">
+          <span class="field-label" id="lbl-budget">תקציב ללילה <small>(בדולרים, לחדר)</small></span>
+          <div class="budget-row" role="group" aria-labelledby="lbl-budget">
+            <label class="money-input">
+              <span>מ-</span>
+              <input type="number" id="budgetMin" inputmode="numeric" min="0" step="10" placeholder="80" dir="ltr">
+              <span class="mono">$</span>
+            </label>
+            <span class="budget-dash" aria-hidden="true">—</span>
+            <label class="money-input">
+              <span>עד</span>
+              <input type="number" id="budgetMax" inputmode="numeric" min="0" step="10" placeholder="200" dir="ltr">
+              <span class="mono">$</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" data-show="flight hotel both">
+      <legend class="plan-block-head">
+        <span class="plan-num"></span>
+        <span class="plan-title">נוסעים</span>
+        <span class="plan-hint">גילאי הילדים משפיעים על מחיר הכרטיס ועל חלוקת החדרים.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field-row">
+          <div class="field">
+            <span class="field-label" id="lbl-adults">מבוגרים</span>
+            <div class="stepper" role="group" aria-labelledby="lbl-adults">
+              <button type="button" class="inc" data-step="adults:1" aria-label="הוספה">+</button>
+              <output data-out="adults">2</output>
+              <button type="button" class="dec" data-step="adults:-1" aria-label="הפחתה">−</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="field-label" id="lbl-children">ילדים <small>(2–11)</small></span>
+            <div class="stepper" role="group" aria-labelledby="lbl-children">
+              <button type="button" class="inc" data-step="children:1" aria-label="הוספה">+</button>
+              <output data-out="children">0</output>
+              <button type="button" class="dec" data-step="children:-1" aria-label="הפחתה">−</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="field-label" id="lbl-infants">תינוקות <small>(עד גיל 2)</small></span>
+            <div class="stepper" role="group" aria-labelledby="lbl-infants">
+              <button type="button" class="inc" data-step="infants:1" aria-label="הוספה">+</button>
+              <output data-out="infants">0</output>
+              <button type="button" class="dec" data-step="infants:-1" aria-label="הפחתה">−</button>
+            </div>
+          </div>
+          <div class="field" data-show="hotel both">
+            <span class="field-label" id="lbl-rooms">חדרים</span>
+            <div class="stepper" role="group" aria-labelledby="lbl-rooms">
+              <button type="button" class="inc" data-step="rooms:1" aria-label="הוספה">+</button>
+              <output data-out="rooms">1</output>
+              <button type="button" class="dec" data-step="rooms:-1" aria-label="הפחתה">−</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" data-show="flight hotel both">
+      <legend class="plan-block-head">
+        <span class="plan-num"></span>
+        <span class="plan-title">איך נחזור אליכם?</span>
+        <span class="plan-hint">נשלח לכם אפשרויות ומחירים בוואטסאפ או באימייל.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field">
+          <label class="field-label" for="name">שם</label>
+          <input type="text" id="name" class="text-input" autocomplete="name" placeholder="השם שלכם">
+        </div>
+        <div class="field-row wide">
+          <div class="field">
+            <label class="field-label" for="phone">טלפון / וואטסאפ</label>
+            <input type="tel" id="phone" class="text-input" autocomplete="tel" inputmode="tel" placeholder="+972 5X XXX XXXX" dir="ltr">
+          </div>
+          <div class="field">
+            <label class="field-label" for="email">אימייל</label>
+            <input type="email" id="email" class="text-input" autocomplete="email" inputmode="email" placeholder="name@example.com" dir="ltr">
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label" for="notes">הערות</label>
+          <textarea id="notes" class="text-input text-area" rows="3" placeholder="גילאי ילדים, כיסא גלגלים, מיטה נוספת, מלון מסוים…"></textarea>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+  <aside class="plan-summary" aria-label="סיכום הבקשה">
+    <div class="pass" data-show="flight both">
+      <div class="pass-head">
+        <span class="kufi">כרטיס טיסה · אדם תיירות</span>
+        <span class="mono" dir="ltr" data-out="tripCode">ROUND TRIP</span>
+      </div>
+      <div class="pass-route">
+        <div class="pass-end">
+          <span class="pass-small">מ-</span>
+          <span class="pass-place" data-out="fromLabel">העיר שלך</span>
+        </div>
+        <div class="pass-path" aria-hidden="true">
+          <span class="dot"></span><span class="line"></span><span class="plane" data-out="tripIcon">⇄</span>
+        </div>
+        <div class="pass-end to">
+          <span class="pass-small">אל</span>
+          <span class="pass-place accent" data-out="toLabel">היעד שלך</span>
+        </div>
+      </div>
+      <div class="pass-details">
+        <div><span class="pass-small">יציאה</span><strong data-out="fDepartLabel">—</strong></div>
+        <div data-roundtrip><span class="pass-small">חזרה</span><strong data-out="fReturnLabel">—</strong></div>
+        <div><span class="pass-small">גמישות</span><strong data-out="flexLabel">קבועים</strong></div>
+        <div><span class="pass-small">נוסעים</span><strong data-out="paxLabel">2 מבוגרים</strong></div>
+        <div><span class="pass-small">מחלקה</span><strong data-out="cabinLabel">תיירים</strong></div>
+        <div><span class="pass-small">כבודה</span><strong data-out="bagsLabel">—</strong></div>
+      </div>
+    </div>
+
+    <div class="voucher" data-show="hotel both">
+      <div class="voucher-head">
+        <span class="kufi">שובר לינה · אדם תיירות</span>
+        <span class="mono" dir="ltr">HOTEL</span>
+      </div>
+      <div class="voucher-city" data-out="hotelLabel">עיר הלינה</div>
+      <div class="voucher-dates">
+        <div><span class="pass-small">צ'ק-אין</span><strong data-out="checkinLabel">—</strong></div>
+        <div class="voucher-nights"><strong data-out="nightsLabel">5 לילות</strong></div>
+        <div><span class="pass-small">צ'ק-אאוט</span><strong data-out="checkoutLabel">—</strong></div>
+      </div>
+      <div class="voucher-details">
+        <div><span class="pass-small">חדרים</span><strong data-out="roomsLabel">חדר אחד</strong></div>
+        <div><span class="pass-small">אורחים</span><strong data-out="paxLabel">2 מבוגרים</strong></div>
+        <div><span class="pass-small">דירוג</span><strong data-out="starsLabel">—</strong></div>
+        <div><span class="pass-small">ארוחות</span><strong data-out="boardLabel">—</strong></div>
+        <div class="span-2"><span class="pass-small">תקציב / לילה</span><strong data-out="budgetLabel">—</strong></div>
+      </div>
+    </div>
+
+    <div class="send-card">
+      <div class="pass-progress">
+        <div class="pass-progress-top">
+          <span>הבקשה מולאה</span>
+          <span class="mono" data-out="progress">0%</span>
+        </div>
+        <div class="meter"><span data-meter></span></div>
+      </div>
+      <div class="pass-foot">
+        <a href="#" class="pass-send" data-send="wa" target="_blank" rel="noopener">בקשת הצעת מחיר בוואטסאפ</a>
+        <a href="#" class="pass-mail" data-send="mail">או באימייל</a>
+      </div>
+    </div>
+    <span class="pass-note">הצעת המחיר חינם ואינה מחייבת הזמנה. המחירים משתנים לפי זמינות.</span>
+  </aside>
+</section>
+
+<footer class="site-footer wrap">
+  <span>© 2026 Adam Thai Tours</span>
+  <span>טיולים בכל העולם · מומחיות מיוחדת במזרח אסיה</span>
+</footer>
+
+<a href="#" class="float-wa" data-send="wa" target="_blank" rel="noopener">וואטסאפ</a>
+</div>
+</body>
+</html>

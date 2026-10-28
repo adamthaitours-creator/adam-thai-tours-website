@@ -1,4 +1,4 @@
-// Site behaviour: ticker, trip planner and WhatsApp links.
+// Homepage behaviour: ticker, quick trip planner and WhatsApp links.
 (function () {
   var U = window.ATT, $ = U.$, $$ = U.$$, el = U.el;
   var CONFIG = {
@@ -6,9 +6,26 @@
     showFloatingWhatsapp: true
   };
 
-  var DESTS = [['تايلاند', 'BKK'], ['فيتنام', 'SGN'], ['بالي', 'DPS'], ['اليابان', 'TYO'], ['أوروبا', 'EUR'], ['وجهة أخرى', '???']];
-  var TYPES = ['شهر عسل', 'عائلية', 'استرخاء وشواطئ', 'مغامرة', 'رحلة منظمة'];
-  var TICKER = ['تايلاند', 'فيتنام', 'بالي', 'اليابان', 'أوروبا', 'الشرق الأوسط', 'الأمريكيتان', 'أفريقيا'];
+  var L = {
+    ar: {
+      dests: [['تايلاند', 'BKK'], ['فيتنام', 'SGN'], ['بالي', 'DPS'], ['اليابان', 'TYO'], ['أوروبا', 'EUR'], ['وجهة أخرى', '???']],
+      types: ['شهر عسل', 'عائلية', 'استرخاء وشواطئ', 'مغامرة', 'رحلة منظمة'],
+      ticker: ['تايلاند', 'فيتنام', 'بالي', 'اليابان', 'أوروبا', 'الشرق الأوسط', 'الأمريكيتان', 'أفريقيا'],
+      pax: function (n) { return n === 1 ? 'مسافر واحد' : n === 2 ? 'مسافران' : n + ' مسافرين'; },
+      intro: 'مرحبا، أريد التخطيط لرحلة:',
+      dest: 'الوجهة', type: 'نوع الرحلة', travellers: 'عدد المسافرين', depart: 'الذهاب', ret: 'العودة',
+      nights: 'عدد الليالي', flex: 'مرونة التاريخ'
+    },
+    he: {
+      dests: [['תאילנד', 'BKK'], ['וייטנאם', 'SGN'], ['באלי', 'DPS'], ['יפן', 'TYO'], ['אירופה', 'EUR'], ['יעד אחר', '???']],
+      types: ['ירח דבש', 'משפחתי', 'בטן-גב וחופים', 'הרפתקאות', 'טיול מאורגן'],
+      ticker: ['תאילנד', 'וייטנאם', 'באלי', 'יפן', 'אירופה', 'המזרח התיכון', 'אמריקה', 'אפריקה'],
+      pax: function (n) { return n === 1 ? 'נוסע אחד' : n + ' נוסעים'; },
+      intro: 'שלום, אני רוצה לתכנן טיול:',
+      dest: 'יעד', type: 'סוג הטיול', travellers: 'מספר נוסעים', depart: 'יציאה', ret: 'חזרה',
+      nights: 'מספר לילות', flex: 'גמישות בתאריכים'
+    }
+  }[U.lang];
   var BARS = [2, 1, 3, 1, 1, 4, 2, 1, 3, 2, 1, 1, 4, 1, 2, 3, 1, 2, 1, 4, 1, 3, 2, 1, 1, 3, 2, 4];
 
   var state = { dest: 0, type: 0, pax: 2, nights: 7, depart: '', ret: '', flex: 0 };
@@ -20,7 +37,7 @@
   } else {
     var track = $('.ticker-track');
     for (var copy = 0; copy < 2; copy++) {
-      TICKER.forEach(function (name) {
+      L.ticker.forEach(function (name) {
         track.appendChild(el('span', '', name));
         track.appendChild(el('span', 'star', '✦'));
       });
@@ -28,7 +45,7 @@
   }
   if (!CONFIG.showFloatingWhatsapp) $('.float-wa').remove();
 
-  // Static WhatsApp links (services, departures board).
+  // Static WhatsApp links (departures board).
   $$('[data-wa]').forEach(function (a) { a.href = U.waLink(a.getAttribute('data-wa')); });
 
   // Planner controls.
@@ -42,8 +59,8 @@
     });
     return box;
   }
-  var destChips = buildChips('dest', DESTS.map(function (d) { return d[0]; }));
-  var typeChips = buildChips('type', TYPES);
+  var destChips = buildChips('dest', L.dests.map(function (d) { return d[0]; }));
+  var typeChips = buildChips('type', L.types);
 
   var departInput = $('#depart'), returnInput = $('#return'), flexSelect = $('#flex');
   departInput.min = U.today();
@@ -87,10 +104,9 @@
   });
 
   function render() {
-    var d = DESTS[state.dest], t = TYPES[state.type];
-    var paxLabel = state.pax === 1 ? 'مسافر واحد' : state.pax === 2 ? 'مسافران' : state.pax + ' مسافرين';
+    var d = L.dests[state.dest], t = L.types[state.type];
     U.output({
-      code: d[1], destName: d[0], typeName: t, paxLabel: paxLabel, pax: state.pax,
+      code: d[1], destName: d[0], typeName: t, paxLabel: L.pax(state.pax), pax: state.pax,
       nights: state.nights, nightsLabel: U.nightsLabel(state.nights),
       departLabel: U.fmt(state.depart), returnLabel: U.fmt(state.ret), flexLabel: U.FLEX[state.flex]
     });
@@ -104,12 +120,16 @@
     returnInput.min = state.depart ? U.addDays(state.depart, 1) : departInput.min;
     flexSelect.value = String(state.flex);
 
-    var msg = 'مرحبا، أريد التخطيط لرحلة:\nالوجهة: ' + d[0] + '\nنوع الرحلة: ' + t +
-      '\nعدد المسافرين: ' + state.pax +
-      '\nالذهاب: ' + U.dateLine(state.depart) +
-      '\nالعودة: ' + U.dateLine(state.ret) +
-      '\nعدد الليالي: ' + state.nights +
-      '\nمرونة التاريخ: ' + (state.flex ? U.FLEX[state.flex] : 'تواريخ ثابتة');
+    var msg = [
+      L.intro,
+      L.dest + ': ' + d[0],
+      L.type + ': ' + t,
+      L.travellers + ': ' + state.pax,
+      L.depart + ': ' + U.dateLine(state.depart),
+      L.ret + ': ' + U.dateLine(state.ret),
+      L.nights + ': ' + state.nights,
+      L.flex + ': ' + U.flexLine(state.flex)
+    ].join('\n');
     var link = U.waLink(msg);
     $$('[data-wa-plan]').forEach(function (a) { a.href = link; });
 

@@ -2,15 +2,50 @@
 (function () {
   var U = window.ATT, $ = U.$, $$ = U.$$;
 
-  var MODES = { flight: 'تذكرة طيران', hotel: 'فندق', both: 'طيران + فندق' };
-  var OPTIONS = {
-    trip: ['ذهاب وعودة', 'ذهاب فقط'],
-    cabin: ['اقتصادية', 'اقتصادية مميزة', 'رجال الأعمال', 'الدرجة الأولى'],
-    bags: ['حقيبة يد فقط', 'حقيبة شحن واحدة', 'حقيبتا شحن'],
-    stars: ['٣ نجوم', '٤ نجوم', '٥ نجوم', 'فيلا / منتجع'],
-    board: ['بدون وجبات', 'إفطار', 'نصف إقامة', 'إقامة كاملة', 'شامل كليًا'],
-    prefs: ['قريب من الشاطئ', 'وسط المدينة', 'مسبح', 'مسبح خاص', 'مناسب للعائلات', 'سبا', 'إطلالة بحرية', 'غرف متصلة']
-  };
+  var L = {
+    ar: {
+      modes: { flight: 'تذكرة طيران', hotel: 'فندق', both: 'طيران + فندق' },
+      options: {
+        trip: ['ذهاب وعودة', 'ذهاب فقط'],
+        cabin: ['اقتصادية', 'اقتصادية مميزة', 'رجال الأعمال', 'الدرجة الأولى'],
+        bags: ['حقيبة يد فقط', 'حقيبة شحن واحدة', 'حقيبتا شحن'],
+        stars: ['٣ نجوم', '٤ نجوم', '٥ نجوم', 'فيلا / منتجع'],
+        board: ['بدون وجبات', 'إفطار', 'نصف إقامة', 'إقامة كاملة', 'شامل كليًا'],
+        prefs: ['قريب من الشاطئ', 'وسط المدينة', 'مسبح', 'مسبح خاص', 'مناسب للعائلات', 'سبا', 'إطلالة بحرية', 'غرف متصلة']
+      },
+      intro: 'مرحبا، أريد عرض سعر: ', subject: 'طلب عرض سعر — ',
+      name: 'الاسم', phone: 'الهاتف', email: 'البريد الإلكتروني', travellers: 'المسافرون',
+      flightHead: '— الطيران —', trip: 'نوع التذكرة', from: 'من', to: 'إلى', depart: 'الذهاب', ret: 'العودة',
+      flex: 'مرونة التاريخ', cabin: 'الدرجة', bags: 'الأمتعة', stops: 'التوقفات', directOnly: 'رحلات مباشرة فقط',
+      airline: 'شركة مفضّلة',
+      hotelHead: '— الفندق —', city: 'المدينة / المنطقة', checkin: 'الوصول', checkout: 'المغادرة', nights: 'عدد الليالي',
+      rooms: 'الغرف', stars: 'التصنيف', board: 'الوجبات', prefs: 'المميزات', budget: 'الميزانية لليلة', notes: 'ملاحظات',
+      hintLinked: 'مرتبطة بوجهة وتواريخ الطيران — عدّلها إن أردت.', hint: 'أين وكم ليلة؟ وما الذي يهمك في الفندق؟',
+      yourCity: 'مدينتك', yourDest: 'وجهتك', hotelCity: 'مدينة الإقامة', direct: ' · مباشر'
+    },
+    he: {
+      modes: { flight: 'כרטיס טיסה', hotel: 'מלון', both: 'טיסה + מלון' },
+      options: {
+        trip: ['הלוך ושוב', 'כיוון אחד'],
+        cabin: ['תיירים', 'פרימיום אקונומי', 'עסקים', 'מחלקה ראשונה'],
+        bags: ['תיק יד בלבד', 'מזוודה אחת', 'שתי מזוודות'],
+        stars: ['3 כוכבים', '4 כוכבים', '5 כוכבים', 'וילה / אתר נופש'],
+        board: ['לינה בלבד', 'ארוחת בוקר', 'חצי פנסיון', 'פנסיון מלא', 'הכל כלול'],
+        prefs: ['קרוב לחוף', 'מרכז העיר', 'בריכה', 'בריכה פרטית', 'מתאים למשפחות', 'ספא', 'נוף לים', 'חדרים מקושרים']
+      },
+      intro: 'שלום, אני רוצה הצעת מחיר: ', subject: 'בקשת הצעת מחיר — ',
+      name: 'שם', phone: 'טלפון', email: 'אימייל', travellers: 'נוסעים',
+      flightHead: '— טיסה —', trip: 'סוג כרטיס', from: 'מוצא', to: 'יעד', depart: 'יציאה', ret: 'חזרה',
+      flex: 'גמישות בתאריכים', cabin: 'מחלקה', bags: 'כבודה', stops: 'עצירות', directOnly: 'טיסות ישירות בלבד',
+      airline: 'חברה מועדפת',
+      hotelHead: '— מלון —', city: 'עיר / אזור', checkin: "צ'ק-אין", checkout: "צ'ק-אאוט", nights: 'מספר לילות',
+      rooms: 'חדרים', stars: 'דירוג', board: 'ארוחות', prefs: 'העדפות', budget: 'תקציב ללילה', notes: 'הערות',
+      hintLinked: 'מקושר ליעד ולתאריכי הטיסה — אפשר לשנות.', hint: 'איפה וכמה לילות? ומה חשוב לכם במלון?',
+      yourCity: 'העיר שלך', yourDest: 'היעד שלך', hotelCity: 'עיר הלינה', direct: ' · ישירה'
+    }
+  }[U.lang];
+  var MODES = L.modes;
+  var OPTIONS = L.options;
   var LIMITS = { adults: [1, 20], children: [0, 10], infants: [0, 5], rooms: [1, 10], nights: [1, 60] };
 
   var state = {
@@ -32,7 +67,6 @@
     if (Array.isArray(v)) return v.map(function (i) { return OPTIONS[key][i]; });
     return v < 0 ? null : OPTIONS[key][v];
   }
-  function roomsLabel(n) { return n === 1 ? 'غرفة واحدة' : n === 2 ? 'غرفتان' : n + ' غرف'; }
   function paxLabel() { return U.paxLabel(state.adults, state.children, state.infants); }
 
   // Copy the flight's destination and dates into the hotel while they are linked.
@@ -133,38 +167,38 @@
   flexSelect.addEventListener('change', function () { state.flex = +flexSelect.value; render(); });
 
   function message() {
-    var lines = ['مرحبا، أريد عرض سعر: ' + MODES[state.mode]];
+    var lines = [L.intro + MODES[state.mode]];
     function add(label, value) { if (value) lines.push(label + ': ' + value); }
-    add('الاسم', state.name);
-    add('الهاتف', state.phone);
-    add('البريد الإلكتروني', state.email);
-    add('المسافرون', paxLabel());
+    add(L.name, state.name);
+    add(L.phone, state.phone);
+    add(L.email, state.email);
+    add(L.travellers, paxLabel());
     if (has('flight')) {
-      lines.push('', '— الطيران —');
-      add('نوع التذكرة', pick('trip'));
-      add('من', state.fromCity || 'لم يحدد بعد');
-      add('إلى', state.toCity || 'لم يحدد بعد');
-      add('الذهاب', U.dateLine(state.fDepart));
-      if (state.trip === 0) add('العودة', U.dateLine(state.fReturn));
-      add('مرونة التاريخ', state.flex ? U.FLEX[state.flex] : 'تواريخ ثابتة');
-      add('الدرجة', pick('cabin'));
-      add('الأمتعة', pick('bags'));
-      if (state.direct) add('التوقفات', 'رحلات مباشرة فقط');
-      add('شركة مفضّلة', state.airline);
+      lines.push('', L.flightHead);
+      add(L.trip, pick('trip'));
+      add(L.from, state.fromCity || U.notSet);
+      add(L.to, state.toCity || U.notSet);
+      add(L.depart, U.dateLine(state.fDepart));
+      if (state.trip === 0) add(L.ret, U.dateLine(state.fReturn));
+      add(L.flex, U.flexLine(state.flex));
+      add(L.cabin, pick('cabin'));
+      add(L.bags, pick('bags'));
+      if (state.direct) add(L.stops, L.directOnly);
+      add(L.airline, state.airline);
     }
     if (has('hotel')) {
-      lines.push('', '— الفندق —');
-      add('المدينة / المنطقة', state.hotelCity || 'لم يحدد بعد');
-      add('الوصول', U.dateLine(state.checkin));
-      add('المغادرة', U.dateLine(state.checkout));
-      add('عدد الليالي', String(state.nights));
-      add('الغرف', roomsLabel(state.rooms));
-      add('التصنيف', pick('stars'));
-      add('الوجبات', pick('board'));
-      add('المميزات', pick('prefs').join('، '));
-      add('الميزانية لليلة', U.rangeLabel(state.budgetMin, state.budgetMax));
+      lines.push('', L.hotelHead);
+      add(L.city, state.hotelCity || U.notSet);
+      add(L.checkin, U.dateLine(state.checkin));
+      add(L.checkout, U.dateLine(state.checkout));
+      add(L.nights, String(state.nights));
+      add(L.rooms, U.roomsLabel(state.rooms));
+      add(L.stars, pick('stars'));
+      add(L.board, pick('board'));
+      add(L.prefs, pick('prefs').join(U.sep));
+      add(L.budget, U.rangeLabel(state.budgetMin, state.budgetMax));
     }
-    if (state.notes) lines.push('', 'ملاحظات: ' + state.notes);
+    if (state.notes) lines.push('', L.notes + ': ' + state.notes);
     return lines.join('\n');
   }
 
@@ -188,13 +222,9 @@
       n.hidden = n.getAttribute('data-show').split(' ').indexOf(state.mode) < 0;
     });
     $$('[data-roundtrip]').forEach(function (n) { n.hidden = oneWay; });
-    // Number the visible sections ٠١، ٠٢… so hidden ones leave no gaps.
-    $$('.plan-block:not([hidden]) .plan-num').forEach(function (n, i) {
-      n.textContent = '٠' + (i + 1).toLocaleString('ar-EG');
-    });
-    $('[data-hotel-hint]').textContent = state.mode === 'both' && state.hotelLinked
-      ? 'مرتبطة بوجهة وتواريخ الطيران — عدّلها إن أردت.'
-      : 'أين وكم ليلة؟ وما الذي يهمك في الفندق؟';
+    // Number the visible sections 01, 02… so hidden ones leave no gaps.
+    $$('.plan-block:not([hidden]) .plan-num').forEach(function (n, i) { n.textContent = U.num(i + 1); });
+    $('[data-hotel-hint]').textContent = state.mode === 'both' && state.hotelLinked ? L.hintLinked : L.hint;
 
     $$('[data-chips]').forEach(function (box) {
       var v = state[box.getAttribute('data-chips')];
@@ -218,20 +248,20 @@
       adults: state.adults, children: state.children, infants: state.infants, rooms: state.rooms, nights: state.nights,
       tripCode: oneWay ? 'ONE WAY' : 'ROUND TRIP',
       tripIcon: oneWay ? '✈' : '⇄',
-      fromLabel: state.fromCity || 'مدينتك',
-      toLabel: state.toCity || 'وجهتك',
+      fromLabel: state.fromCity || L.yourCity,
+      toLabel: state.toCity || L.yourDest,
       fDepartLabel: U.fmt(state.fDepart), fReturnLabel: U.fmt(state.fReturn), flexLabel: U.FLEX[state.flex],
-      paxLabel: paxLabel(), cabinLabel: pick('cabin'), bagsLabel: pick('bags') + (state.direct ? ' · مباشر' : ''),
-      hotelLabel: state.hotelCity || 'مدينة الإقامة',
+      paxLabel: paxLabel(), cabinLabel: pick('cabin'), bagsLabel: pick('bags') + (state.direct ? L.direct : ''),
+      hotelLabel: state.hotelCity || L.hotelCity,
       checkinLabel: U.fmt(state.checkin), checkoutLabel: U.fmt(state.checkout), nightsLabel: U.nightsLabel(state.nights),
-      roomsLabel: roomsLabel(state.rooms), starsLabel: pick('stars') || '—', boardLabel: pick('board') || '—',
+      roomsLabel: U.roomsLabel(state.rooms), starsLabel: pick('stars') || '—', boardLabel: pick('board') || '—',
       budgetLabel: U.rangeLabel(state.budgetMin, state.budgetMax) || '—',
       progress: pct + '%'
     });
     $('[data-meter]').style.width = pct + '%';
 
     var text = message();
-    var subject = 'طلب عرض سعر — ' + MODES[state.mode] + (state.toCity || state.hotelCity ? ' — ' + (state.toCity || state.hotelCity) : '');
+    var subject = L.subject + MODES[state.mode] + (state.toCity || state.hotelCity ? ' — ' + (state.toCity || state.hotelCity) : '');
     $$('[data-send="wa"]').forEach(function (a) { a.href = U.waLink(text); });
     $$('[data-send="mail"]').forEach(function (a) { a.href = U.mailLink(subject, text); });
   }
