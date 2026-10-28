@@ -92,8 +92,31 @@
           </div>
         </div>
         <div class="field">
-          <label class="field-label" for="month">شهر السفر</label>
-          <select id="month" class="month-select"></select>
+          <span class="field-label" id="lbl-nights">عدد الليالي</span>
+          <div class="stepper" role="group" aria-labelledby="lbl-nights">
+            <button type="button" class="inc" data-nights="1" aria-label="زيادة">+</button>
+            <output data-out="nights">7</output>
+            <button type="button" class="dec" data-nights="-1" aria-label="إنقاص">−</button>
+          </div>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label" for="depart">تاريخ الذهاب</label>
+          <input type="date" id="depart" class="pill-input">
+        </div>
+        <div class="field">
+          <label class="field-label" for="return">تاريخ العودة</label>
+          <input type="date" id="return" class="pill-input">
+        </div>
+        <div class="field">
+          <label class="field-label" for="flex">مرونة التاريخ</label>
+          <select id="flex" class="pill-input">
+            <option value="0">تواريخ ثابتة</option>
+            <option value="1">± يوم واحد</option>
+            <option value="2">± يومان</option>
+            <option value="3">± ٣ أيام</option>
+          </select>
         </div>
       </div>
     </div>
@@ -122,7 +145,10 @@
         <div class="pass-details">
           <div><span class="pass-small">نوع الرحلة</span><strong data-out="typeName">شهر عسل</strong></div>
           <div><span class="pass-small">المسافرون</span><strong data-out="paxLabel">مسافران</strong></div>
-          <div><span class="pass-small">الموعد</span><strong data-out="month">ديسمبر</strong></div>
+          <div><span class="pass-small">الليالي</span><strong data-out="nightsLabel">٧ ليالٍ</strong></div>
+          <div><span class="pass-small">الذهاب</span><strong data-out="departLabel">—</strong></div>
+          <div><span class="pass-small">العودة</span><strong data-out="returnLabel">—</strong></div>
+          <div><span class="pass-small">المرونة</span><strong data-out="flexLabel">ثابتة</strong></div>
         </div>
         <div class="pass-tear"><span></span><span></span></div>
         <div class="pass-foot">

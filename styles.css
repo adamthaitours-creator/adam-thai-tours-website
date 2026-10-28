@@ -162,10 +162,13 @@ a:hover { color: var(--teal); }
 .stepper .inc { background: var(--navy); color: var(--sand); }
 .stepper .dec { background: var(--sand-3); color: var(--navy); }
 .stepper output { min-width: 56px; text-align: center; font-family: var(--kufi); font-weight: 800; font-size: 20px; }
-.month-select {
+.pill-input {
   font-family: inherit; font-size: 16px; font-weight: 600; height: 54px; padding: 0 20px; border-radius: 999px;
-  border: 1.5px solid var(--navy); background: var(--sand); color: var(--navy); min-width: 180px;
+  border: 1.5px solid var(--navy); background: var(--sand); color: var(--navy); min-width: 170px;
+  -webkit-appearance: none; appearance: none; text-align: right;
 }
+.pill-input::-webkit-date-and-time-value { text-align: right; }
+select.pill-input { -webkit-appearance: menulist; appearance: auto; }
 
 .pass-col { gap: 16px; }
 .pass {
@@ -189,7 +192,7 @@ a:hover { color: var(--teal); }
 .pass-path .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); }
 .pass-path .line { width: clamp(30px, 6vw, 80px); border-top: 2px dotted var(--mint); }
 .pass-path .plane { font-size: 22px; }
-.pass-details { padding: 0 28px 26px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.pass-details { padding: 0 28px 26px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px 16px; }
 .pass-details > div { display: flex; flex-direction: column; gap: 4px; }
 .pass-details strong { font-weight: 600; font-size: 16px; }
 .pass-tear { position: relative; border-top: 2px dashed rgba(245, 240, 230, .3); }
@@ -333,6 +336,11 @@ a:hover { color: var(--teal); }
   .nav { grid-column: 1 / -1; grid-row: 2; flex-wrap: nowrap; overflow-x: auto; gap: 20px; font-size: 14px; white-space: nowrap; scrollbar-width: none; }
   .nav::-webkit-scrollbar { display: none; }
   .header-cta { padding: 9px 16px; font-size: 13px; }
+  .field-row { gap: 20px; }
+  .field-row .field { flex: 1 1 130px; min-width: 0; }
+  .stepper { justify-content: space-between; }
+  .stepper output { min-width: 32px; }
+  .pill-input { min-width: 0; width: 100%; padding: 0 16px; }
   .service-row { grid-template-columns: 1fr auto; row-gap: 8px; }
   .service-code { grid-column: 1 / -1; }
   .service-desc { grid-column: 1 / -1; grid-row: 3; }
