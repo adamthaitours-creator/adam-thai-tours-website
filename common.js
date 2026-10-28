@@ -1,9 +1,9 @@
 // Shared helpers for all pages: contact details, language, DOM shortcuts, dates and labels.
-// The page language comes from <html lang="ar|he">; page scripts pick their own strings with ATT.lang.
+// The page language comes from <html lang="ar|he|en">; page scripts pick their own strings with ATT.lang.
 window.ATT = (function () {
   var PHONE = '972587643159';
   var EMAIL = 'Adam.thai.tours@gmail.com';
-  var lang = document.documentElement.lang === 'he' ? 'he' : 'ar';
+  var lang = { he: 'he', en: 'en' }[document.documentElement.lang] || 'ar';
 
   var STRINGS = {
     ar: {
@@ -27,6 +27,17 @@ window.ATT = (function () {
       infants: function (n) { return n === 1 ? 'תינוק אחד' : n + ' תינוקות'; },
       rooms: function (n) { return n === 1 ? 'חדר אחד' : n + ' חדרים'; },
       from: 'החל מ-', upTo: 'עד ',
+      num: function (n) { return '0' + n; }
+    },
+    en: {
+      locale: 'en-GB', sep: ', ', notSet: 'Not set yet', fixedDates: 'Fixed dates',
+      flex: ['Fixed', '± 1 day', '± 2 days', '± 3 days'],
+      nights: function (n) { return n === 1 ? '1 night' : n + ' nights'; },
+      adults: function (n) { return n === 1 ? '1 adult' : n + ' adults'; },
+      children: function (n) { return n === 1 ? '1 child' : n + ' children'; },
+      infants: function (n) { return n === 1 ? '1 infant' : n + ' infants'; },
+      rooms: function (n) { return n === 1 ? '1 room' : n + ' rooms'; },
+      from: 'From ', upTo: 'Up to ',
       num: function (n) { return '0' + n; }
     }
   };
@@ -80,6 +91,11 @@ window.ATT = (function () {
   function mailLink(subject, text) {
     return 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text);
   }
+  // Close the language menu when tapping anywhere else.
+  document.addEventListener('click', function (e) {
+    $$('.lang-menu[open]').forEach(function (m) { if (!m.contains(e.target)) m.removeAttribute('open'); });
+  });
+
   // Fill every [data-out="key"] element with out[key].
   function output(out) {
     Object.keys(out).forEach(function (k) {

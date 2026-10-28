@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flights &amp; hotels | Adam Thai Tours</title>
+<meta name="description" content="Request a quote for flights, hotels or both from Adam Thai Tours — we find the best options for you, with no obligation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="alternate" hreflang="ar" href="https://adam-thai-tours.com/flights-hotels.html">
+<link rel="alternate" hreflang="he" href="https://adam-thai-tours.com/he/flights-hotels.html">
+<link rel="alternate" hreflang="en" href="https://adam-thai-tours.com/en/flights-hotels.html">
+<link rel="stylesheet" href="../styles.css">
+<script src="../common.js" defer></script>
+<script src="../flights-hotels.js" defer></script>
+</head>
+<body>
+<div class="page">
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">A</div>
+      <div class="brand-text">
+        <span class="brand-name">Adam Thai Tours</span>
+        <span class="brand-latin">TRAVEL AGENCY</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html#services">Services</a>
+      <a href="flights-hotels.html" aria-current="page">Flights &amp; hotels</a>
+      <a href="index.html#asia">East Asia</a>
+      <a href="index.html#board">Destinations</a>
+      <a href="index.html#how">How it works</a>
+    </nav>
+    <div class="header-actions">
+      <details class="lang-menu">
+        <summary>EN</summary>
+        <div class="lang-list">
+          <a href="../flights-hotels.html" lang="ar" hreflang="ar">العربية <span>AR</span></a>
+          <a href="../he/flights-hotels.html" lang="he" hreflang="he">עברית <span>HE</span></a>
+          <a href="flights-hotels.html" lang="en" hreflang="en" aria-current="true">English <span>EN</span></a>
+        </div>
+      </details>
+      <a href="plan.html" class="btn btn-dark header-cta">Plan <span class="hide-sm">your </span>trip →</a>
+    </div>
+  </div>
+</header>
+
+<section class="plan-hero wrap">
+  <div class="hero-meta">
+    <span class="services-line">Free quote · No obligation · Reply within hours</span>
+    <span>FLIGHTS &amp; HOTELS — QUOTE</span>
+  </div>
+  <div class="plan-hero-grid">
+    <h1>Flights &amp; hotels.<br><span class="accent">We search, you choose.</span></h1>
+    <p class="hero-lead">Send us the details of your flight or stay and we'll come back with the best available options and prices — with stopovers, baggage and cancellation terms made clear before you decide anything.</p>
+  </div>
+  <div class="mode-tabs" role="tablist" aria-label="Request type">
+    <button type="button" role="tab" data-mode="flight"><span class="mono">FLT</span>Flight</button>
+    <button type="button" role="tab" data-mode="hotel"><span class="mono">HTL</span>Hotel</button>
+    <button type="button" role="tab" data-mode="both"><span class="mono">FLT + HTL</span>Flight + hotel</button>
+  </div>
+</section>
+
+<section class="section wrap plan-body">
+  <form class="plan-form" novalidate>
+
+    <fieldset class="plan-block" data-show="flight both">
+      <legend class="plan-block-head">
+        <span class="plan-num"></span>
+        <span class="plan-title">Your flight</span>
+        <span class="plan-hint">Type a city or airport — we'll find the best routes.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="chips" role="group" aria-label="Ticket type" data-chips="trip"></div>
+        <div class="route-fields">
+          <div class="field">
+            <label class="field-label" for="fromCity">From</label>
+            <input type="text" id="fromCity" class="text-input" placeholder="City or airport">
+          </div>
+          <button type="button" class="swap-btn" data-swap aria-label="Swap origin and destination">⇄</button>
+          <div class="field">
+            <label class="field-label" for="toCity">To</label>
+            <input type="text" id="toCity" class="text-input" placeholder="e.g. Bangkok, Phuket…">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="fDepart">Departure date</label>
+            <input type="date" id="fDepart" class="pill-input">
+          </div>
+          <div class="field" data-roundtrip>
+            <label class="field-label" for="fReturn">Return date</label>
+            <input type="date" id="fReturn" class="pill-input">
+          </div>
+          <div class="field">
+            <label class="field-label" for="flex">Date flexibility</label>
+            <select id="flex" class="pill-input">
+              <option value="0">Fixed dates</option>
+              <option value="1">± 1 day</option>
+              <option value="2">± 2 days</option>
+              <option value="3">± 3 days</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <span class="field-label">Cabin</span>
+          <div class="chips" role="group" aria-label="Cabin" data-chips="cabin"></div>
+        </div>
+        <div class="field">
+          <span class="field-label">Baggage per traveller</span>
+          <div class="chips" role="group" aria-label="Baggage" data-chips="bags"></div>
+        </div>
+        <div class="field-row wide">
+          <div class="field">
+            <span class="field-label">Stops</span>
+            <div class="chips">
+              <button type="button" class="chip" data-toggle="direct">Direct flights only</button>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="airline">Preferred airline (optional)</label>
+            <input type="text" id="airline" class="text-input" placeholder="e.g. Etihad, Turkish…">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" data-show="hotel both">
+      <legend class="plan-block-head">
+        <span class="plan-num"></span>
+        <span class="plan-title">Your stay</span>
+        <span class="plan-hint" data-hotel-hint>Where, and for how many nights? What matters to you in a hotel?</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field">
+          <label class="field-label" for="hotelCity">City or area</label>
+          <input type="text" id="hotelCity" class="text-input" placeholder="e.g. Patong – Phuket, central Bangkok…">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="checkin">Check-in</label>
+            <input type="date" id="checkin" class="pill-input">
+          </div>
+          <div class="field">
+            <label class="field-label" for="checkout">Check-out</label>
+            <input type="date" id="checkout" class="pill-input">
+          </div>
+          <div class="field">
+            <span class="field-label" id="lbl-nights">Nights</span>
+            <div class="stepper" role="group" aria-labelledby="lbl-nights">
+              <button type="button" class="inc" data-step="nights:1" aria-label="Add">+</button>
+              <output data-out="nights">5</output>
+              <button type="button" class="dec" data-step="nights:-1" aria-label="Remove">−</button>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <span class="field-label">Hotel rating</span>
+          <div class="chips" role="group" aria-label="Hotel rating" data-chips="stars"></div>
+        </div>
+        <div class="field">
+          <span class="field-label">Meals</span>
+          <div class="chips" role="group" aria-label="Meals" data-chips="board"></div>
+        </div>
+        <div class="field">
+          <span class="field-label">What matters to you? <small>(pick any)</small></span>
+          <div class="chips" role="group" aria-label="Hotel preferences" data-chips="prefs" data-multi></div>
+        </div>
+        <div class="field">
+          <span class="field-label" id="lbl-budget">Budget per night <small>(USD, per room)</small></span>
+          <div class="budget-row" role="group" aria-labelledby="lbl-budget">
+            <label class="money-input">
+              <span>From</span>
+              <span class="mono">$</span>
+              <input type="number" id="budgetMin" inputmode="numeric" min="0" step="10" placeholder="80">
+            </label>
+            <span class="budget-dash" aria-hidden="true">—</span>
+            <label class="money-input">
+              <span>To</span>
+              <span class="mono">$</span>
+              <input type="number" id="budgetMax" inputmode="numeric" min="0" step="10" placeholder="200">
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" data-show="flight hotel both">
+      <legend class="plan-block-head">
+        <span class="plan-num"></span>
+        <span class="plan-title">Travellers</span>
+        <span class="plan-hint">Children's ages affect fares and how rooms are split.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field-row">
+          <div class="field">
+            <span class="field-label" id="lbl-adults">Adults</span>
+            <div class="stepper" role="group" aria-labelledby="lbl-adults">
+              <button type="button" class="inc" data-step="adults:1" aria-label="Add">+</button>
+              <output data-out="adults">2</output>
+              <button type="button" class="dec" data-step="adults:-1" aria-label="Remove">−</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="field-label" id="lbl-children">Children <small>(2–11)</small></span>
+            <div class="stepper" role="group" aria-labelledby="lbl-children">
+              <button type="button" class="inc" data-step="children:1" aria-label="Add">+</button>
+              <output data-out="children">0</output>
+              <button type="button" class="dec" data-step="children:-1" aria-label="Remove">−</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="field-label" id="lbl-infants">Infants <small>(under 2)</small></span>
+            <div class="stepper" role="group" aria-labelledby="lbl-infants">
+              <button type="button" class="inc" data-step="infants:1" aria-label="Add">+</button>
+              <output data-out="infants">0</output>
+              <button type="button" class="dec" data-step="infants:-1" aria-label="Remove">−</button>
+            </div>
+          </div>
+          <div class="field" data-show="hotel both">
+            <span class="field-label" id="lbl-rooms">Rooms</span>
+            <div class="stepper" role="group" aria-labelledby="lbl-rooms">
+              <button type="button" class="inc" data-step="rooms:1" aria-label="Add">+</button>
+              <output data-out="rooms">1</output>
+              <button type="button" class="dec" data-step="rooms:-1" aria-label="Remove">−</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" data-show="flight hotel both">
+      <legend class="plan-block-head">
+        <span class="plan-num"></span>
+        <span class="plan-title">How can we reach you?</span>
+        <span class="plan-hint">We'll send options and prices on WhatsApp or by email.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field">
+          <label class="field-label" for="name">Name</label>
+          <input type="text" id="name" class="text-input" autocomplete="name" placeholder="Your name">
+        </div>
+        <div class="field-row wide">
+          <div class="field">
+            <label class="field-label" for="phone">Phone / WhatsApp</label>
+            <input type="tel" id="phone" class="text-input" autocomplete="tel" inputmode="tel" placeholder="+972 5X XXX XXXX">
+          </div>
+          <div class="field">
+            <label class="field-label" for="email">Email</label>
+            <input type="email" id="email" class="text-input" autocomplete="email" inputmode="email" placeholder="name@example.com">
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label" for="notes">Notes</label>
+          <textarea id="notes" class="text-input text-area" rows="3" placeholder="Children's ages, wheelchair assistance, extra bed, a specific hotel…"></textarea>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+  <aside class="plan-summary" aria-label="Request summary">
+    <div class="pass" data-show="flight both">
+      <div class="pass-head">
+        <span class="kufi">Flight ticket · Adam Thai Tours</span>
+        <span class="mono" data-out="tripCode">ROUND TRIP</span>
+      </div>
+      <div class="pass-route">
+        <div class="pass-end">
+          <span class="pass-small">From</span>
+          <span class="pass-place" data-out="fromLabel">Your city</span>
+        </div>
+        <div class="pass-path" aria-hidden="true">
+          <span class="dot"></span><span class="line"></span><span class="plane" data-out="tripIcon">⇄</span>
+        </div>
+        <div class="pass-end to">
+          <span class="pass-small">To</span>
+          <span class="pass-place accent" data-out="toLabel">Destination</span>
+        </div>
+      </div>
+      <div class="pass-details">
+        <div><span class="pass-small">Departure</span><strong data-out="fDepartLabel">—</strong></div>
+        <div data-roundtrip><span class="pass-small">Return</span><strong data-out="fReturnLabel">—</strong></div>
+        <div><span class="pass-small">Flexibility</span><strong data-out="flexLabel">Fixed</strong></div>
+        <div><span class="pass-small">Travellers</span><strong data-out="paxLabel">2 adults</strong></div>
+        <div><span class="pass-small">Cabin</span><strong data-out="cabinLabel">Economy</strong></div>
+        <div><span class="pass-small">Baggage</span><strong data-out="bagsLabel">—</strong></div>
+      </div>
+    </div>
+
+    <div class="voucher" data-show="hotel both">
+      <div class="voucher-head">
+        <span class="kufi">Hotel voucher · Adam Thai Tours</span>
+        <span class="mono">HOTEL</span>
+      </div>
+      <div class="voucher-city" data-out="hotelLabel">Hotel city</div>
+      <div class="voucher-dates">
+        <div><span class="pass-small">Check-in</span><strong data-out="checkinLabel">—</strong></div>
+        <div class="voucher-nights"><strong data-out="nightsLabel">5 nights</strong></div>
+        <div><span class="pass-small">Check-out</span><strong data-out="checkoutLabel">—</strong></div>
+      </div>
+      <div class="voucher-details">
+        <div><span class="pass-small">Rooms</span><strong data-out="roomsLabel">1 room</strong></div>
+        <div><span class="pass-small">Guests</span><strong data-out="paxLabel">2 adults</strong></div>
+        <div><span class="pass-small">Rating</span><strong data-out="starsLabel">—</strong></div>
+        <div><span class="pass-small">Meals</span><strong data-out="boardLabel">—</strong></div>
+        <div class="span-2"><span class="pass-small">Budget / night</span><strong data-out="budgetLabel">—</strong></div>
+      </div>
+    </div>
+
+    <div class="send-card">
+      <div class="pass-progress">
+        <div class="pass-progress-top">
+          <span>Request complete</span>
+          <span class="mono" data-out="progress">0%</span>
+        </div>
+        <div class="meter"><span data-meter></span></div>
+      </div>
+      <div class="pass-foot">
+        <a href="#" class="pass-send" data-send="wa" target="_blank" rel="noopener">Request a quote on WhatsApp</a>
+        <a href="#" class="pass-mail" data-send="mail">or by email</a>
+      </div>
+    </div>
+    <span class="pass-note">Quotes are free and don't commit you to booking. Prices depend on availability.</span>
+  </aside>
+</section>
+
+<footer class="site-footer wrap">
+  <span>© 2026 Adam Thai Tours</span>
+  <span>Trips worldwide · Specialists in East Asia</span>
+</footer>
+
+<a href="#" class="float-wa" data-send="wa" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan your trip | Adam Thai Tours</title>
+<meta name="description" content="Plan your trip with Adam Thai Tours: destination, travellers, dates, travel style and services — and we'll send you the options that fit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="alternate" hreflang="ar" href="https://adam-thai-tours.com/plan.html">
+<link rel="alternate" hreflang="he" href="https://adam-thai-tours.com/he/plan.html">
+<link rel="alternate" hreflang="en" href="https://adam-thai-tours.com/en/plan.html">
+<link rel="stylesheet" href="../styles.css">
+<script src="../common.js" defer></script>
+<script src="../plan.js" defer></script>
+</head>
+<body>
+<div class="page">
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">A</div>
+      <div class="brand-text">
+        <span class="brand-name">Adam Thai Tours</span>
+        <span class="brand-latin">TRAVEL AGENCY</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html#services">Services</a>
+      <a href="flights-hotels.html">Flights &amp; hotels</a>
+      <a href="index.html#asia">East Asia</a>
+      <a href="index.html#board">Destinations</a>
+      <a href="index.html#how">How it works</a>
+    </nav>
+    <div class="header-actions">
+      <details class="lang-menu">
+        <summary>EN</summary>
+        <div class="lang-list">
+          <a href="../plan.html" lang="ar" hreflang="ar">العربية <span>AR</span></a>
+          <a href="../he/plan.html" lang="he" hreflang="he">עברית <span>HE</span></a>
+          <a href="plan.html" lang="en" hreflang="en" aria-current="true">English <span>EN</span></a>
+        </div>
+      </details>
+      <a href="plan.html" class="btn btn-dark header-cta" aria-current="page">Plan <span class="hide-sm">your </span>trip →</a>
+    </div>
+  </div>
+</header>
+
+<section class="plan-hero wrap">
+  <div class="hero-meta">
+    <span class="services-line">Full trip planner · 5 steps · 2 minutes</span>
+    <span>TRIP REQUEST — FORM 01</span>
+  </div>
+  <div class="plan-hero-grid">
+    <h1>Plan your trip,<br><span class="accent">made to measure.</span></h1>
+    <p class="hero-lead">The more you tell us, the sharper the options we send back. Fill in only what you know — we'll decide the rest together.</p>
+  </div>
+  <ol class="plan-steps" aria-label="Form steps">
+    <li><a href="#s-dest"><span>01</span>Destination</a></li>
+    <li><a href="#s-pax"><span>02</span>Travellers</a></li>
+    <li><a href="#s-dates"><span>03</span>Dates</a></li>
+    <li><a href="#s-style"><span>04</span>Travel style</a></li>
+    <li><a href="#s-contact"><span>05</span>Contact</a></li>
+  </ol>
+</section>
+
+<section class="section wrap plan-body">
+  <form class="plan-form" id="plan-form" novalidate>
+
+    <fieldset class="plan-block" id="s-dest">
+      <legend class="plan-block-head">
+        <span class="plan-num">01</span>
+        <span class="plan-title">Where to?</span>
+        <span class="plan-hint">Pick one destination or more — you can combine two countries in one trip.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="chips" role="group" aria-label="Destinations" data-chips="dests" data-multi></div>
+        <div class="field">
+          <label class="field-label" for="cities">Cities or places you'd like to see (optional)</label>
+          <input type="text" id="cities" class="text-input" placeholder="e.g. Phuket, Krabi, Hanoi…">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" id="s-pax">
+      <legend class="plan-block-head">
+        <span class="plan-num">02</span>
+        <span class="plan-title">Who's travelling?</span>
+        <span class="plan-hint">We match rooms and transfers to your group.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field-row">
+          <div class="field">
+            <span class="field-label" id="lbl-adults">Adults</span>
+            <div class="stepper" role="group" aria-labelledby="lbl-adults">
+              <button type="button" class="inc" data-step="adults:1" aria-label="Add">+</button>
+              <output data-out="adults">2</output>
+              <button type="button" class="dec" data-step="adults:-1" aria-label="Remove">−</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="field-label" id="lbl-children">Children <small>(2–11)</small></span>
+            <div class="stepper" role="group" aria-labelledby="lbl-children">
+              <button type="button" class="inc" data-step="children:1" aria-label="Add">+</button>
+              <output data-out="children">0</output>
+              <button type="button" class="dec" data-step="children:-1" aria-label="Remove">−</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="field-label" id="lbl-infants">Infants <small>(under 2)</small></span>
+            <div class="stepper" role="group" aria-labelledby="lbl-infants">
+              <button type="button" class="inc" data-step="infants:1" aria-label="Add">+</button>
+              <output data-out="infants">0</output>
+              <button type="button" class="dec" data-step="infants:-1" aria-label="Remove">−</button>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <span class="field-label">Trip type</span>
+          <div class="chips" role="group" aria-label="Trip type" data-chips="type"></div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" id="s-dates">
+      <legend class="plan-block-head">
+        <span class="plan-num">03</span>
+        <span class="plan-title">When?</span>
+        <span class="plan-hint">Flexible dates usually mean better prices.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="depart">Departure date</label>
+            <input type="date" id="depart" class="pill-input">
+          </div>
+          <div class="field">
+            <label class="field-label" for="return">Return date</label>
+            <input type="date" id="return" class="pill-input">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <span class="field-label" id="lbl-nights">Nights</span>
+            <div class="stepper" role="group" aria-labelledby="lbl-nights">
+              <button type="button" class="inc" data-step="nights:1" aria-label="Add">+</button>
+              <output data-out="nights">7</output>
+              <button type="button" class="dec" data-step="nights:-1" aria-label="Remove">−</button>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="flex">Date flexibility</label>
+            <select id="flex" class="pill-input">
+              <option value="0">Fixed dates</option>
+              <option value="1">± 1 day</option>
+              <option value="2">± 2 days</option>
+              <option value="3">± 3 days</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" id="s-style">
+      <legend class="plan-block-head">
+        <span class="plan-num">04</span>
+        <span class="plan-title">How do you like to travel?</span>
+        <span class="plan-hint">Rough budget per person, including flights and accommodation.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field">
+          <span class="field-label">Accommodation</span>
+          <div class="chips" role="group" aria-label="Accommodation" data-chips="stay"></div>
+        </div>
+        <div class="field">
+          <span class="field-label" id="lbl-budget">Budget per person <small>(USD)</small></span>
+          <div class="budget-row" role="group" aria-labelledby="lbl-budget">
+            <label class="money-input">
+              <span>From</span>
+              <span class="mono">$</span>
+              <input type="number" id="budgetMin" inputmode="numeric" min="0" step="100" placeholder="1000">
+            </label>
+            <span class="budget-dash" aria-hidden="true">—</span>
+            <label class="money-input">
+              <span>To</span>
+              <span class="mono">$</span>
+              <input type="number" id="budgetMax" inputmode="numeric" min="0" step="100" placeholder="2500">
+            </label>
+          </div>
+        </div>
+        <div class="field">
+          <span class="field-label">What matters to you? <small>(pick any)</small></span>
+          <div class="chips" role="group" aria-label="Interests" data-chips="interests" data-multi></div>
+        </div>
+        <div class="field">
+          <span class="field-label">What should we arrange?</span>
+          <div class="chips" role="group" aria-label="Services" data-chips="services" data-multi></div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" id="s-contact">
+      <legend class="plan-block-head">
+        <span class="plan-num">05</span>
+        <span class="plan-title">How can we reach you?</span>
+        <span class="plan-hint">We usually reply on WhatsApp within a few hours.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="name">Name</label>
+            <input type="text" id="name" class="text-input" autocomplete="name" placeholder="Your name">
+          </div>
+          <div class="field">
+            <label class="field-label" for="from">Departing from</label>
+            <input type="text" id="from" class="text-input" placeholder="e.g. Tel Aviv, Amman, London…">
+          </div>
+        </div>
+        <div class="field-row wide">
+          <div class="field">
+            <label class="field-label" for="phone">Phone / WhatsApp</label>
+            <input type="tel" id="phone" class="text-input" autocomplete="tel" inputmode="tel" placeholder="+972 5X XXX XXXX">
+          </div>
+          <div class="field">
+            <label class="field-label" for="email">Email</label>
+            <input type="email" id="email" class="text-input" autocomplete="email" inputmode="email" placeholder="name@example.com">
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label" for="notes">Notes</label>
+          <textarea id="notes" class="text-input text-area" rows="4" placeholder="A special occasion, particular needs, a hotel you've seen and liked…"></textarea>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+  <aside class="plan-summary" aria-label="Request summary">
+    <div class="pass">
+      <div class="pass-head">
+        <span class="kufi">Trip request · Adam Thai Tours</span>
+        <span class="mono">TRIP REQUEST</span>
+      </div>
+      <div class="pass-route">
+        <div class="pass-end">
+          <span class="pass-small">From</span>
+          <span class="pass-code">YOU</span>
+          <span class="pass-city" data-out="fromName">Your city</span>
+        </div>
+        <div class="pass-path" aria-hidden="true">
+          <span class="dot"></span><span class="line"></span><span class="plane">✈</span>
+        </div>
+        <div class="pass-end to">
+          <span class="pass-small">To</span>
+          <span class="pass-code" data-out="toCode">???</span>
+          <span class="pass-city" data-out="toName">Pick a destination</span>
+        </div>
+      </div>
+      <div class="pass-details">
+        <div><span class="pass-small">Travellers</span><strong data-out="paxLabel">2 adults</strong></div>
+        <div><span class="pass-small">Trip type</span><strong data-out="typeLabel">—</strong></div>
+        <div><span class="pass-small">Nights</span><strong data-out="nightsLabel">7 nights</strong></div>
+        <div><span class="pass-small">Departure</span><strong data-out="departLabel">—</strong></div>
+        <div><span class="pass-small">Return</span><strong data-out="returnLabel">—</strong></div>
+        <div><span class="pass-small">Flexibility</span><strong data-out="flexLabel">Fixed</strong></div>
+        <div><span class="pass-small">Stay</span><strong data-out="stayLabel">—</strong></div>
+        <div><span class="pass-small">Budget</span><strong data-out="budgetLabel">—</strong></div>
+        <div><span class="pass-small">Services</span><strong data-out="servicesLabel">—</strong></div>
+      </div>
+      <div class="pass-tear"><span></span><span></span></div>
+      <div class="pass-progress">
+        <div class="pass-progress-top">
+          <span>Request complete</span>
+          <span class="mono" data-out="progress">0%</span>
+        </div>
+        <div class="meter"><span data-meter></span></div>
+      </div>
+      <div class="pass-foot">
+        <a href="#" class="pass-send" data-send="wa" target="_blank" rel="noopener">Send request on WhatsApp</a>
+        <a href="#" class="pass-mail" data-send="mail">or by email</a>
+      </div>
+    </div>
+    <span class="pass-note">No booking or payment now — we review your request and send you options first.</span>
+  </aside>
+</section>
+
+<footer class="site-footer wrap">
+  <span>© 2026 Adam Thai Tours</span>
+  <span>Trips worldwide · Specialists in East Asia</span>
+</footer>
+
+<a href="#" class="float-wa" data-send="wa" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+</body>
+</html>

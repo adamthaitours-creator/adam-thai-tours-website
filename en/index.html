@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adam Thai Tours | Flights, hotels &amp; tailor-made trips</title>
+<meta name="description" content="Flights, hotels, holiday packages and group tours worldwide — with specialist knowledge of Thailand, Vietnam and East Asia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="alternate" hreflang="ar" href="https://adam-thai-tours.com/">
+<link rel="alternate" hreflang="he" href="https://adam-thai-tours.com/he/">
+<link rel="alternate" hreflang="en" href="https://adam-thai-tours.com/en/">
+<link rel="stylesheet" href="../styles.css">
+<script src="../common.js" defer></script>
+<script src="../main.js" defer></script>
+</head>
+<body>
+<div class="page">
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <div class="brand-mark">A</div>
+      <div class="brand-text">
+        <span class="brand-name">Adam Thai Tours</span>
+        <span class="brand-latin">TRAVEL AGENCY</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="flights-hotels.html">Flights &amp; hotels</a>
+      <a href="#asia">East Asia</a>
+      <a href="#board">Destinations</a>
+      <a href="#how">How it works</a>
+    </nav>
+    <div class="header-actions">
+      <details class="lang-menu">
+        <summary>EN</summary>
+        <div class="lang-list">
+          <a href="../index.html" lang="ar" hreflang="ar">العربية <span>AR</span></a>
+          <a href="../he/index.html" lang="he" hreflang="he">עברית <span>HE</span></a>
+          <a href="index.html" lang="en" hreflang="en" aria-current="true">English <span>EN</span></a>
+        </div>
+      </details>
+      <a href="plan.html" class="btn btn-dark header-cta">Plan <span class="hide-sm">your </span>trip →</a>
+    </div>
+  </div>
+</header>
+
+<section id="top" class="hero wrap">
+  <div class="hero-meta">
+    <span class="services-line">Flights · Hotels · Packages · Group tours</span>
+    <span>13.7563° N, 100.5018° E — BANGKOK</span>
+  </div>
+  <div class="hero-grid">
+    <div class="hero-copy stack">
+      <h1>The world is waiting.<br><span class="accent">We'll</span> sort the journey.</h1>
+      <p class="hero-lead">From a flight and a hotel to a complete package or a group tour — we build your trip around your time and budget, with specialist knowledge of Thailand, Vietnam and East Asia.</p>
+      <div class="hero-actions">
+        <a href="#plan" class="btn btn-dark">Design your trip now</a>
+        <a href="flights-hotels.html" class="btn btn-outline">Get a flight or hotel quote</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="hero-arch">
+        <img src="https://adam.adam-thai-tours.chatgpt.site/thai-white-beach.webp" alt="A beach in Thailand">
+      </div>
+      <div class="hero-overlay">
+        <div class="hero-tag">
+          <span class="mono">KRABI · TH</span>
+          <span class="kufi">Sea and island days</span>
+        </div>
+        <div class="hero-seal">East Asia<br>specialists</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track"></div>
+</div>
+
+<section id="plan" class="section wrap">
+  <div class="planner-grid">
+    <div class="planner-form stack">
+      <div class="planner-intro stack">
+        <span class="eyebrow">01 — Trip planner</span>
+        <h2 class="h2">Your dream ticket in 30 seconds.</h2>
+        <p class="lead">Choose a destination, trip type and number of travellers — your request comes straight to us on WhatsApp so we can start putting options together.</p>
+      </div>
+      <div class="field">
+        <span class="field-label" id="lbl-dest">Destination</span>
+        <div class="chips" role="group" aria-labelledby="lbl-dest" data-chips="dest"></div>
+      </div>
+      <div class="field">
+        <span class="field-label" id="lbl-type">Trip type</span>
+        <div class="chips" role="group" aria-labelledby="lbl-type" data-chips="type"></div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <span class="field-label" id="lbl-pax">Travellers</span>
+          <div class="stepper" role="group" aria-labelledby="lbl-pax">
+            <button type="button" class="inc" data-pax="1" aria-label="Add">+</button>
+            <output data-out="pax">2</output>
+            <button type="button" class="dec" data-pax="-1" aria-label="Remove">−</button>
+          </div>
+        </div>
+        <div class="field">
+          <span class="field-label" id="lbl-nights">Nights</span>
+          <div class="stepper" role="group" aria-labelledby="lbl-nights">
+            <button type="button" class="inc" data-nights="1" aria-label="Add">+</button>
+            <output data-out="nights">7</output>
+            <button type="button" class="dec" data-nights="-1" aria-label="Remove">−</button>
+          </div>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label" for="depart">Departure date</label>
+          <input type="date" id="depart" class="pill-input">
+        </div>
+        <div class="field">
+          <label class="field-label" for="return">Return date</label>
+          <input type="date" id="return" class="pill-input">
+        </div>
+        <div class="field">
+          <label class="field-label" for="flex">Date flexibility</label>
+          <select id="flex" class="pill-input">
+            <option value="0">Fixed dates</option>
+            <option value="1">± 1 day</option>
+            <option value="2">± 2 days</option>
+            <option value="3">± 3 days</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="pass-col stack">
+      <div class="pass">
+        <div class="pass-head">
+          <span class="kufi">Boarding pass · Adam Thai Tours</span>
+          <span class="mono">BOARDING PASS</span>
+        </div>
+        <div class="pass-route">
+          <div class="pass-end">
+            <span class="pass-small">From</span>
+            <span class="pass-code">YOU</span>
+            <span class="pass-city">Your city</span>
+          </div>
+          <div class="pass-path" aria-hidden="true">
+            <span class="dot"></span><span class="line"></span><span class="plane">✈</span>
+          </div>
+          <div class="pass-end to">
+            <span class="pass-small">To</span>
+            <span class="pass-code" data-out="code">BKK</span>
+            <span class="pass-city" data-out="destName">Thailand</span>
+          </div>
+        </div>
+        <div class="pass-details">
+          <div><span class="pass-small">Trip type</span><strong data-out="typeName">Honeymoon</strong></div>
+          <div><span class="pass-small">Travellers</span><strong data-out="paxLabel">2 travellers</strong></div>
+          <div><span class="pass-small">Nights</span><strong data-out="nightsLabel">7 nights</strong></div>
+          <div><span class="pass-small">Departure</span><strong data-out="departLabel">—</strong></div>
+          <div><span class="pass-small">Return</span><strong data-out="returnLabel">—</strong></div>
+          <div><span class="pass-small">Flexibility</span><strong data-out="flexLabel">Fixed</strong></div>
+        </div>
+        <div class="pass-tear"><span></span><span></span></div>
+        <div class="pass-foot">
+          <div class="barcode" aria-hidden="true"></div>
+          <a href="#" class="pass-send" data-wa-plan target="_blank" rel="noopener">Send request on WhatsApp</a>
+        </div>
+      </div>
+      <span class="pass-note">No booking or payment now — we'll get in touch first to talk through the options.</span>
+      <a href="plan.html" class="pass-more" data-plan-link>Want to add more detail? Continue in the full planner →</a>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="section wrap">
+    <div class="section-head">
+      <div class="stack">
+        <span class="eyebrow">02 — Every travel detail in one place</span>
+        <h2 class="h2">Choose how you want to travel</h2>
+      </div>
+      <p class="lead">A quick getaway, a family holiday, a honeymoon or a trip packed with experiences — we start from what you need and build the options around it.</p>
+    </div>
+    <div class="service-list">
+      <a class="service-row" href="flights-hotels.html?tab=flight">
+        <span class="service-code">01 / FLIGHTS</span>
+        <span class="service-title">Flights</span>
+        <span class="service-desc">Flights that fit your dates and route, with stopovers and baggage made clear before you decide.</span>
+        <span class="service-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="service-row" href="flights-hotels.html?tab=hotel">
+        <span class="service-code">02 / HOTELS</span>
+        <span class="service-title">Hotels &amp; stays</span>
+        <span class="service-desc">The right location and standard for your kind of trip, from big cities to the beach.</span>
+        <span class="service-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="service-row" href="plan.html">
+        <span class="service-code">03 / PACKAGES</span>
+        <span class="service-title">Holiday packages</span>
+        <span class="service-desc">Flights, stays and experiences in one clear itinerary — tailored to you.</span>
+        <span class="service-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="service-row" href="plan.html?type=Group%20tour">
+        <span class="service-code">04 / GROUPS</span>
+        <span class="service-title">Group tours</span>
+        <span class="service-desc">Group itineraries for travellers who like a ready-made plan with every detail arranged in advance.</span>
+        <span class="service-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="asia" class="section wrap">
+  <div class="asia-grid">
+    <div class="asia-copy stack">
+      <div class="stack">
+        <span class="eyebrow">03 — Our speciality</span>
+        <h2 class="h2">East Asia,<br>your way.</h2>
+        <p class="lead">Thailand and Vietnam are at the heart of what we know. We'll help you choose cities, arrange transfers, and balance lazy days with the experiences that matter to you.</p>
+      </div>
+      <div class="chips">
+        <span class="pill">Thailand</span>
+        <span class="pill">Vietnam</span>
+        <span class="pill">Honeymoons</span>
+        <span class="pill">Family trips</span>
+        <span class="pill">Multi-city itineraries</span>
+      </div>
+      <a href="#plan" class="btn btn-dark asia-cta">Design your Asia trip</a>
+    </div>
+    <figure class="photo">
+      <img src="https://adam.adam-thai-tours.chatgpt.site/thai-white-beach.webp" alt="Thailand" loading="lazy">
+      <figcaption>
+        <span class="mono">TH · BKK / HKT / KBV</span>
+        <span class="kufi">Thailand</span>
+        <span class="sub">Sea and island days</span>
+      </figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="https://adam.adam-thai-tours.chatgpt.site/vietnam-white-beach.webp" alt="Vietnam" loading="lazy">
+      <figcaption>
+        <span class="mono">VN · SGN / DAD / HAN</span>
+        <span class="kufi">Vietnam</span>
+        <span class="sub">Calm on the tropical coast</span>
+      </figcaption>
+    </figure>
+  </div>
+  <p class="disclaimer">Photos are for inspiration and do not show a specific hotel or activity.</p>
+</section>
+
+<section id="board" class="board">
+  <div class="section wrap">
+    <div class="section-head">
+      <div class="stack">
+        <span class="eyebrow">04 — Departures board</span>
+        <h2 class="h2">Your destination has no limits.</h2>
+      </div>
+      <div class="live">
+        <span class="dot"></span>
+        <span>Trips worldwide, planned around the season</span>
+      </div>
+    </div>
+    <div class="board-table">
+      <div class="board-row head">
+        <span>Code</span><span>Destination</span><span>The experience</span><span>Status</span>
+      </div>
+      <a class="board-row" data-wa="Hi, I'm interested in a trip to East Asia" target="_blank" rel="noopener">
+        <span class="board-code">BKK</span>
+        <span class="board-name">East Asia</span>
+        <span class="board-desc">Thailand, Vietnam and more across the region</span>
+        <span class="badge hot">Our speciality</span>
+      </a>
+      <a class="board-row" data-wa="Hi, I'm interested in a trip to Europe" target="_blank" rel="noopener">
+        <span class="board-code">CDG</span>
+        <span class="board-name">Europe</span>
+        <span class="board-desc">City breaks, nature and group tours</span>
+        <span class="badge">Available</span>
+      </a>
+      <a class="board-row" data-wa="Hi, I'm interested in a trip to the Middle East" target="_blank" rel="noopener">
+        <span class="board-code">DXB</span>
+        <span class="board-name">Middle East</span>
+        <span class="board-desc">Short breaks, family experiences and vibrant cities</span>
+        <span class="badge">Available</span>
+      </a>
+      <a class="board-row" data-wa="Hi, I'm interested in a trip to the Americas" target="_blank" rel="noopener">
+        <span class="board-code">JFK</span>
+        <span class="board-name">The Americas</span>
+        <span class="board-desc">Varied routes for keen explorers</span>
+        <span class="badge">Available</span>
+      </a>
+      <a class="board-row" data-wa="Hi, I'm interested in a trip to Africa" target="_blank" rel="noopener">
+        <span class="board-code">ZNZ</span>
+        <span class="board-name">Africa</span>
+        <span class="board-desc">Cities, coastlines and wildlife</span>
+        <span class="badge">Available</span>
+      </a>
+      <a class="board-row" data-wa="Hi, I have another destination in mind — can you help?" target="_blank" rel="noopener">
+        <span class="board-code">???</span>
+        <span class="board-name">Somewhere else?</span>
+        <span class="board-desc">Tell us where you want to go and we'll find the right option</span>
+        <span class="badge">Ask us</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="section wrap">
+  <div class="how-head stack">
+    <span class="eyebrow">05 — An easy start</span>
+    <h2 class="h2">Three steps, then pack your bag.</h2>
+  </div>
+  <div class="steps">
+    <div class="step stack">
+      <span class="step-num">1</span>
+      <h3>Share your idea</h3>
+      <p>Destination or trip type, dates, number of travellers and a rough budget.</p>
+    </div>
+    <div class="step stack">
+      <span class="step-num">2</span>
+      <h3>We line up options</h3>
+      <p>We look at routes, flights, stays and activities based on your priorities.</p>
+    </div>
+    <div class="step stack">
+      <span class="step-num">3</span>
+      <h3>Review the details</h3>
+      <p>You get a clear picture of the trip before deciding to book.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-card">
+    <div class="contact-copy stack">
+      <span class="eyebrow">Ready for your next trip?</span>
+      <h2>Tell us where you want to go.</h2>
+      <p>Send us your destination, travel dates, number of travellers and what matters to you. We'll come back to you to talk through the options.</p>
+    </div>
+    <div class="contact-links stack">
+      <a href="#" class="contact-link wa" data-wa-plan target="_blank" rel="noopener">
+        <span class="kufi">Message us on WhatsApp</span>
+        <span class="mono" dir="ltr">+972 58 764 3159</span>
+      </a>
+      <a href="mailto:Adam.thai.tours@gmail.com" class="contact-link mail">
+        <span class="label">Email</span>
+        <span class="mono">Adam.thai.tours@gmail.com</span>
+      </a>
+      <div class="socials">
+        <a href="https://www.instagram.com/adam.thai.tours/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/adam.thai.tours" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.tiktok.com/@adam.thai.tours" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer wrap">
+  <span>© 2026 Adam Thai Tours</span>
+  <span>Trips worldwide · Specialists in East Asia</span>
+</footer>
+
+<a href="#" class="float-wa" data-wa-plan target="_blank" rel="noopener">WhatsApp</a>
+</div>
+</body>
+</html>

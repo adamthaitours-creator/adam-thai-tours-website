@@ -35,6 +35,22 @@
       budget: 'תקציב לאדם', interests: 'תחומי עניין', services: 'שירותים מבוקשים', notes: 'הערות',
       yourCity: 'העיר שלך', pickDest: 'בחרו יעד',
       servicesCount: function (n) { return n + ' שירותים'; }
+    },
+    en: {
+      options: {
+        dests: ['Thailand', 'Vietnam', 'Bali', 'Japan', 'Europe', 'Middle East', 'Somewhere else'],
+        type: ['Honeymoon', 'Family', 'Beach & relax', 'Adventure', 'Group tour', 'Friends'],
+        stay: ['Budget', '4-star', '5-star', 'Private villas & resorts'],
+        interests: ['Beaches & islands', 'Nature', 'Culture & temples', 'Shopping', 'Adventure & activities', 'Spa & wellness', 'Halal / kosher food', 'Nightlife'],
+        services: ['Flights', 'Hotels', 'Airport transfers', 'Day tours', 'Visa', 'Travel insurance']
+      },
+      intro: 'Hi, I would like to plan a trip:', subject: 'Trip request',
+      name: 'Name', phone: 'Phone', email: 'Email', from: 'Departing from',
+      dest: 'Destination', undecided: 'Not decided yet', cities: 'Places of interest', travellers: 'Travellers', type: 'Trip type',
+      depart: 'Departure', ret: 'Return', nights: 'Nights', flex: 'Date flexibility', stay: 'Accommodation',
+      budget: 'Budget per person', interests: 'Interests', services: 'Services needed', notes: 'Notes',
+      yourCity: 'Your city', pickDest: 'Pick a destination',
+      servicesCount: function (n) { return n + ' services'; }
     }
   }[U.lang];
   var OPTIONS = L.options;

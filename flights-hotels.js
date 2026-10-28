@@ -42,6 +42,26 @@
       rooms: 'חדרים', stars: 'דירוג', board: 'ארוחות', prefs: 'העדפות', budget: 'תקציב ללילה', notes: 'הערות',
       hintLinked: 'מקושר ליעד ולתאריכי הטיסה — אפשר לשנות.', hint: 'איפה וכמה לילות? ומה חשוב לכם במלון?',
       yourCity: 'העיר שלך', yourDest: 'היעד שלך', hotelCity: 'עיר הלינה', direct: ' · ישירה'
+    },
+    en: {
+      modes: { flight: 'Flight', hotel: 'Hotel', both: 'Flight + hotel' },
+      options: {
+        trip: ['Return', 'One way'],
+        cabin: ['Economy', 'Premium economy', 'Business', 'First'],
+        bags: ['Carry-on only', '1 checked bag', '2 checked bags'],
+        stars: ['3-star', '4-star', '5-star', 'Villa / resort'],
+        board: ['Room only', 'Breakfast', 'Half board', 'Full board', 'All inclusive'],
+        prefs: ['Near the beach', 'City centre', 'Pool', 'Private pool', 'Family-friendly', 'Spa', 'Sea view', 'Connecting rooms']
+      },
+      intro: 'Hi, I would like a quote: ', subject: 'Quote request — ',
+      name: 'Name', phone: 'Phone', email: 'Email', travellers: 'Travellers',
+      flightHead: '— Flight —', trip: 'Ticket', from: 'From', to: 'To', depart: 'Departure', ret: 'Return',
+      flex: 'Date flexibility', cabin: 'Cabin', bags: 'Baggage', stops: 'Stops', directOnly: 'Direct flights only',
+      airline: 'Preferred airline',
+      hotelHead: '— Hotel —', city: 'City / area', checkin: 'Check-in', checkout: 'Check-out', nights: 'Nights',
+      rooms: 'Rooms', stars: 'Rating', board: 'Meals', prefs: 'Preferences', budget: 'Budget per night', notes: 'Notes',
+      hintLinked: 'Linked to your flight destination and dates — change it if you like.', hint: 'Where, and for how many nights? What matters to you in a hotel?',
+      yourCity: 'Your city', yourDest: 'Destination', hotelCity: 'Hotel city', direct: ' · direct'
     }
   }[U.lang];
   var MODES = L.modes;

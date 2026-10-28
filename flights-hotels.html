@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="alternate" hreflang="ar" href="https://adam-thai-tours.com/flights-hotels.html">
 <link rel="alternate" hreflang="he" href="https://adam-thai-tours.com/he/flights-hotels.html">
+<link rel="alternate" hreflang="en" href="https://adam-thai-tours.com/en/flights-hotels.html">
 <link rel="stylesheet" href="styles.css">
 <script src="common.js" defer></script>
 <script src="flights-hotels.js" defer></script>
@@ -34,7 +35,14 @@
       <a href="index.html#how">كيف نعمل</a>
     </nav>
     <div class="header-actions">
-      <a href="he/flights-hotels.html" class="lang-switch" hreflang="he" lang="he">עברית</a>
+      <details class="lang-menu">
+        <summary>AR</summary>
+        <div class="lang-list">
+          <a href="flights-hotels.html" lang="ar" hreflang="ar" aria-current="true">العربية <span>AR</span></a>
+          <a href="he/flights-hotels.html" lang="he" hreflang="he">עברית <span>HE</span></a>
+          <a href="en/flights-hotels.html" lang="en" hreflang="en">English <span>EN</span></a>
+        </div>
+      </details>
       <a href="plan.html" class="btn btn-dark header-cta">خطط رحلتك ←</a>
     </div>
   </div>

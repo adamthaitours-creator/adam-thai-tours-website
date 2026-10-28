@@ -24,6 +24,15 @@
       intro: 'שלום, אני רוצה לתכנן טיול:',
       dest: 'יעד', type: 'סוג הטיול', travellers: 'מספר נוסעים', depart: 'יציאה', ret: 'חזרה',
       nights: 'מספר לילות', flex: 'גמישות בתאריכים'
+    },
+    en: {
+      dests: [['Thailand', 'BKK'], ['Vietnam', 'SGN'], ['Bali', 'DPS'], ['Japan', 'TYO'], ['Europe', 'EUR'], ['Somewhere else', '???']],
+      types: ['Honeymoon', 'Family', 'Beach & relax', 'Adventure', 'Group tour'],
+      ticker: ['Thailand', 'Vietnam', 'Bali', 'Japan', 'Europe', 'Middle East', 'The Americas', 'Africa'],
+      pax: function (n) { return n === 1 ? '1 traveller' : n + ' travellers'; },
+      intro: 'Hi, I would like to plan a trip:',
+      dest: 'Destination', type: 'Trip type', travellers: 'Travellers', depart: 'Departure', ret: 'Return',
+      nights: 'Nights', flex: 'Date flexibility'
     }
   }[U.lang];
   var BARS = [2, 1, 3, 1, 1, 4, 2, 1, 3, 2, 1, 1, 4, 1, 2, 3, 1, 2, 1, 4, 1, 3, 2, 1, 1, 3, 2, 4];
