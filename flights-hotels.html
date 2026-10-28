@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>طيران وفنادق | آدم للسياحة</title>
+<meta name="description" content="اطلب عرض سعر لتذاكر الطيران أو الفنادق أو كليهما من آدم للسياحة — نبحث لك عن أفضل الخيارات دون أي التزام.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="common.js" defer></script>
+<script src="flights-hotels.js" defer></script>
+</head>
+<body>
+<div class="page">
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">آ</div>
+      <div class="brand-text">
+        <span class="brand-name">آدم للسياحة</span>
+        <span class="brand-latin" dir="ltr">ADAM THAI TOURS</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html#services">خدماتنا</a>
+      <a href="flights-hotels.html" aria-current="page">طيران وفنادق</a>
+      <a href="index.html#asia">شرق آسيا</a>
+      <a href="index.html#board">وجهات العالم</a>
+      <a href="index.html#how">كيف نعمل</a>
+    </nav>
+    <a href="plan.html" class="btn btn-dark header-cta">خطط رحلتك ←</a>
+  </div>
+</header>
+
+<section class="plan-hero wrap">
+  <div class="hero-meta">
+    <span class="services-line">عرض سعر مجاني · بدون التزام · رد خلال ساعات</span>
+    <span dir="ltr">FLIGHTS &amp; HOTELS — QUOTE</span>
+  </div>
+  <div class="plan-hero-grid">
+    <h1>طيران وفنادق.<br><span class="accent">نبحث، وأنت تختار.</span></h1>
+    <p class="hero-lead">أرسل لنا تفاصيل رحلة الطيران أو الإقامة، ونعود إليك بأفضل الخيارات المتاحة وأسعارها — مع توضيح التوقفات والأمتعة وشروط الإلغاء قبل أي قرار.</p>
+  </div>
+  <div class="mode-tabs" role="tablist" aria-label="نوع الطلب">
+    <button type="button" role="tab" data-mode="flight"><span class="mono" dir="ltr">FLT</span>تذكرة طيران</button>
+    <button type="button" role="tab" data-mode="hotel"><span class="mono" dir="ltr">HTL</span>فندق</button>
+    <button type="button" role="tab" data-mode="both"><span class="mono" dir="ltr">FLT + HTL</span>طيران + فندق</button>
+  </div>
+</section>
+
+<section class="section wrap plan-body">
+  <form class="plan-form" novalidate>
+
+    <fieldset class="plan-block" data-show="flight both">
+      <legend class="plan-block-head">
+        <span class="plan-num"></span>
+        <span class="plan-title">الرحلة الجوية</span>
+        <span class="plan-hint">اكتب المدينة أو المطار — نتولى نحن البحث عن أفضل المسارات.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="chips" role="group" aria-label="نوع التذكرة" data-chips="trip"></div>
+        <div class="route-fields">
+          <div class="field">
+            <label class="field-label" for="fromCity">من</label>
+            <input type="text" id="fromCity" class="text-input" placeholder="مدينة أو مطار المغادرة">
+          </div>
+          <button type="button" class="swap-btn" data-swap aria-label="تبديل المغادرة والوصول">⇄</button>
+          <div class="field">
+            <label class="field-label" for="toCity">إلى</label>
+            <input type="text" id="toCity" class="text-input" placeholder="مثلاً: بانكوك، بوكيت…">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="fDepart">تاريخ الذهاب</label>
+            <input type="date" id="fDepart" class="pill-input">
+          </div>
+          <div class="field" data-roundtrip>
+            <label class="field-label" for="fReturn">تاريخ العودة</label>
+            <input type="date" id="fReturn" class="pill-input">
+          </div>
+          <div class="field">
+            <label class="field-label" for="flex">مرونة التاريخ</label>
+            <select id="flex" class="pill-input">
+              <option value="0">تواريخ ثابتة</option>
+              <option value="1">± يوم واحد</option>
+              <option value="2">± يومان</option>
+              <option value="3">± ٣ أيام</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <span class="field-label">درجة السفر</span>
+          <div class="chips" role="group" aria-label="درجة السفر" data-chips="cabin"></div>
+        </div>
+        <div class="field">
+          <span class="field-label">الأمتعة لكل مسافر</span>
+          <div class="chips" role="group" aria-label="الأمتعة" data-chips="bags"></div>
+        </div>
+        <div class="field-row wide">
+          <div class="field">
+            <span class="field-label">التوقفات</span>
+            <div class="chips">
+              <button type="button" class="chip" data-toggle="direct">رحلات مباشرة فقط</button>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="airline">شركة طيران مفضّلة (اختياري)</label>
+            <input type="text" id="airline" class="text-input" placeholder="مثلاً: الاتحاد، التركية…">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" data-show="hotel both">
+      <legend class="plan-block-head">
+        <span class="plan-num"></span>
+        <span class="plan-title">الإقامة</span>
+        <span class="plan-hint" data-hotel-hint>أين وكم ليلة؟ وما الذي يهمك في الفندق؟</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field">
+          <label class="field-label" for="hotelCity">المدينة أو المنطقة</label>
+          <input type="text" id="hotelCity" class="text-input" placeholder="مثلاً: باتونغ – بوكيت، وسط بانكوك…">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="checkin">تاريخ الوصول</label>
+            <input type="date" id="checkin" class="pill-input">
+          </div>
+          <div class="field">
+            <label class="field-label" for="checkout">تاريخ المغادرة</label>
+            <input type="date" id="checkout" class="pill-input">
+          </div>
+          <div class="field">
+            <span class="field-label" id="lbl-nights">عدد الليالي</span>
+            <div class="stepper" role="group" aria-labelledby="lbl-nights">
+              <button type="button" class="inc" data-step="nights:1" aria-label="زيادة">+</button>
+              <output data-out="nights">5</output>
+              <button type="button" class="dec" data-step="nights:-1" aria-label="إنقاص">−</button>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <span class="field-label">تصنيف الفندق</span>
+          <div class="chips" role="group" aria-label="تصنيف الفندق" data-chips="stars"></div>
+        </div>
+        <div class="field">
+          <span class="field-label">الوجبات</span>
+          <div class="chips" role="group" aria-label="الوجبات" data-chips="board"></div>
+        </div>
+        <div class="field">
+          <span class="field-label">ما الذي يهمك؟ <small>(اختر ما يناسبك)</small></span>
+          <div class="chips" role="group" aria-label="مميزات الفندق" data-chips="prefs" data-multi></div>
+        </div>
+        <div class="field">
+          <span class="field-label" id="lbl-budget">الميزانية لليلة الواحدة <small>(بالدولار، للغرفة)</small></span>
+          <div class="budget-row" role="group" aria-labelledby="lbl-budget">
+            <label class="money-input">
+              <span>من</span>
+              <input type="number" id="budgetMin" inputmode="numeric" min="0" step="10" placeholder="80" dir="ltr">
+              <span class="mono">$</span>
+            </label>
+            <span class="budget-dash" aria-hidden="true">—</span>
+            <label class="money-input">
+              <span>إلى</span>
+              <input type="number" id="budgetMax" inputmode="numeric" min="0" step="10" placeholder="200" dir="ltr">
+              <span class="mono">$</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" data-show="flight hotel both">
+      <legend class="plan-block-head">
+        <span class="plan-num"></span>
+        <span class="plan-title">المسافرون</span>
+        <span class="plan-hint">أعمار الأطفال تؤثر على سعر التذكرة وتوزيع الغرف.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field-row">
+          <div class="field">
+            <span class="field-label" id="lbl-adults">بالغون</span>
+            <div class="stepper" role="group" aria-labelledby="lbl-adults">
+              <button type="button" class="inc" data-step="adults:1" aria-label="زيادة">+</button>
+              <output data-out="adults">2</output>
+              <button type="button" class="dec" data-step="adults:-1" aria-label="إنقاص">−</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="field-label" id="lbl-children">أطفال <small>(٢–١١)</small></span>
+            <div class="stepper" role="group" aria-labelledby="lbl-children">
+              <button type="button" class="inc" data-step="children:1" aria-label="زيادة">+</button>
+              <output data-out="children">0</output>
+              <button type="button" class="dec" data-step="children:-1" aria-label="إنقاص">−</button>
+            </div>
+          </div>
+          <div class="field">
+            <span class="field-label" id="lbl-infants">رضّع <small>(أقل من ٢)</small></span>
+            <div class="stepper" role="group" aria-labelledby="lbl-infants">
+              <button type="button" class="inc" data-step="infants:1" aria-label="زيادة">+</button>
+              <output data-out="infants">0</output>
+              <button type="button" class="dec" data-step="infants:-1" aria-label="إنقاص">−</button>
+            </div>
+          </div>
+          <div class="field" data-show="hotel both">
+            <span class="field-label" id="lbl-rooms">الغرف</span>
+            <div class="stepper" role="group" aria-labelledby="lbl-rooms">
+              <button type="button" class="inc" data-step="rooms:1" aria-label="زيادة">+</button>
+              <output data-out="rooms">1</output>
+              <button type="button" class="dec" data-step="rooms:-1" aria-label="إنقاص">−</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="plan-block" data-show="flight hotel both">
+      <legend class="plan-block-head">
+        <span class="plan-num"></span>
+        <span class="plan-title">كيف نصل إليك؟</span>
+        <span class="plan-hint">نرسل لك الخيارات والأسعار على واتساب أو البريد.</span>
+      </legend>
+      <div class="plan-fields">
+        <div class="field">
+          <label class="field-label" for="name">الاسم</label>
+          <input type="text" id="name" class="text-input" autocomplete="name" placeholder="اسمك الكريم">
+        </div>
+        <div class="field-row wide">
+          <div class="field">
+            <label class="field-label" for="phone">رقم الهاتف / واتساب</label>
+            <input type="tel" id="phone" class="text-input" autocomplete="tel" inputmode="tel" placeholder="+972 5X XXX XXXX" dir="ltr">
+          </div>
+          <div class="field">
+            <label class="field-label" for="email">البريد الإلكتروني</label>
+            <input type="email" id="email" class="text-input" autocomplete="email" inputmode="email" placeholder="name@example.com" dir="ltr">
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label" for="notes">ملاحظات</label>
+          <textarea id="notes" class="text-input text-area" rows="3" placeholder="أعمار الأطفال، كرسي متحرك، سرير إضافي، فندق بعينه…"></textarea>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+  <aside class="plan-summary" aria-label="ملخص الطلب">
+    <div class="pass" data-show="flight both">
+      <div class="pass-head">
+        <span class="kufi">تذكرة طيران · آدم للسياحة</span>
+        <span class="mono" dir="ltr" data-out="tripCode">ROUND TRIP</span>
+      </div>
+      <div class="pass-route">
+        <div class="pass-end">
+          <span class="pass-small">من</span>
+          <span class="pass-place" data-out="fromLabel">مدينتك</span>
+        </div>
+        <div class="pass-path" aria-hidden="true">
+          <span class="dot"></span><span class="line"></span><span class="plane" data-out="tripIcon">⇄</span>
+        </div>
+        <div class="pass-end to">
+          <span class="pass-small">إلى</span>
+          <span class="pass-place accent" data-out="toLabel">وجهتك</span>
+        </div>
+      </div>
+      <div class="pass-details">
+        <div><span class="pass-small">الذهاب</span><strong data-out="fDepartLabel">—</strong></div>
+        <div data-roundtrip><span class="pass-small">العودة</span><strong data-out="fReturnLabel">—</strong></div>
+        <div><span class="pass-small">المرونة</span><strong data-out="flexLabel">ثابتة</strong></div>
+        <div><span class="pass-small">المسافرون</span><strong data-out="paxLabel">بالغان</strong></div>
+        <div><span class="pass-small">الدرجة</span><strong data-out="cabinLabel">اقتصادية</strong></div>
+        <div><span class="pass-small">الأمتعة</span><strong data-out="bagsLabel">—</strong></div>
+      </div>
+    </div>
+
+    <div class="voucher" data-show="hotel both">
+      <div class="voucher-head">
+        <span class="kufi">قسيمة إقامة · آدم للسياحة</span>
+        <span class="mono" dir="ltr">HOTEL</span>
+      </div>
+      <div class="voucher-city" data-out="hotelLabel">مدينة الإقامة</div>
+      <div class="voucher-dates">
+        <div><span class="pass-small">الوصول</span><strong data-out="checkinLabel">—</strong></div>
+        <div class="voucher-nights"><strong data-out="nightsLabel">٥ ليالٍ</strong></div>
+        <div><span class="pass-small">المغادرة</span><strong data-out="checkoutLabel">—</strong></div>
+      </div>
+      <div class="voucher-details">
+        <div><span class="pass-small">الغرف</span><strong data-out="roomsLabel">غرفة واحدة</strong></div>
+        <div><span class="pass-small">النزلاء</span><strong data-out="paxLabel">بالغان</strong></div>
+        <div><span class="pass-small">التصنيف</span><strong data-out="starsLabel">—</strong></div>
+        <div><span class="pass-small">الوجبات</span><strong data-out="boardLabel">—</strong></div>
+        <div class="span-2"><span class="pass-small">الميزانية / ليلة</span><strong data-out="budgetLabel">—</strong></div>
+      </div>
+    </div>
+
+    <div class="send-card">
+      <div class="pass-progress">
+        <div class="pass-progress-top">
+          <span>اكتمال الطلب</span>
+          <span class="mono" data-out="progress">0%</span>
+        </div>
+        <div class="meter"><span data-meter></span></div>
+      </div>
+      <div class="pass-foot">
+        <a href="#" class="pass-send" data-send="wa" target="_blank" rel="noopener">اطلب عرض السعر على واتساب</a>
+        <a href="#" class="pass-mail" data-send="mail">أو بالبريد الإلكتروني</a>
+      </div>
+    </div>
+    <span class="pass-note">عرض السعر مجاني ولا يُلزمك بالحجز. الأسعار تتغير حسب التوفر.</span>
+  </aside>
+</section>
+
+<footer class="site-footer wrap">
+  <span>© 2026 Adam Thai Tours</span>
+  <span>رحلات حول العالم · خبرة خاصة في شرق آسيا</span>
+</footer>
+
+<a href="#" class="float-wa" data-send="wa" target="_blank" rel="noopener">واتساب</a>
+</div>
+</body>
+</html>

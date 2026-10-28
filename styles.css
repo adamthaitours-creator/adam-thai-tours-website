@@ -369,7 +369,9 @@ select.pill-input { -webkit-appearance: menulist; appearance: auto; }
 .plan-title { font-family: var(--kufi); font-weight: 800; font-size: 24px; color: var(--navy); }
 .plan-hint { font-size: 14px; line-height: 1.7; color: var(--muted); }
 .plan-fields { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
-.plan-fields .field-row .field { flex: 1 1 200px; min-width: 0; }
+.plan-fields .field-row .field { flex: 1 1 160px; min-width: 0; }
+.plan-fields .stepper { justify-content: space-between; }
+.plan-fields .stepper output { min-width: 40px; }
 .plan-fields .pill-input { width: 100%; min-width: 0; }
 .plan-fields .field-row.wide .field { flex-basis: 240px; }
 .field-label small { font-weight: 500; opacity: .8; }
@@ -426,6 +428,79 @@ select.pill-input { -webkit-appearance: menulist; appearance: auto; }
   .plan-steps { grid-template-columns: repeat(5, minmax(84px, 1fr)); overflow-x: auto; scrollbar-width: none; }
   .plan-steps a { font-size: 14px; white-space: nowrap; padding-left: 12px; }
   .plan-fields .field-row .field { flex-basis: 140px; }
+}
+
+/* Flights & hotels page */
+[hidden] { display: none !important; }
+.nav a[aria-current="page"] { color: var(--teal); font-weight: 600; }
+.mode-tabs {
+  margin-top: clamp(28px, 4vw, 48px); display: grid; grid-template-columns: repeat(3, 1fr);
+  border: 1.5px solid var(--navy); border-radius: 24px; overflow: hidden;
+}
+.mode-tabs button {
+  font-family: var(--kufi); font-weight: 800; font-size: clamp(16px, 2vw, 24px); color: var(--navy);
+  background: transparent; border: none; border-left: 1.5px solid var(--navy); cursor: pointer;
+  padding: clamp(16px, 2.4vw, 26px) 12px; display: flex; flex-direction: column; align-items: center; gap: 6px;
+  transition: background .2s, color .2s;
+}
+.mode-tabs button:last-child { border-left: none; }
+.mode-tabs button .mono { font-size: 11px; font-weight: 600; letter-spacing: .15em; color: var(--teal); }
+.mode-tabs button:hover { background: var(--sand-2); }
+.mode-tabs button[aria-selected="true"] { background: var(--navy); color: var(--sand); }
+.mode-tabs button[aria-selected="true"] .mono { color: var(--mint); }
+
+.route-fields { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 12px; align-items: end; }
+.swap-btn {
+  width: 48px; height: 48px; margin-bottom: 3px; border-radius: 50%; border: 1.5px solid var(--navy);
+  background: var(--sand); color: var(--navy); font-size: 20px; cursor: pointer; transition: background .2s, color .2s, transform .3s;
+}
+.swap-btn:hover { background: var(--navy); color: var(--sand); transform: rotate(180deg); }
+.chip[data-toggle][aria-pressed="true"]::before { content: '✓ '; }
+
+.pass-place { font-family: var(--kufi); font-weight: 800; font-size: clamp(20px, 2.2vw, 28px); line-height: 1.3; overflow-wrap: anywhere; }
+.pass-place.accent { color: var(--mint); }
+.plan-summary .pass-route { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+
+.voucher {
+  background: var(--sand-2); color: var(--navy); border-radius: 28px; overflow: hidden;
+  border: 1.5px solid var(--navy); border-top: 10px solid var(--teal);
+}
+.voucher .pass-small { opacity: .7; }
+.voucher-head {
+  padding: 18px 28px; display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px dashed rgba(7, 29, 54, .3);
+}
+.voucher-head .kufi { font-weight: 800; font-size: 16px; }
+.voucher-head .mono { font-size: 11px; letter-spacing: .15em; color: var(--teal); }
+.voucher-city {
+  padding: 22px 28px 6px; font-family: var(--kufi); font-weight: 900; font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.3; overflow-wrap: anywhere;
+}
+.voucher-dates { padding: 14px 28px 20px; display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: end; }
+.voucher-dates > div { display: flex; flex-direction: column; gap: 4px; }
+.voucher-dates > div:last-child { text-align: left; }
+.voucher-dates strong { font-weight: 600; font-size: 16px; }
+.voucher-nights strong {
+  font-size: 13px; padding: 6px 12px; border-radius: 999px; background: var(--navy); color: var(--sand); white-space: nowrap;
+}
+.voucher-details {
+  padding: 18px 28px 24px; border-top: 1px dashed rgba(7, 29, 54, .3);
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+}
+.voucher-details > div { display: flex; flex-direction: column; gap: 4px; }
+.voucher-details strong { font-weight: 600; font-size: 16px; }
+.voucher-details .span-2 { grid-column: 1 / -1; }
+
+.send-card { background: var(--navy); color: var(--sand); border-radius: 28px; padding-bottom: 4px; }
+.send-card .pass-progress { padding-top: 24px; }
+
+@media (max-width: 640px) {
+  .mode-tabs { border-radius: 18px; }
+  .mode-tabs button { font-size: 15px; padding: 14px 6px; }
+  .route-fields { grid-template-columns: 1fr; }
+  .swap-btn { justify-self: center; margin: -4px 0; transform: rotate(90deg); }
+  .swap-btn:hover { transform: rotate(270deg); }
+  .voucher-head, .voucher-city, .voucher-dates, .voucher-details { padding-left: 20px; padding-right: 20px; }
 }
 
 /* Small screens: stack the 4-column list rows so text isn't squeezed */

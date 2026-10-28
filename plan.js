@@ -1,7 +1,6 @@
 // Full trip planner page: form state, live summary and WhatsApp/email handoff.
 (function () {
-  var PHONE = '972587643159';
-  var EMAIL = 'Adam.thai.tours@gmail.com';
+  var U = window.ATT, $ = U.$, $$ = U.$$;
 
   var DESTS = [['تايلاند', 'BKK'], ['فيتنام', 'SGN'], ['بالي', 'DPS'], ['اليابان', 'TYO'], ['أوروبا', 'EUR'], ['الشرق الأوسط', 'DXB'], ['وجهة أخرى', '???']];
   var OPTIONS = {
@@ -11,7 +10,6 @@
     interests: ['شواطئ وجزر', 'طبيعة', 'ثقافة ومعابد', 'تسوق', 'مغامرات وأنشطة', 'سبا واسترخاء', 'مطاعم حلال', 'حياة ليلية'],
     services: ['تذاكر طيران', 'فنادق', 'استقبال وتنقلات', 'جولات يومية', 'تأشيرة', 'تأمين سفر']
   };
-  var FLEX = ['ثابتة', '± يوم واحد', '± يومان', '± ٣ أيام'];
   var LIMITS = { adults: [1, 20], children: [0, 10], infants: [0, 5], nights: [1, 60] };
 
   var state = {
@@ -20,35 +18,8 @@
     cities: '', name: '', from: '', phone: '', email: '', notes: ''
   };
 
-  function $(sel) { return document.querySelector(sel); }
-  function $$(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
-
-  // Dates are kept as YYYY-MM-DD strings and computed in UTC to avoid timezone shifts.
-  var DAY = 864e5;
-  function toDate(iso) { var p = iso.split('-'); return Date.UTC(+p[0], +p[1] - 1, +p[2]); }
-  function toIso(ms) { return new Date(ms).toISOString().slice(0, 10); }
-  function addDays(iso, n) { return toIso(toDate(iso) + n * DAY); }
-  function fmt(iso) {
-    return iso ? new Date(toDate(iso)).toLocaleDateString('ar', { day: 'numeric', month: 'long', timeZone: 'UTC' }) : '—';
-  }
-  function nightsLabel(n) {
-    return n === 1 ? 'ليلة واحدة' : n === 2 ? 'ليلتان' : n <= 10 ? n + ' ليالٍ' : n + ' ليلة';
-  }
-  function paxLabel() {
-    var parts = [state.adults === 1 ? 'بالغ' : state.adults === 2 ? 'بالغان' : state.adults + ' بالغين'];
-    if (state.children) parts.push(state.children === 1 ? 'طفل' : state.children + ' أطفال');
-    if (state.infants) parts.push(state.infants === 1 ? 'رضيع' : state.infants + ' رضّع');
-    return parts.join(' + ');
-  }
-  // \u2066…\u2069 isolate the dollar amounts so they read left-to-right inside Arabic text.
-  function money(n) { return '\u2066$' + Number(n).toLocaleString('en-US') + '\u2069'; }
-  function budgetLabel() {
-    var lo = state.budgetMin, hi = state.budgetMax;
-    if (lo && hi) return money(Math.min(lo, hi)) + ' – ' + money(Math.max(lo, hi));
-    if (lo) return 'من ' + money(lo);
-    if (hi) return 'حتى ' + money(hi);
-    return '';
-  }
+  function paxLabel() { return U.paxLabel(state.adults, state.children, state.infants); }
+  function budgetLabel() { return U.rangeLabel(state.budgetMin, state.budgetMax); }
 
   function pick(key) {
     var v = state[key];
@@ -100,26 +71,25 @@
     var parts = b.getAttribute('data-step').split(':'), key = parts[0], delta = +parts[1];
     b.addEventListener('click', function () {
       state[key] = Math.max(LIMITS[key][0], Math.min(LIMITS[key][1], state[key] + delta));
-      if (key === 'nights' && state.depart) state.ret = addDays(state.depart, state.nights);
+      if (key === 'nights' && state.depart) state.ret = U.addDays(state.depart, state.nights);
       render();
     });
   });
 
   var departInput = $('#depart'), returnInput = $('#return'), flexSelect = $('#flex');
-  var now = new Date();
-  departInput.min = toIso(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+  departInput.min = U.today();
 
   departInput.addEventListener('change', function () {
     state.depart = departInput.value;
-    if (state.depart) state.ret = addDays(state.depart, state.nights);
+    if (state.depart) state.ret = U.addDays(state.depart, state.nights);
     render();
   });
   returnInput.addEventListener('change', function () {
     state.ret = returnInput.value;
     if (state.depart && state.ret) {
-      var n = Math.round((toDate(state.ret) - toDate(state.depart)) / DAY);
+      var n = U.daysBetween(state.depart, state.ret);
       if (n >= 1) state.nights = n;
-      else state.ret = addDays(state.depart, state.nights);
+      else state.ret = U.addDays(state.depart, state.nights);
     }
     render();
   });
@@ -150,10 +120,10 @@
     add('مدن تهمني', state.cities);
     add('المسافرون', paxLabel());
     add('نوع الرحلة', pick('type'));
-    add('الذهاب', state.depart ? fmt(state.depart) + ' (' + state.depart + ')' : 'لم يحدد بعد');
-    add('العودة', state.ret ? fmt(state.ret) + ' (' + state.ret + ')' : 'لم يحدد بعد');
+    add('الذهاب', U.dateLine(state.depart));
+    add('العودة', U.dateLine(state.ret));
     add('عدد الليالي', String(state.nights));
-    add('مرونة التاريخ', state.flex ? FLEX[state.flex] : 'تواريخ ثابتة');
+    add('مرونة التاريخ', state.flex ? U.FLEX[state.flex] : 'تواريخ ثابتة');
     add('مستوى الإقامة', pick('stay'));
     add('الميزانية للشخص', budgetLabel());
     add('الاهتمامات', pick('interests').join('، '));
@@ -183,8 +153,8 @@
       toName: dests.join('، ') || 'اختر وجهة',
       paxLabel: paxLabel(),
       typeLabel: pick('type') || '—',
-      nightsLabel: nightsLabel(state.nights),
-      departLabel: fmt(state.depart), returnLabel: fmt(state.ret), flexLabel: FLEX[state.flex],
+      nightsLabel: U.nightsLabel(state.nights),
+      departLabel: U.fmt(state.depart), returnLabel: U.fmt(state.ret), flexLabel: U.FLEX[state.flex],
       stayLabel: pick('stay') || '—',
       budgetLabel: budgetLabel() || '—',
       servicesLabel: services.length ? services.length + ' خدمات' : '—',
@@ -206,13 +176,12 @@
 
     departInput.value = state.depart;
     returnInput.value = state.ret;
-    returnInput.min = state.depart ? addDays(state.depart, 1) : departInput.min;
+    returnInput.min = state.depart ? U.addDays(state.depart, 1) : departInput.min;
     flexSelect.value = String(state.flex);
 
     var text = message();
-    var wa = 'https://api.whatsapp.com/send?phone=' + PHONE + '&text=' + encodeURIComponent(text);
-    var mail = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('طلب رحلة' + (dests.length ? ' — ' + dests.join('، ') : '')) +
-      '&body=' + encodeURIComponent(text);
+    var wa = U.waLink(text);
+    var mail = U.mailLink('طلب رحلة' + (dests.length ? ' — ' + dests.join('، ') : ''), text);
     $$('[data-send="wa"]').forEach(function (a) { a.href = wa; });
     $$('[data-send="mail"]').forEach(function (a) { a.href = mail; });
   }
