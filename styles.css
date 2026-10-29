@@ -585,3 +585,27 @@ select.pill-input { -webkit-appearance: menulist; appearance: auto; }
   .board-desc, .badge { grid-column: 2; }
   .pass-route, .pass-head, .pass-details, .pass-foot { padding-left: 20px; padding-right: 20px; }
 }
+
+/* ===== Eid al-Fitr 2027 offer ===== */
+.offer { padding-top: var(--section-y); }
+.offer-card {
+  display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 4vw, 56px);
+  background: var(--navy); color: var(--sand); border-radius: 28px; padding: clamp(24px, 4vw, 56px);
+}
+.offer-card > .stack { gap: 18px; min-width: 0; }
+.offer-card .eyebrow { color: var(--mint); }
+.offer-title { margin: 0; font-family: var(--kufi); font-weight: 900; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.2; color: #fff; text-wrap: balance; }
+.offer-dates { font-family: var(--mono); color: var(--gold); font-size: 15px; letter-spacing: .04em; }
+.offer-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.7; }
+.offer-list li { display: flex; gap: 10px; align-items: flex-start; }
+.offer-list li::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--mint); margin-top: .7em; }
+.offer-list li.muted { opacity: .7; }
+.offer-side { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.offer-price { background: rgba(245, 240, 230, .07); border: 1px solid rgba(245, 240, 230, .16); border-radius: 18px; padding: 18px 20px; display: flex; flex-direction: column; gap: 2px; }
+.offer-price .who, .offer-price .unit { font-size: 14px; opacity: .8; }
+.offer-price .num { font-family: var(--kufi); font-weight: 900; font-size: clamp(30px, 3.4vw, 42px); color: var(--gold); line-height: 1.2; }
+.offer-price .hotels { margin-top: 6px; font-size: 13px; opacity: .75; }
+.offer-cta { justify-content: center; padding: 16px 24px; background: var(--wa); color: var(--navy); font-size: 17px; }
+.offer-cta:hover { background: var(--mint); color: var(--navy); }
+.offer-note { font-size: 13px; opacity: .7; margin: 0; }
+@media (max-width: 860px) { .offer-card { grid-template-columns: 1fr; } }
