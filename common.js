@@ -91,6 +91,30 @@ window.ATT = (function () {
   function mailLink(subject, text) {
     return 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text);
   }
+  // Save a copy of every request in Netlify Forms (form "trip-request", declared hidden in index.html)
+  // the moment a send button is tapped, so the lead is kept even if the WhatsApp message is never sent.
+  // Pages keep the current request up to date with setLead(); static [data-wa] links carry their own text.
+  var currentLead = null;
+  function setLead(lead) { currentLead = lead; }
+  function saveLead(lead, channel) {
+    if (location.protocol === 'file:') return;
+    var body = new URLSearchParams({
+      'form-name': 'trip-request', lang: lang, page: location.pathname, channel: channel,
+      name: lead.name || '', phone: lead.phone || '', email: lead.email || '', message: lead.message || ''
+    });
+    try {
+      if (!(navigator.sendBeacon && navigator.sendBeacon('/', body))) {
+        fetch('/', { method: 'POST', body: body, keepalive: true }).catch(function () {});
+      }
+    } catch (e) { /* never block the visitor's WhatsApp/email hand-off */ }
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('[data-send], [data-wa-plan], [data-wa]');
+    if (!a) return;
+    var lead = a.hasAttribute('data-wa') ? { message: a.getAttribute('data-wa') } : currentLead;
+    if (lead) saveLead(lead, a.getAttribute('data-send') === 'mail' ? 'email' : 'whatsapp');
+  });
+
   // Close the language menu when tapping anywhere else.
   document.addEventListener('click', function (e) {
     $$('.lang-menu[open]').forEach(function (m) { if (!m.contains(e.target)) m.removeAttribute('open'); });
@@ -109,6 +133,6 @@ window.ATT = (function () {
     toDate: toDate, toIso: toIso, addDays: addDays, daysBetween: daysBetween, today: today,
     fmt: fmt, dateLine: dateLine, flexLine: flexLine, nightsLabel: S.nights, roomsLabel: S.rooms, paxLabel: paxLabel,
     money: money, rangeLabel: rangeLabel, amount: amount,
-    waLink: waLink, mailLink: mailLink, output: output
+    waLink: waLink, mailLink: mailLink, output: output, setLead: setLead
   };
 })();

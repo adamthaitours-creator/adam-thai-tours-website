@@ -260,6 +260,55 @@ select.pill-input { -webkit-appearance: menulist; appearance: auto; }
 .pass-send:hover { background: var(--sand); color: var(--navy); }
 .pass-note { font-size: 13px; color: var(--muted); text-align: center; }
 
+/* Eid offer */
+.offer-section { padding-bottom: 0; }
+.offer-card {
+  background: var(--navy); color: var(--sand); border-radius: 32px; overflow: hidden;
+  display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, 1fr);
+  box-shadow: 0 34px 70px -40px rgba(7, 29, 54, .7);
+  /* Gold strip along the top edge, clipped by the rounded corners. */
+  background: linear-gradient(var(--gold) 0 8px, var(--navy) 8px);
+}
+.offer-main { gap: 22px; padding: clamp(28px, 4vw, 56px); }
+.offer-tag {
+  align-self: flex-start; padding: 6px 14px; border-radius: 999px;
+  background: var(--gold); color: var(--navy); font-weight: 700; font-size: 13px;
+}
+.offer-title { margin: 0; font-family: var(--kufi); font-weight: 900; font-size: clamp(32px, 4.2vw, 56px); line-height: 1.2; }
+.offer-title .accent { color: var(--gold); }
+.offer-dates { margin: 0; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; font-size: 14px; color: rgba(245, 240, 230, .75); }
+.offer-dates .mono { font-size: 18px; letter-spacing: .08em; color: var(--mint); }
+.offer-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.offer-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; line-height: 1.7; color: rgba(245, 240, 230, .9); }
+.offer-ico {
+  flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid rgba(245, 198, 106, .5); color: var(--gold); font-size: 13px; margin-top: 1px;
+}
+.offer-actions { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; padding-top: 6px; }
+.offer-btn { background: var(--wa); color: #fff; padding: 15px 24px; font-size: 15px; }
+.offer-btn:hover { background: #1eb455; color: #fff; }
+.offer-link { color: var(--mint); font-weight: 600; font-size: 14px; }
+.offer-link:hover { color: var(--sand); }
+.offer-prices {
+  gap: 14px; padding: clamp(24px, 3vw, 40px); background: rgba(245, 240, 230, .05);
+  border-inline-start: 2px dashed rgba(245, 240, 230, .2); justify-content: center;
+}
+.price-stub {
+  background: var(--sand); color: var(--navy); border-radius: 20px; padding: 20px 22px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.price-label { font-weight: 700; font-size: 14px; }
+.price-from { font-size: 12px; color: var(--muted); margin-top: 6px; }
+.price-value { font-family: var(--kufi); font-weight: 900; font-size: clamp(30px, 3vw, 40px); line-height: 1.1; color: var(--navy); }
+.price-hotels { font-size: 12px; color: var(--muted); }
+.price-room { font-size: 12px; font-weight: 600; color: var(--teal); }
+.offer-note { margin: 4px 0 0; font-size: 12px; line-height: 1.7; color: rgba(245, 240, 230, .7); }
+.offer-note strong { color: var(--gold); font-weight: 700; }
+@media (max-width: 860px) {
+  .offer-card { grid-template-columns: 1fr; border-radius: 24px; }
+  .offer-prices { border-inline-start: none; border-top: 2px dashed rgba(245, 240, 230, .2); }
+}
+
 /* Services */
 .services { background: var(--sand-2); }
 .section-head {
@@ -375,6 +424,22 @@ select.pill-input { -webkit-appearance: menulist; appearance: auto; }
   padding-top: 28px; padding-bottom: 40px; display: flex; justify-content: space-between; gap: 16px;
   flex-wrap: wrap; font-size: 13px; color: var(--muted);
 }
+
+/* Privacy page */
+.legal { max-width: 820px; padding-top: clamp(40px, 6vw, 80px); padding-bottom: clamp(48px, 7vw, 96px); }
+.legal h1 { margin: 10px 0 16px; font-family: var(--kufi); font-weight: 900; font-size: clamp(36px, 5vw, 60px); line-height: 1.15; color: var(--navy); }
+.legal .lead { margin-bottom: 8px; }
+.legal-body h2 {
+  margin: 36px 0 10px; padding-top: 18px; border-top: 1.5px solid var(--navy);
+  font-family: var(--kufi); font-weight: 800; font-size: 22px; color: var(--navy);
+}
+.legal-body p, .legal-body li { font-size: 16px; line-height: 1.85; color: var(--body); }
+.legal-body p { margin: 0 0 8px; }
+.legal-body ul { margin: 0; padding-inline-start: 22px; display: flex; flex-direction: column; gap: 6px; }
+.legal-body a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; }
+.site-footer a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+.site-footer a:hover { color: var(--teal); }
+.pass-note a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; }
 
 /* Floating WhatsApp */
 .float-wa {
@@ -585,27 +650,3 @@ select.pill-input { -webkit-appearance: menulist; appearance: auto; }
   .board-desc, .badge { grid-column: 2; }
   .pass-route, .pass-head, .pass-details, .pass-foot { padding-left: 20px; padding-right: 20px; }
 }
-
-/* ===== Eid al-Fitr 2027 offer ===== */
-.offer { padding-top: var(--section-y); }
-.offer-card {
-  display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 4vw, 56px);
-  background: var(--navy); color: var(--sand); border-radius: 28px; padding: clamp(24px, 4vw, 56px);
-}
-.offer-card > .stack { gap: 18px; min-width: 0; }
-.offer-card .eyebrow { color: var(--mint); }
-.offer-title { margin: 0; font-family: var(--kufi); font-weight: 900; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.2; color: #fff; text-wrap: balance; }
-.offer-dates { font-family: var(--mono); color: var(--gold); font-size: 15px; letter-spacing: .04em; }
-.offer-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.7; }
-.offer-list li { display: flex; gap: 10px; align-items: flex-start; }
-.offer-list li::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--mint); margin-top: .7em; }
-.offer-list li.muted { opacity: .7; }
-.offer-side { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
-.offer-price { background: rgba(245, 240, 230, .07); border: 1px solid rgba(245, 240, 230, .16); border-radius: 18px; padding: 18px 20px; display: flex; flex-direction: column; gap: 2px; }
-.offer-price .who, .offer-price .unit { font-size: 14px; opacity: .8; }
-.offer-price .num { font-family: var(--kufi); font-weight: 900; font-size: clamp(30px, 3.4vw, 42px); color: var(--gold); line-height: 1.2; }
-.offer-price .hotels { margin-top: 6px; font-size: 13px; opacity: .75; }
-.offer-cta { justify-content: center; padding: 16px 24px; background: var(--wa); color: var(--navy); font-size: 17px; }
-.offer-cta:hover { background: var(--mint); color: var(--navy); }
-.offer-note { font-size: 13px; opacity: .7; margin: 0; }
-@media (max-width: 860px) { .offer-card { grid-template-columns: 1fr; } }

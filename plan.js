@@ -2,7 +2,7 @@
 (function () {
   var U = window.ATT, $ = U.$, $$ = U.$$;
 
-  var CODES = ['BKK', 'SGN', 'DPS', 'TYO', 'EUR', 'DXB', '???'];
+  var CODES = ['BKK', 'SGN', 'DPS', 'TYO', 'EUR', 'DXB', 'ANY'];
   var L = {
     ar: {
       options: {
@@ -186,7 +186,7 @@
     U.output({
       adults: state.adults, children: state.children, infants: state.infants, nights: state.nights,
       fromName: state.from || L.yourCity,
-      toCode: dests.length ? CODES[state.dests[0]] + (dests.length > 1 ? '+' + (dests.length - 1) : '') : '???',
+      toCode: dests.length ? CODES[state.dests[0]] + (dests.length > 1 ? '+' + (dests.length - 1) : '') : '—',
       toName: dests.join(U.sep) || L.pickDest,
       paxLabel: paxLabel(),
       typeLabel: pick('type') || '—',
@@ -213,6 +213,7 @@
 
     var text = message();
     var wa = U.waLink(text);
+    U.setLead({ message: text, name: state.name, phone: state.phone, email: state.email });
     var mail = U.mailLink(L.subject + (dests.length ? ' — ' + dests.join(U.sep) : ''), text);
     $$('[data-send="wa"]').forEach(function (a) { a.href = wa; });
     $$('[data-send="mail"]').forEach(function (a) { a.href = mail; });

@@ -8,7 +8,7 @@
 
   var L = {
     ar: {
-      dests: [['تايلاند', 'BKK'], ['فيتنام', 'SGN'], ['بالي', 'DPS'], ['اليابان', 'TYO'], ['أوروبا', 'EUR'], ['وجهة أخرى', '???']],
+      dests: [['تايلاند', 'BKK'], ['فيتنام', 'SGN'], ['بالي', 'DPS'], ['اليابان', 'TYO'], ['أوروبا', 'EUR'], ['وجهة أخرى', 'ANY']],
       types: ['شهر عسل', 'عائلية', 'استرخاء وشواطئ', 'مغامرة', 'رحلة منظمة'],
       ticker: ['تايلاند', 'فيتنام', 'بالي', 'اليابان', 'أوروبا', 'الشرق الأوسط', 'الأمريكيتان', 'أفريقيا'],
       pax: function (n) { return n === 1 ? 'مسافر واحد' : n === 2 ? 'مسافران' : n + ' مسافرين'; },
@@ -17,7 +17,7 @@
       nights: 'عدد الليالي', flex: 'مرونة التاريخ'
     },
     he: {
-      dests: [['תאילנד', 'BKK'], ['וייטנאם', 'SGN'], ['באלי', 'DPS'], ['יפן', 'TYO'], ['אירופה', 'EUR'], ['יעד אחר', '???']],
+      dests: [['תאילנד', 'BKK'], ['וייטנאם', 'SGN'], ['באלי', 'DPS'], ['יפן', 'TYO'], ['אירופה', 'EUR'], ['יעד אחר', 'ANY']],
       types: ['ירח דבש', 'משפחתי', 'בטן-גב וחופים', 'הרפתקאות', 'טיול מאורגן'],
       ticker: ['תאילנד', 'וייטנאם', 'באלי', 'יפן', 'אירופה', 'המזרח התיכון', 'אמריקה', 'אפריקה'],
       pax: function (n) { return n === 1 ? 'נוסע אחד' : n + ' נוסעים'; },
@@ -26,7 +26,7 @@
       nights: 'מספר לילות', flex: 'גמישות בתאריכים'
     },
     en: {
-      dests: [['Thailand', 'BKK'], ['Vietnam', 'SGN'], ['Bali', 'DPS'], ['Japan', 'TYO'], ['Europe', 'EUR'], ['Somewhere else', '???']],
+      dests: [['Thailand', 'BKK'], ['Vietnam', 'SGN'], ['Bali', 'DPS'], ['Japan', 'TYO'], ['Europe', 'EUR'], ['Somewhere else', 'ANY']],
       types: ['Honeymoon', 'Family', 'Beach & relax', 'Adventure', 'Group tour'],
       ticker: ['Thailand', 'Vietnam', 'Bali', 'Japan', 'Europe', 'Middle East', 'The Americas', 'Africa'],
       pax: function (n) { return n === 1 ? '1 traveller' : n + ' travellers'; },
@@ -140,6 +140,7 @@
       L.flex + ': ' + U.flexLine(state.flex)
     ].join('\n');
     var link = U.waLink(msg);
+    U.setLead({ message: msg });
     $$('[data-wa-plan]').forEach(function (a) { a.href = link; });
 
     var q = new URLSearchParams({ dest: d[0], type: t, pax: state.pax, nights: state.nights, flex: state.flex });

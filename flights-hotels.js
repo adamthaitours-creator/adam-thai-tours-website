@@ -282,6 +282,7 @@
 
     var text = message();
     var subject = L.subject + MODES[state.mode] + (state.toCity || state.hotelCity ? ' — ' + (state.toCity || state.hotelCity) : '');
+    U.setLead({ message: text, name: state.name, phone: state.phone, email: state.email });
     $$('[data-send="wa"]').forEach(function (a) { a.href = U.waLink(text); });
     $$('[data-send="mail"]').forEach(function (a) { a.href = U.mailLink(subject, text); });
   }
