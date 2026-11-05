@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دليل بوكيت للشباب | آدم للسياحة</title>
+<meta name="description" content="دليلك العربي الشامل لبوكيت — شواطئ، مغامرات، حياة ليلية، تطبيقات سفر، وخريطة بانغلا رود. من آدم للسياحة.">
+<meta property="og:title" content="دليل بوكيت للشباب — Adam Thai Tours">
+<meta property="og:description" content="بوكيت على مزاجك: بحر، مغامرات، سهرات. دليل عربي شامل من خبير سفر.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://adam-thai-tours.com/phuket-guide">
+<link rel="canonical" href="https://adam-thai-tours.com/phuket-guide">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/logo-seal.png">
+<link rel="apple-touch-icon" href="images/logo-seal.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Phuket Guide specific styles */
+.guide-hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--teal-deep) 100%);
+  color: #fff;
+  padding: clamp(60px, 10vw, 120px) 0 clamp(40px, 6vw, 80px);
+  position: relative;
+  overflow: hidden;
+}
+.guide-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M0 15 Q25 0 50 15 T100 15 V20 H0Z" fill="rgba(245,240,230,0.08)"/></svg>') repeat-x bottom / 200px 40px;
+}
+.guide-hero .eyebrow { color: var(--mint); }
+.guide-hero h1 {
+  font-family: var(--kufi); font-weight: 900;
+  font-size: clamp(36px, 5vw, 64px); line-height: 1.15;
+  margin: 12px 0 16px; color: #fff;
+}
+.guide-hero .lead { color: rgba(255,255,255,.85); font-size: 19px; max-width: 560px; }
+.guide-hero .coords {
+  font-family: var(--mono); font-size: 13px; color: var(--mint);
+  margin-top: 20px; opacity: .7;
+}
+
+.guide-section { padding: var(--section-y) 0; }
+.guide-section:nth-child(even) { background: var(--sand-2); }
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.guide-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid var(--sand-3);
+  transition: transform .2s, box-shadow .2s;
+}
+.guide-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(7,29,54,.08);
+}
+.guide-card h3 {
+  font-family: var(--kufi); font-weight: 800;
+  font-size: 18px; margin: 0 0 8px; color: var(--navy);
+}
+.guide-card p { margin: 0; font-size: 15px; line-height: 1.7; color: var(--body); }
+.guide-card .tag {
+  display: inline-block; font-size: 12px; font-weight: 600;
+  background: var(--mint-soft); color: var(--teal-deep);
+  padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;
+}
+
+.tip-box {
+  background: linear-gradient(135deg, var(--teal-deep), var(--navy));
+  color: #fff; border-radius: 20px; padding: 32px;
+  margin-top: 40px;
+  display: flex; gap: 20px; align-items: flex-start;
+}
+.tip-box .tip-icon {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255,255,255,.15); display: flex;
+  align-items: center; justify-content: center; flex-shrink: 0;
+  font-size: 24px;
+}
+.tip-box h3 { margin: 0 0 8px; font-family: var(--kufi); font-size: 18px; }
+.tip-box p { margin: 0; font-size: 15px; line-height: 1.8; color: rgba(255,255,255,.9); }
+
+.app-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px; margin-top: 24px;
+}
+.app-item {
+  background: #fff; border-radius: 12px; padding: 20px;
+  border: 1px solid var(--sand-3); text-align: center;
+}
+.app-item .app-name { font-weight: 700; font-size: 16px; color: var(--navy); }
+.app-item .app-desc { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+.checklist { list-style: none; padding: 0; margin: 24px 0 0; }
+.checklist li {
+  padding: 12px 0; border-bottom: 1px solid var(--sand-3);
+  font-size: 15px; color: var(--body);
+  display: flex; gap: 12px; align-items: center;
+}
+.checklist li::before {
+  content: '☐'; font-size: 18px; color: var(--teal);
+}
+
+.map-embed {
+  border-radius: 16px; overflow: hidden; margin-top: 24px;
+  border: 2px solid var(--sand-3);
+}
+.map-embed iframe { width: 100%; height: 350px; border: 0; }
+
+.cta-band {
+  background: var(--navy); color: #fff;
+  text-align: center; padding: clamp(40px, 6vw, 80px) 0;
+}
+.cta-band h2 {
+  font-family: var(--kufi); font-weight: 900;
+  font-size: clamp(24px, 3.5vw, 40px);
+  margin: 0 0 12px;
+}
+.cta-band p { color: rgba(255,255,255,.8); margin: 0 0 24px; font-size: 17px; }
+.cta-band .btn-wa {
+  background: var(--wa); color: #fff; padding: 14px 32px;
+  font-size: 17px; border-radius: 999px; font-weight: 700;
+  display: inline-flex; gap: 8px; align-items: center;
+  text-decoration: none; transition: opacity .2s;
+}
+.cta-band .btn-wa:hover { opacity: .9; color: #fff; }
+
+.float-wa-guide {
+  position: fixed; bottom: 24px; left: 24px; z-index: 50;
+  background: var(--wa); color: #fff;
+  width: 56px; height: 56px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
+  text-decoration: none; font-size: 28px;
+  transition: transform .2s;
+}
+.float-wa-guide:hover { transform: scale(1.1); color: #fff; }
+
+@media (max-width: 600px) {
+  .tip-box { flex-direction: column; }
+  .guide-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="brand">
+      <img class="brand-logo" src="images/logo-seal.webp" width="48" height="48" alt="">
+      <div class="brand-text">
+        <span class="brand-name">آدم للسياحة</span>
+        <span class="brand-latin" dir="ltr">ADAM THAI TOURS</span>
+      </div>
+    </a>
+    <nav class="header-nav">
+      <a href="/">الرئيسية</a>
+      <a href="plan">خطّط رحلتك</a>
+      <a href="flights-hotels">طيران وفنادق</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="guide-hero">
+  <div class="wrap">
+    <span class="eyebrow">🌴 دليلك العربي لبوكيت</span>
+    <h1>بوكيت، على مزاجك.</h1>
+    <p class="lead">بحر، مغامرات، وسهرات حلوة — دليل شامل للشباب المسافرين لبوكيت من خبير سفر عربي زار تايلاند ١٨ مرة.</p>
+    <div class="coords" dir="ltr">7.88° N &nbsp;·&nbsp; 98.39° E</div>
+  </div>
+</section>
+
+<!-- DISCOVER -->
+<section class="guide-section" id="discover">
+  <div class="wrap">
+    <span class="eyebrow">اكتشف الأماكن</span>
+    <h2 class="h2">شو مزاجك اليوم؟</h2>
+    <p class="lead">أبرز الأماكن في بوكيت مصنّفة حسب ذوقك — المدد المذكورة مقترحة للتخطيط.</p>
+
+    <div class="guide-grid">
+      <div class="guide-card">
+        <span class="tag">🏖️ بحر وشواطئ</span>
+        <h3>شاطئ باتونغ</h3>
+        <p>الشاطئ الأشهر في بوكيت — رمل ناعم، رياضات مائية، ومطاعم على البحر. مثالي كنقطة انطلاق يومية.</p>
+      </div>
+      <div class="guide-card">
+        <span class="tag">🏖️ بحر وشواطئ</span>
+        <h3>شاطئ كارون</h3>
+        <p>أهدأ من باتونغ وأوسع — مناسب للاسترخاء والسباحة بهدوء. رمل أبيض ومياه صافية.</p>
+      </div>
+      <div class="guide-card">
+        <span class="tag">🏖️ بحر وشواطئ</span>
+        <h3>شاطئ كاتا</h3>
+        <p>شاطئ عائلي هادئ محاط بالتلال الخضراء. ممتاز للسيرفنغ في موسم الأمواج.</p>
+      </div>
+      <div class="guide-card">
+        <span class="tag">🤿 مغامرات</span>
+        <h3>جزر فاي فاي</h3>
+        <p>رحلة يومية بالقارب السريع — شواطئ خيالية، سنوركلنغ، ومياه فيروزية. احجز مبكراً.</p>
+      </div>
+      <div class="guide-card">
+        <span class="tag">🤿 مغامرات</span>
+        <h3>خليج فانغ نغا</h3>
+        <p>صخور الحجر الجيري الشهيرة من فيلم جيمس بوند — جولة بالقارب أو الكاياك بين الكهوف والجزر.</p>
+      </div>
+      <div class="guide-card">
+        <span class="tag">🤿 مغامرات</span>
+        <h3>غوص وسنوركلنغ</h3>
+        <p>بوكيت من أفضل نقاط الغوص في العالم — مواقع للمبتدئين والمحترفين. جرّب جزيرة راتشا.</p>
+      </div>
+      <div class="guide-card">
+        <span class="tag">🚶 تمشاية وتسوق</span>
+        <h3>البلدة القديمة (Old Town)</h3>
+        <p>مباني ملونة بطراز صيني-برتغالي، كافيهات، جداريات فنية، وأسواق محلية. ممتازة للصور.</p>
+      </div>
+      <div class="guide-card">
+        <span class="tag">🚶 تمشاية وتسوق</span>
+        <h3>سوق الويكند الليلي</h3>
+        <p>كل يوم أحد — أكل شارع تايلاندي، ملابس، هدايا تذكارية بأسعار ممتازة. من ٤ العصر حتى ١٠ الليل.</p>
+      </div>
+      <div class="guide-card">
+        <span class="tag">🌙 أجواء مسائية</span>
+        <h3>شارع بانغلا رود</h3>
+        <p>الشارع الأشهر للحياة الليلية في بوكيت — بارات، موسيقى حيّة، وأجواء نابضة كل ليلة.</p>
+      </div>
+      <div class="guide-card">
+        <span class="tag">🌙 أجواء مسائية</span>
+        <h3>مطاعم على الشاطئ</h3>
+        <p>عشاء سمك طازج على رمل الشاطئ مع غروب الشمس — جرّب منطقة كاماوا أو راواي.</p>
+      </div>
+      <div class="guide-card">
+        <span class="tag">📸 فعاليات</span>
+        <h3>بوذا الكبير (Big Buddha)</h3>
+        <p>تمثال ضخم على قمة تل يطلّ على الجزيرة — من أهم المعالم. البس ملابس محتشمة.</p>
+      </div>
+      <div class="guide-card">
+        <span class="tag">📸 فعاليات</span>
+        <h3>نقطة رؤية كارون (Viewpoint)</h3>
+        <p>إطلالة خرافية على ٣ شواطئ من فوق — أحلى وقت قبل الغروب. مجاني.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADAM'S TIP -->
+<section class="guide-section">
+  <div class="wrap">
+    <div class="tip-box">
+      <div class="tip-icon">💡</div>
+      <div>
+        <h3>نصيحة آدم</h3>
+        <p>لا تحاول تزور الجزيرة كلها بيوم واحد! ركّز على منطقة وحدة كل يوم، خلّي وقت للراحة والتنقل، وتأكد من الطقس وأعلام الشاطئ قبل ما تنزل تسبح. بوكيت كبيرة — خذها بالراحة وبتستمتع أكثر.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="guide-section" id="map">
+  <div class="wrap">
+    <span class="eyebrow">📍 خريطة الطريق</span>
+    <h2 class="h2">من الفندق لبانغلا</h2>
+    <p class="lead">نقطة الانطلاق: The Gig Hotel في باتونغ — مشي لشارع بانغلا رود.</p>
+    <p style="margin-top:12px;">
+      <a href="https://www.google.com/maps/dir/The+Gig+Hotel,+Patong/Bangla+Road,+Patong/@7.8916,98.2965,16z" target="_blank" rel="noopener" class="btn btn-dark" style="padding:12px 24px;">
+        افتح مسار المشي في Google Maps ↗
+      </a>
+    </p>
+    <div class="map-embed">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.0!2d98.296!3d7.891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x305031b0db0aca7f%3A0x123456!2sBangla+Rd!5e0!3m2!1sar!2sth!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="tip-box" style="margin-top:24px;">
+      <div class="tip-icon">⚠️</div>
+      <div>
+        <h3>نصائح أمان</h3>
+        <p>احفظ موقع فندقك على الخريطة · اتفق على نقطة لقاء مع أصحابك · تأكد من لوحة السيارة واسم السائق قبل تركب · الزحمة بالليل تغيّر مدة الطريق · احمل نسخة من جواز السفر بتلفونك.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPS -->
+<section class="guide-section" id="apps">
+  <div class="wrap">
+    <span class="eyebrow">📱 تطبيقات السفر</span>
+    <h2 class="h2">رفقاء رحلتك الرقميين</h2>
+    <p class="lead">حمّل هاي التطبيقات قبل ما تسافر — بتوفر عليك وقت ومصاري.</p>
+
+    <div class="app-list">
+      <div class="app-item">
+        <div class="app-name">Grab</div>
+        <div class="app-desc">مواصلات وتوصيل أكل</div>
+      </div>
+      <div class="app-item">
+        <div class="app-name">Bolt</div>
+        <div class="app-desc">بديل أرخص للتنقل</div>
+      </div>
+      <div class="app-item">
+        <div class="app-name">Google Maps</div>
+        <div class="app-desc">خرائط وملاحة</div>
+      </div>
+      <div class="app-item">
+        <div class="app-name">Google Translate</div>
+        <div class="app-desc">ترجمة فورية بالكاميرا</div>
+      </div>
+      <div class="app-item">
+        <div class="app-name">Klook</div>
+        <div class="app-desc">حجز جولات وتذاكر</div>
+      </div>
+      <div class="app-item">
+        <div class="app-name">XE Currency</div>
+        <div class="app-desc">تحويل عملات لحظي</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--kufi); margin-top:40px; color:var(--navy);">قائمة التجهيز قبل السفر</h3>
+    <ul class="checklist">
+      <li>احفظ موقع الفندق على Google Maps</li>
+      <li>حمّل خريطة بوكيت أوفلاين</li>
+      <li>أضف اللغة التايلاندية لتطبيق الترجمة</li>
+      <li>سجّل دخول بتطبيقات المواصلات (Grab / Bolt)</li>
+      <li>جهّز باوربانك + شريحة إنترنت محلية أو eSIM</li>
+      <li>صوّر جواز السفر والتأمين على تلفونك</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>تبي نرتّبلك رحلة بوكيت كاملة؟</h2>
+    <p>طيران، فندق، جولات، وكل التفاصيل — خلّيها علينا. تواصل معنا وبنبني خطتك.</p>
+    <a href="https://wa.me/97258764319" target="_blank" rel="noopener" class="btn-wa">
+      💬 تواصل عبر واتساب
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer wrap">
+  <span>© 2026 Adam Thai Tours</span>
+  <a href="privacy">سياسة الخصوصية</a>
+  <a href="terms">الشروط والأحكام</a>
+  <span>رحلات حول العالم · خبرة خاصة في شرق آسيا</span>
+</footer>
+
+</div><!-- .page -->
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/97258764319" target="_blank" rel="noopener" class="float-wa-guide" aria-label="تواصل عبر واتساب">💬</a>
+
+</body>
+</html>
