@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دليل بانكوك | آدم للسياحة</title>
+<meta name="description" content="دليلك العربي الشامل لبانكوك — معابد، أسواق، أكل شارع، حياة ليلية، ونصائح تنقل. من آدم للسياحة.">
+<meta property="og:title" content="دليل بانكوك — Adam Thai Tours">
+<meta property="og:description" content="بانكوك: المدينة اللي ما بتنام. معابد، أكل شارع، أسواق، وأجواء ليلية. دليل عربي شامل.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://adam-thai-tours.com/bangkok-guide">
+<link rel="canonical" href="https://adam-thai-tours.com/bangkok-guide">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/logo-seal.png">
+<link rel="apple-touch-icon" href="images/logo-seal.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Bangkok Guide styles — same structure as phuket-guide */
+.guide-hero {
+  background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 50%, var(--teal-deep) 100%);
+  color: #fff;
+  padding: clamp(60px, 10vw, 120px) 0 clamp(40px, 6vw, 80px);
+  position: relative;
+  overflow: hidden;
+}
+.guide-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M0 15 Q25 0 50 15 T100 15 V20 H0Z" fill="rgba(245,240,230,0.08)"/></svg>') repeat-x bottom / 200px 40px;
+}
+.guide-hero .eyebrow { color: var(--mint); }
+.guide-hero h1 {
+  font-family: var(--kufi); font-weight: 900;
+  font-size: clamp(36px, 5vw, 64px); line-height: 1.15;
+  margin: 12px 0 16px; color: #fff;
+}
+.guide-hero .lead { color: rgba(255,255,255,.85); font-size: 19px; max-width: 560px; }
+.guide-hero .coords {
+  font-family: var(--mono); font-size: 13px; color: var(--mint);
+  margin-top: 20px; opacity: .7;
+}
+
+.guide-section { padding: var(--section-y) 0; }
+.guide-section:nth-child(even) { background: var(--sand-2); }
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.guide-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid var(--sand-3);
+  transition: transform .2s, box-shadow .2s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.guide-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(7,29,54,.08);
+}
+.guide-card h3 {
+  font-family: var(--kufi); font-weight: 800;
+  font-size: 18px; margin: 0 0 8px; color: var(--navy);
+}
+.guide-card p { margin: 0; font-size: 15px; line-height: 1.7; color: var(--body); }
+.guide-card .tag {
+  display: inline-block; font-size: 12px; font-weight: 600;
+  background: var(--mint-soft); color: var(--teal-deep);
+  padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;
+}
+
+.tip-box {
+  background: linear-gradient(135deg, var(--teal-deep), var(--navy));
+  color: #fff; border-radius: 20px; padding: 32px;
+  margin-top: 40px;
+  display: flex; gap: 20px; align-items: flex-start;
+}
+.tip-box .tip-icon {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255,255,255,.15); display: flex;
+  align-items: center; justify-content: center; flex-shrink: 0;
+  font-size: 24px;
+}
+.tip-box h3 { margin: 0 0 8px; font-family: var(--kufi); font-size: 18px; }
+.tip-box p { margin: 0; font-size: 15px; line-height: 1.8; color: rgba(255,255,255,.9); }
+
+.app-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px; margin-top: 24px;
+}
+.app-item {
+  background: #fff; border-radius: 12px; padding: 20px;
+  border: 1px solid var(--sand-3); text-align: center;
+  text-decoration: none; color: inherit; display: block;
+  transition: transform .2s, box-shadow .2s;
+}
+.app-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(7,29,54,.1);
+  color: inherit;
+}
+.app-item .app-name { font-weight: 700; font-size: 16px; color: var(--navy); }
+.app-item .app-desc { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+.checklist { list-style: none; padding: 0; margin: 24px 0 0; }
+.checklist li {
+  padding: 12px 0; border-bottom: 1px solid var(--sand-3);
+  font-size: 15px; color: var(--body);
+  display: flex; gap: 12px; align-items: center;
+}
+.checklist li::before {
+  content: '☐'; font-size: 18px; color: var(--teal);
+}
+
+.map-embed {
+  border-radius: 16px; overflow: hidden; margin-top: 24px;
+  border: 2px solid var(--sand-3);
+}
+.map-embed iframe { width: 100%; height: 350px; border: 0; }
+
+.cta-band {
+  background: var(--navy); color: #fff;
+  text-align: center; padding: clamp(40px, 6vw, 80px) 0;
+}
+.cta-band h2 {
+  font-family: var(--kufi); font-weight: 900;
+  font-size: clamp(24px, 3.5vw, 40px);
+  margin: 0 0 12px;
+}
+.cta-band p { color: rgba(255,255,255,.8); margin: 0 0 24px; font-size: 17px; }
+.cta-band .btn-wa {
+  background: var(--wa); color: #fff; padding: 14px 32px;
+  font-size: 17px; border-radius: 999px; font-weight: 700;
+  display: inline-flex; gap: 8px; align-items: center;
+  text-decoration: none; transition: opacity .2s;
+}
+.cta-band .btn-wa:hover { opacity: .9; color: #fff; }
+
+.float-wa-guide {
+  position: fixed; bottom: 24px; left: 24px; z-index: 50;
+  background: var(--wa); color: #fff;
+  width: 56px; height: 56px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
+  text-decoration: none; font-size: 28px;
+  transition: transform .2s;
+}
+.float-wa-guide:hover { transform: scale(1.1); color: #fff; }
+
+@media (max-width: 600px) {
+  .tip-box { flex-direction: column; }
+  .guide-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="brand">
+      <img class="brand-logo" src="images/logo-seal.webp" width="48" height="48" alt="">
+      <div class="brand-text">
+        <span class="brand-name">آدم للسياحة</span>
+        <span class="brand-latin" dir="ltr">ADAM THAI TOURS</span>
+      </div>
+    </a>
+    <nav class="header-nav">
+      <a href="/">الرئيسية</a>
+      <a href="plan">خطّط رحلتك</a>
+      <a href="flights-hotels">طيران وفنادق</a>
+      <a href="phuket-guide">🌴 دليل بوكيت</a>
+      <a href="bangkok-guide">🏙️ دليل بانكوك</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="guide-hero">
+  <div class="wrap">
+    <span class="eyebrow">🏙️ دليلك العربي لبانكوك</span>
+    <h1>بانكوك، المدينة اللي ما بتنام.</h1>
+    <p class="lead">معابد ذهبية، أكل شارع أسطوري، أسواق ليلية، وطاقة ما بتخلص — دليل شامل من خبير سفر عربي زار تايلاند ١٨ مرة.</p>
+    <div class="coords" dir="ltr">13.76° N &nbsp;·&nbsp; 100.50° E</div>
+  </div>
+</section>
+
+<!-- DISCOVER -->
+<section class="guide-section" id="discover">
+  <div class="wrap">
+    <span class="eyebrow">اكتشف الأماكن</span>
+    <h2 class="h2">وين تروح ببانكوك؟</h2>
+    <p class="lead">أبرز الأماكن في بانكوك مصنّفة حسب ذوقك — كل واحد يستاهل زيارة.</p>
+
+    <div class="guide-grid">
+      <a class="guide-card" href="https://maps.google.com/?q=Wat+Phra+Kaew+Grand+Palace+Bangkok" target="_blank" rel="noopener">
+        <span class="tag">🛕 معابد ومعالم</span>
+        <h3>القصر الكبير + وات فرا كيو 📍</h3>
+        <p>أهم معلم في بانكوك — القصر الملكي ومعبد بوذا الزمردي. البس ملابس محتشمة (ركب طويل + أكتاف مغطاة). روح الصبح بدري.</p>
+      </a>
+      <a class="guide-card" href="https://maps.google.com/?q=Wat+Arun+Bangkok" target="_blank" rel="noopener">
+        <span class="tag">🛕 معابد ومعالم</span>
+        <h3>وات أرون (معبد الفجر) 📍</h3>
+        <p>المعبد الأيقوني على نهر تشاو فرايا — أحلى منظر وقت الغروب من الضفة المقابلة. ممكن تطلع لفوق.</p>
+      </a>
+      <a class="guide-card" href="https://maps.google.com/?q=Wat+Pho+Bangkok" target="_blank" rel="noopener">
+        <span class="tag">🛕 معابد ومعالم</span>
+        <h3>وات فو (بوذا المتكئ) 📍</h3>
+        <p>تمثال بوذا الذهبي الضخم بطول ٤٦ متر. فيه مدرسة مساج تايلاندي تقليدي — جرّب جلسة بعد الجولة.</p>
+      </a>
+      <a class="guide-card" href="https://maps.google.com/?q=Chatuchak+Weekend+Market+Bangkok" target="_blank" rel="noopener">
+        <span class="tag">🛍️ أسواق وتسوق</span>
+        <h3>سوق تشاتوتشاك (JJ Market) 📍</h3>
+        <p>أكبر سوق في جنوب شرق آسيا — أكثر من ١٥,٠٠٠ كشك! ملابس، هدايا، أكل، ديكور. فقط السبت والأحد. روح الصبح وخذ وقتك.</p>
+      </a>
+      <a class="guide-card" href="https://maps.google.com/?q=Asiatique+The+Riverfront+Bangkok" target="_blank" rel="noopener">
+        <span class="tag">🛍️ أسواق وتسوق</span>
+        <h3>آسياتيك (Asiatique) 📍</h3>
+        <p>سوق ليلي على النهر — محلات، مطاعم، عروض موي تاي، وعجلة عملاقة. أجواء ممتازة بالليل.</p>
+      </a>
+      <a class="guide-card" href="https://maps.google.com/?q=MBK+Center+Bangkok" target="_blank" rel="noopener">
+        <span class="tag">🛍️ أسواق وتسوق</span>
+        <h3>مول MBK Center 📍</h3>
+        <p>مول شعبي ضخم — إلكترونيات، جوالات، ملابس بأسعار محلية. ممكن تفاوض على السعر.</p>
+      </a>
+      <a class="guide-card" href="https://maps.google.com/?q=Yaowarat+Road+Chinatown+Bangkok" target="_blank" rel="noopener">
+        <span class="tag">🍜 أكل شارع</span>
+        <h3>الحي الصيني (Chinatown) 📍</h3>
+        <p>شارع ياواراد — عاصمة أكل الشارع ببانكوك. سمك مشوي، نودلز، فواكه بحر. أحلى وقت بعد المغرب.</p>
+      </a>
+      <a class="guide-card" href="https://maps.google.com/?q=Ratchada+Rot+Fai+Train+Night+Market+Bangkok" target="_blank" rel="noopener">
+        <span class="tag">🍜 أكل شارع</span>
+        <h3>سوق القطار الليلي (Rot Fai) 📍</h3>
+        <p>سوق ليلي مشهور — أكل تايلاندي، بارات، خمر، وأجواء شبابية. محطة MRT Thailand Cultural Centre.</p>
+      </a>
+      <a class="guide-card" href="https://maps.google.com/?q=Khao+San+Road+Bangkok" target="_blank" rel="noopener">
+        <span class="tag">🌙 حياة ليلية</span>
+        <h3>شارع خاو سان رود 📍</h3>
+        <p>شارع المسافرين الأشهر بالعالم — بارات، موسيقى، تاتو، مساج، وأكل شارع. الحياة تبدأ بعد ٩ الليل.</p>
+      </a>
+      <a class="guide-card" href="https://maps.google.com/?q=Sukhumvit+Road+Bangkok+Nightlife" target="_blank" rel="noopener">
+        <span class="tag">🌙 حياة ليلية</span>
+        <h3>سوخومفيت (Sukhumvit) 📍</h3>
+        <p>منطقة السهرات الراقية — روف توب بارات، مطاعم عالمية، والمنطقة الأفضل للسكن لأول مرة ببانكوك.</p>
+      </a>
+      <a class="guide-card" href="https://maps.google.com/?q=Lumpini+Park+Bangkok" target="_blank" rel="noopener">
+        <span class="tag">🌿 طبيعة وراحة</span>
+        <h3>حديقة لومبيني 📍</h3>
+        <p>رئة بانكوك الخضراء — مشي، جري، ورانا ضخمة (مونيتور ليزاردز) بالبحيرة! مكان هادئ وسط الفوضى.</p>
+      </a>
+      <a class="guide-card" href="https://maps.google.com/?q=Floating+Market+Damnoen+Saduak+Bangkok" target="_blank" rel="noopener">
+        <span class="tag">🌿 طبيعة وراحة</span>
+        <h3>السوق العائم (Floating Market) 📍</h3>
+        <p>رحلة يومية خارج بانكوك (~ساعة) — باعة على القوارب، فواكه استوائية، وأجواء تقليدية. روح بدري قبل الزحمة.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ADAM'S TIP -->
+<section class="guide-section">
+  <div class="wrap">
+    <div class="tip-box">
+      <div class="tip-icon">💡</div>
+      <div>
+        <h3>نصيحة آدم</h3>
+        <p>بانكوك مدينة ضخمة والزحمة فيها خرافية — لا تعتمد على التاكسي وقت الذروة! استخدم BTS (القطار المعلّق) و MRT (المترو) — أسرع وأرخص. ونزّل تطبيق Grab لكل تنقلاتك الباقية. ولا تنسى: أكل الشارع أطيب من المطاعم وبعُشر السعر!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="guide-section" id="map">
+  <div class="wrap">
+    <span class="eyebrow">📍 خريطة المعالم</span>
+    <h2 class="h2">جولة المعابد الكلاسيكية</h2>
+    <p class="lead">مسار المشي: القصر الكبير ← وات فو ← عبّارة النهر ← وات أرون. حوالي ٣ ساعات مع التصوير.</p>
+    <p style="margin-top:12px;">
+      <a href="https://www.google.com/maps/dir/Grand+Palace+Bangkok/Wat+Pho+Bangkok/Wat+Arun+Bangkok/@13.7468,100.4885,15z" target="_blank" rel="noopener" class="btn btn-dark" style="padding:12px 24px;">
+        افتح مسار الجولة في Google Maps ↗
+      </a>
+    </p>
+    <div class="map-embed">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m34!1m12!1m3!1d3875.5!2d100.4885!3d13.7468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m19!3e2!4m5!1s0x30e29909453a0127%3A0x47a79b72e0e3c4!2sGrand+Palace%2C+Bangkok!3m2!1d13.7500!2d100.4914!4m5!1s0x30e2990063f9cae3%3A0x6cf9040b7b12685!2sWat+Pho%2C+Bangkok!3m2!1d13.7465!2d100.4930!4m5!1s0x30e2990063c17431%3A0xe0e50373d6c1be8!2sWat+Arun%2C+Bangkok!3m2!1d13.7437!2d100.4888!5e0!3m2!1sar!2sth!4v1699000000000" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="tip-box" style="margin-top:24px;">
+      <div class="tip-icon">⚠️</div>
+      <div>
+        <h3>نصائح أمان</h3>
+        <p>انتبه من «النصّابين اللطيفين» — لو حد قالك المعبد مسكّر اليوم وعرض يوديك مكان ثاني، لا تروح · استخدم Grab بدل التوك توك (سعر ثابت بالتطبيق) · احمل نسخة من جواز السفر بتلفونك · اشرب مي كثير — الحرارة والرطوبة عالية جداً.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSPORT -->
+<section class="guide-section" id="transport">
+  <div class="wrap">
+    <span class="eyebrow">🚇 التنقل</span>
+    <h2 class="h2">كيف تتنقل ببانكوك</h2>
+    <p class="lead">نظام المواصلات ببانكوك ممتاز — بس لازم تعرف الفرق.</p>
+
+    <div class="guide-grid">
+      <div class="guide-card">
+        <span class="tag">🚆 قطارات</span>
+        <h3>BTS SkyTrain</h3>
+        <p>القطار المعلّق — الأسرع للتنقل بين الأسواق والمولات. خطين رئيسيين. اشتري بطاقة Rabbit Card واشحنها.</p>
+      </div>
+      <div class="guide-card">
+        <span class="tag">🚇 مترو</span>
+        <h3>MRT</h3>
+        <p>المترو تحت الأرض — يوصلك للحي الصيني وسوق تشاتوتشاك. بطاقة منفصلة عن BTS.</p>
+      </div>
+      <div class="guide-card">
+        <span class="tag">🛥️ قوارب</span>
+        <h3>قوارب النهر</h3>
+        <p>Chao Phraya Express — وسيلة ممتازة للوصول للمعابد والقصر الكبير. رخيصة وسريعة وبتشوف المدينة من النهر.</p>
+      </div>
+      <div class="guide-card">
+        <span class="tag">📱 تطبيقات</span>
+        <h3>Grab / Bolt</h3>
+        <p>للتنقل بين الأماكن اللي ما يوصلها القطار. سعر ثابت بالتطبيق — أفضل من التوك توك والتاكسي.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPS -->
+<section class="guide-section" id="apps">
+  <div class="wrap">
+    <span class="eyebrow">📱 تطبيقات السفر</span>
+    <h2 class="h2">رفقاء رحلتك الرقميين</h2>
+    <p class="lead">حمّل هاي التطبيقات قبل ما تسافر — بتوفر عليك وقت ومصاري.</p>
+
+    <div class="app-list">
+      <a class="app-item" href="https://www.grab.com/th/" target="_blank" rel="noopener">
+        <div class="app-name">Grab</div>
+        <div class="app-desc">مواصلات وتوصيل أكل</div>
+      </a>
+      <a class="app-item" href="https://bolt.eu/en/" target="_blank" rel="noopener">
+        <div class="app-name">Bolt</div>
+        <div class="app-desc">بديل أرخص للتنقل</div>
+      </a>
+      <a class="app-item" href="https://maps.google.com" target="_blank" rel="noopener">
+        <div class="app-name">Google Maps</div>
+        <div class="app-desc">خرائط وملاحة</div>
+      </a>
+      <a class="app-item" href="https://translate.google.com" target="_blank" rel="noopener">
+        <div class="app-name">Google Translate</div>
+        <div class="app-desc">ترجمة فورية بالكاميرا</div>
+      </a>
+      <a class="app-item" href="https://www.klook.com/en-PH/city/1-bangkok-things-to-do/" target="_blank" rel="noopener">
+        <div class="app-name">Klook</div>
+        <div class="app-desc">حجز جولات وتذاكر</div>
+      </a>
+      <a class="app-item" href="https://www.xe.com/currencyconverter/" target="_blank" rel="noopener">
+        <div class="app-name">XE Currency</div>
+        <div class="app-desc">تحويل عملات لحظي</div>
+      </a>
+    </div>
+
+    <h3 style="font-family:var(--kufi); margin-top:40px; color:var(--navy);">قائمة التجهيز قبل السفر</h3>
+    <ul class="checklist">
+      <li>احفظ موقع الفندق على Google Maps</li>
+      <li>حمّل خريطة بانكوك أوفلاين</li>
+      <li>أضف اللغة التايلاندية لتطبيق الترجمة</li>
+      <li>سجّل دخول بتطبيقات المواصلات (Grab / Bolt)</li>
+      <li>جهّز باوربانك + شريحة إنترنت محلية أو eSIM</li>
+      <li>صوّر جواز السفر والتأمين على تلفونك</li>
+      <li>اكتب عنوان فندقك بالتايلاندي (اطلب من الفندق)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>تبي نرتّبلك رحلة بانكوك كاملة؟</h2>
+    <p>طيران، فندق، جولات، وكل التفاصيل — خلّيها علينا. تواصل معنا وبنبني خطتك.</p>
+    <a href="https://wa.me/97258764319" target="_blank" rel="noopener" class="btn-wa">
+      💬 تواصل عبر واتساب
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer wrap">
+  <span>© 2026 Adam Thai Tours</span>
+  <a href="privacy">سياسة الخصوصية</a>
+  <a href="terms">الشروط والأحكام</a>
+  <span>رحلات حول العالم · خبرة خاصة في شرق آسيا</span>
+</footer>
+
+</div><!-- .page -->
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/97258764319" target="_blank" rel="noopener" class="float-wa-guide" aria-label="تواصل عبر واتساب">💬</a>
+
+</body>
+</html>
