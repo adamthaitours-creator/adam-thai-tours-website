@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دليل كرابي | آدم للسياحة</title>
+<meta name="description" content="دليلك العربي الشامل لكرابي — جزر، شواطئ، مغامرات، وينابيع حارة. من آدم للسياحة.">
+<meta property="og:title" content="دليل كرابي — Adam Thai Tours">
+<meta property="og:description" content="كرابي: جنّة الطبيعة في تايلاند. جزر، كاياك، وتسلّق صخور. دليل عربي شامل.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://adam-thai-tours.com/krabi-guide">
+<link rel="canonical" href="https://adam-thai-tours.com/krabi-guide">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/logo-seal.png">
+<link rel="apple-touch-icon" href="images/logo-seal.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+.guide-hero{background:linear-gradient(135deg,var(--navy) 0%,#1a4a3a 50%,var(--teal-deep) 100%);color:#fff;padding:clamp(60px,10vw,120px) 0 clamp(40px,6vw,80px);position:relative;overflow:hidden}
+.guide-hero::after{content:'';position:absolute;inset:0;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M0 15 Q25 0 50 15 T100 15 V20 H0Z" fill="rgba(245,240,230,0.08)"/></svg>') repeat-x bottom/200px 40px}
+.guide-hero .eyebrow{color:var(--mint)}.guide-hero h1{font-family:var(--kufi);font-weight:900;font-size:clamp(36px,5vw,64px);line-height:1.15;margin:12px 0 16px;color:#fff}
+.guide-hero .lead{color:rgba(255,255,255,.85);font-size:19px;max-width:560px}.guide-hero .coords{font-family:var(--mono);font-size:13px;color:var(--mint);margin-top:20px;opacity:.7}
+.guide-section{padding:var(--section-y) 0}.guide-section:nth-child(even){background:var(--sand-2)}
+.guide-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;margin-top:32px}
+.guide-card{background:#fff;border-radius:16px;padding:28px;border:1px solid var(--sand-3);transition:transform .2s,box-shadow .2s;text-decoration:none;color:inherit;display:block}
+.guide-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(7,29,54,.08)}
+.guide-card h3{font-family:var(--kufi);font-weight:800;font-size:18px;margin:0 0 8px;color:var(--navy)}
+.guide-card p{margin:0;font-size:15px;line-height:1.7;color:var(--body)}
+.guide-card .tag{display:inline-block;font-size:12px;font-weight:600;background:var(--mint-soft);color:var(--teal-deep);padding:4px 12px;border-radius:999px;margin-bottom:12px}
+.tip-box{background:linear-gradient(135deg,var(--teal-deep),var(--navy));color:#fff;border-radius:20px;padding:32px;margin-top:40px;display:flex;gap:20px;align-items:flex-start}
+.tip-box .tip-icon{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px}
+.tip-box h3{margin:0 0 8px;font-family:var(--kufi);font-size:18px}.tip-box p{margin:0;font-size:15px;line-height:1.8;color:rgba(255,255,255,.9)}
+.app-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:24px}
+.app-item{background:#fff;border-radius:12px;padding:20px;border:1px solid var(--sand-3);text-align:center;text-decoration:none;color:inherit;display:block;transition:transform .2s,box-shadow .2s}
+.app-item:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(7,29,54,.1);color:inherit}
+.app-item .app-name{font-weight:700;font-size:16px;color:var(--navy)}.app-item .app-desc{font-size:13px;color:var(--muted);margin-top:4px}
+.checklist{list-style:none;padding:0;margin:24px 0 0}.checklist li{padding:12px 0;border-bottom:1px solid var(--sand-3);font-size:15px;color:var(--body);display:flex;gap:12px;align-items:center}
+.checklist li::before{content:'☐';font-size:18px;color:var(--teal)}
+.cta-band{background:var(--navy);color:#fff;text-align:center;padding:clamp(40px,6vw,80px) 0}
+.cta-band h2{font-family:var(--kufi);font-weight:900;font-size:clamp(24px,3.5vw,40px);margin:0 0 12px}
+.cta-band p{color:rgba(255,255,255,.8);margin:0 0 24px;font-size:17px}
+.cta-band .btn-wa{background:var(--wa);color:#fff;padding:14px 32px;font-size:17px;border-radius:999px;font-weight:700;display:inline-flex;gap:8px;align-items:center;text-decoration:none;transition:opacity .2s}
+.cta-band .btn-wa:hover{opacity:.9;color:#fff}
+.float-wa-guide{position:fixed;bottom:24px;left:24px;z-index:50;background:var(--wa);color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2);text-decoration:none;font-size:28px;transition:transform .2s}
+.float-wa-guide:hover{transform:scale(1.1);color:#fff}
+@media(max-width:600px){.tip-box{flex-direction:column}.guide-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="site-header"><div class="wrap">
+  <a href="/" class="brand"><img class="brand-logo" src="images/logo-seal.webp" width="48" height="48" alt=""><div class="brand-text"><span class="brand-name">آدم للسياحة</span><span class="brand-latin" dir="ltr">ADAM THAI TOURS</span></div></a>
+  <nav class="header-nav"><a href="/">الرئيسية</a><a href="plan">خطّط رحلتك</a><a href="flights-hotels">طيران وفنادق</a><a href="phuket-guide">🌴 بوكيت</a><a href="bangkok-guide">🏙️ بانكوك</a><a href="krabi-guide">🏝️ كرابي</a><a href="koh-samui-guide">🌊 كوساموي</a><a href="pattaya-guide">🎡 باتايا</a><a href="hua-hin-guide">🐚 هواهين</a></nav>
+</div></header>
+
+<section class="guide-hero"><div class="wrap">
+  <span class="eyebrow">🏝️ دليلك العربي لكرابي</span>
+  <h1>كرابي، جنّة الطبيعة.</h1>
+  <p class="lead">صخور حجر جيري عملاقة، جزر خيالية، وبحر فيروزي — كرابي هي تايلاند بأصفى أشكالها. دليل شامل من خبير زار تايلاند ١٨ مرة.</p>
+  <div class="coords" dir="ltr">8.09° N &nbsp;·&nbsp; 98.91° E</div>
+</div></section>
+
+<section class="guide-section" id="discover"><div class="wrap">
+  <span class="eyebrow">اكتشف الأماكن</span>
+  <h2 class="h2">كرابي عالبحر والبر</h2>
+  <p class="lead">أبرز الأماكن في كرابي ومحيطها — كل مكان يستاهل يوم كامل.</p>
+  <div class="guide-grid">
+    <a class="guide-card" href="https://maps.google.com/?q=Railay+Beach+Krabi" target="_blank" rel="noopener">
+      <span class="tag">🏖️ شواطئ</span>
+      <h3>شاطئ رايلي (Railay) 📍</h3>
+      <p>من أجمل شواطئ العالم — محاط بصخور حجر جيري ضخمة. يوصله بالقارب فقط من آو نانغ. فيه تسلّق صخور عالمي المستوى.</p>
+    </a>
+    <a class="guide-card" href="https://maps.google.com/?q=Ao+Nang+Beach+Krabi" target="_blank" rel="noopener">
+      <span class="tag">🏖️ شواطئ</span>
+      <h3>آو نانغ (Ao Nang) 📍</h3>
+      <p>القاعدة الرئيسية للسياح في كرابي — فنادق، مطاعم، محلات، ومينا القوارب لكل الجزر. مكان مثالي للسكن.</p>
+    </a>
+    <a class="guide-card" href="https://maps.google.com/?q=Tubkaak+Beach+Krabi" target="_blank" rel="noopener">
+      <span class="tag">🏖️ شواطئ</span>
+      <h3>شاطئ توبكاك 📍</h3>
+      <p>شاطئ هادئ وخاص — مثالي لشهر العسل والأزواج. فنادق فخمة ومنظر على جزر هونغ.</p>
+    </a>
+    <a class="guide-card" href="https://maps.google.com/?q=Four+Islands+Tour+Krabi" target="_blank" rel="noopener">
+      <span class="tag">🤿 جزر ومغامرات</span>
+      <h3>جولة الجزر الأربع 📍</h3>
+      <p>رحلة يومية بالقارب: جزيرة بودا، توب، تشيكن، وفرابي نانغ — سنوركلنغ، سباحة، وغداء على الشاطئ.</p>
+    </a>
+    <a class="guide-card" href="https://maps.google.com/?q=Hong+Islands+Krabi" target="_blank" rel="noopener">
+      <span class="tag">🤿 جزر ومغامرات</span>
+      <h3>جزر هونغ (Hong Islands) 📍</h3>
+      <p>لاغون مغلق بمياه زمردية — كاياك بين الصخور وسنوركلنغ مع الأسماك الملونة. من أجمل ما شفت بحياتي.</p>
+    </a>
+    <a class="guide-card" href="https://maps.google.com/?q=Tiger+Cave+Temple+Krabi" target="_blank" rel="noopener">
+      <span class="tag">🛕 معالم</span>
+      <h3>معبد كهف النمر (Tiger Cave) 📍</h3>
+      <p>١,٢٣٧ درجة للقمة — تحدّي حقيقي لكن المنظر من فوق يستاهل كل خطوة. روح الصبح بدري وخذ مي كثير.</p>
+    </a>
+    <a class="guide-card" href="https://maps.google.com/?q=Emerald+Pool+Krabi" target="_blank" rel="noopener">
+      <span class="tag">🌿 طبيعة</span>
+      <h3>البركة الزمردية (Emerald Pool) 📍</h3>
+      <p>بركة طبيعية بمياه خضراء صافية وسط الغابة الاستوائية — ممكن تسبح فيها. قريبة من الينابيع الحارة.</p>
+    </a>
+    <a class="guide-card" href="https://maps.google.com/?q=Krabi+Hot+Springs" target="_blank" rel="noopener">
+      <span class="tag">🌿 طبيعة</span>
+      <h3>الينابيع الحارة 📍</h3>
+      <p>ينابيع طبيعية بمياه دافئة وسط الغابة — ممتازة للاسترخاء. ادمجها مع زيارة البركة الزمردية بنفس اليوم.</p>
+    </a>
+    <a class="guide-card" href="https://maps.google.com/?q=Krabi+Night+Market" target="_blank" rel="noopener">
+      <span class="tag">🍜 أكل وتسوق</span>
+      <h3>سوق كرابي الليلي 📍</h3>
+      <p>كل جمعة وسبت وأحد — أكل شارع تايلاندي طازج بأسعار محلية. باد تاي، سمك مشوي، مانغو ستيكي رايس.</p>
+    </a>
+  </div>
+</div></section>
+
+<section class="guide-section"><div class="wrap">
+  <div class="tip-box">
+    <div class="tip-icon">💡</div>
+    <div>
+      <h3>نصيحة آدم</h3>
+      <p>كرابي مش مدينة سهرات — هي للطبيعة والهدوء والمغامرة. لو بدك حياة ليلية روح بوكيت أو بانكوك. بس لو بدك أجمل بحر وأنظف شواطئ وأحلى غروب شمس بتايلاند — كرابي هي المكان. خصوصاً رايلي وجزر هونغ.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="guide-section" id="apps"><div class="wrap">
+  <span class="eyebrow">📱 تطبيقات السفر</span>
+  <h2 class="h2">رفقاء رحلتك الرقميين</h2>
+  <div class="app-list">
+    <a class="app-item" href="https://www.grab.com/th/" target="_blank" rel="noopener"><div class="app-name">Grab</div><div class="app-desc">مواصلات وتوصيل أكل</div></a>
+    <a class="app-item" href="https://maps.google.com" target="_blank" rel="noopener"><div class="app-name">Google Maps</div><div class="app-desc">خرائط وملاحة</div></a>
+    <a class="app-item" href="https://translate.google.com" target="_blank" rel="noopener"><div class="app-name">Google Translate</div><div class="app-desc">ترجمة فورية بالكاميرا</div></a>
+    <a class="app-item" href="https://www.klook.com/en-PH/city/9-krabi-things-to-do/" target="_blank" rel="noopener"><div class="app-name">Klook</div><div class="app-desc">حجز جولات وتذاكر</div></a>
+  </div>
+  <h3 style="font-family:var(--kufi);margin-top:40px;color:var(--navy)">قائمة التجهيز</h3>
+  <ul class="checklist">
+    <li>احفظ موقع الفندق على Google Maps</li>
+    <li>احجز جولة الجزر مسبقاً (خصوصاً بالموسم)</li>
+    <li>جهّز حذاء مريح لمعبد كهف النمر</li>
+    <li>كريم واقي شمس مقاوم للماء</li>
+    <li>باوربانك + شريحة إنترنت محلية أو eSIM</li>
+  </ul>
+</div></section>
+
+<section class="cta-band"><div class="wrap">
+  <h2>تبي نرتّبلك رحلة كرابي كاملة؟</h2>
+  <p>طيران، فندق، جولات بالجزر، وكل التفاصيل — خلّيها علينا.</p>
+  <a href="https://wa.me/97258764319" target="_blank" rel="noopener" class="btn-wa">💬 تواصل عبر واتساب</a>
+</div></section>
+
+<footer class="site-footer wrap"><span>© 2026 Adam Thai Tours</span><a href="privacy">سياسة الخصوصية</a><a href="terms">الشروط والأحكام</a></footer>
+</div>
+<a href="https://wa.me/97258764319" target="_blank" rel="noopener" class="float-wa-guide" aria-label="تواصل عبر واتساب">💬</a>
+</body>
+</html>

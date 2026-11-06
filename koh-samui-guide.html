@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دليل كوساموي | آدم للسياحة</title>
+<meta name="description" content="دليلك العربي الشامل لكوساموي — شواطئ، معابد، شلالات، وحياة ليلية. من آدم للسياحة.">
+<meta property="og:title" content="دليل كوساموي — Adam Thai Tours">
+<meta property="og:description" content="كوساموي: جزيرة جوز الهند. شواطئ بيضاء، شلالات، ومعابد فريدة. دليل عربي شامل.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://adam-thai-tours.com/koh-samui-guide">
+<link rel="canonical" href="https://adam-thai-tours.com/koh-samui-guide">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/logo-seal.png">
+<link rel="apple-touch-icon" href="images/logo-seal.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+.guide-hero{background:linear-gradient(135deg,var(--navy) 0%,#1a3a5c 50%,#0d4a4a 100%);color:#fff;padding:clamp(60px,10vw,120px) 0 clamp(40px,6vw,80px);position:relative;overflow:hidden}
+.guide-hero::after{content:'';position:absolute;inset:0;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M0 15 Q25 0 50 15 T100 15 V20 H0Z" fill="rgba(245,240,230,0.08)"/></svg>') repeat-x bottom/200px 40px}
+.guide-hero .eyebrow{color:var(--mint)}.guide-hero h1{font-family:var(--kufi);font-weight:900;font-size:clamp(36px,5vw,64px);line-height:1.15;margin:12px 0 16px;color:#fff}
+.guide-hero .lead{color:rgba(255,255,255,.85);font-size:19px;max-width:560px}.guide-hero .coords{font-family:var(--mono);font-size:13px;color:var(--mint);margin-top:20px;opacity:.7}
+.guide-section{padding:var(--section-y) 0}.guide-section:nth-child(even){background:var(--sand-2)}
+.guide-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;margin-top:32px}
+.guide-card{background:#fff;border-radius:16px;padding:28px;border:1px solid var(--sand-3);transition:transform .2s,box-shadow .2s;text-decoration:none;color:inherit;display:block}
+.guide-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(7,29,54,.08)}
+.guide-card h3{font-family:var(--kufi);font-weight:800;font-size:18px;margin:0 0 8px;color:var(--navy)}
+.guide-card p{margin:0;font-size:15px;line-height:1.7;color:var(--body)}
+.guide-card .tag{display:inline-block;font-size:12px;font-weight:600;background:var(--mint-soft);color:var(--teal-deep);padding:4px 12px;border-radius:999px;margin-bottom:12px}
+.tip-box{background:linear-gradient(135deg,var(--teal-deep),var(--navy));color:#fff;border-radius:20px;padding:32px;margin-top:40px;display:flex;gap:20px;align-items:flex-start}
+.tip-box .tip-icon{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px}
+.tip-box h3{margin:0 0 8px;font-family:var(--kufi);font-size:18px}.tip-box p{margin:0;font-size:15px;line-height:1.8;color:rgba(255,255,255,.9)}
+.app-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:24px}
+.app-item{background:#fff;border-radius:12px;padding:20px;border:1px solid var(--sand-3);text-align:center;text-decoration:none;color:inherit;display:block;transition:transform .2s,box-shadow .2s}
+.app-item:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(7,29,54,.1);color:inherit}
+.app-item .app-name{font-weight:700;font-size:16px;color:var(--navy)}.app-item .app-desc{font-size:13px;color:var(--muted);margin-top:4px}
+.checklist{list-style:none;padding:0;margin:24px 0 0}.checklist li{padding:12px 0;border-bottom:1px solid var(--sand-3);font-size:15px;color:var(--body);display:flex;gap:12px;align-items:center}
+.checklist li::before{content:'☐';font-size:18px;color:var(--teal)}
+.cta-band{background:var(--navy);color:#fff;text-align:center;padding:clamp(40px,6vw,80px) 0}
+.cta-band h2{font-family:var(--kufi);font-weight:900;font-size:clamp(24px,3.5vw,40px);margin:0 0 12px}
+.cta-band p{color:rgba(255,255,255,.8);margin:0 0 24px;font-size:17px}
+.cta-band .btn-wa{background:var(--wa);color:#fff;padding:14px 32px;font-size:17px;border-radius:999px;font-weight:700;display:inline-flex;gap:8px;align-items:center;text-decoration:none;transition:opacity .2s}
+.cta-band .btn-wa:hover{opacity:.9;color:#fff}
+.float-wa-guide{position:fixed;bottom:24px;left:24px;z-index:50;background:var(--wa);color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2);text-decoration:none;font-size:28px;transition:transform .2s}
+.float-wa-guide:hover{transform:scale(1.1);color:#fff}
+@media(max-width:600px){.tip-box{flex-direction:column}.guide-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="site-header"><div class="wrap">
+  <a href="/" class="brand"><img class="brand-logo" src="images/logo-seal.webp" width="48" height="48" alt=""><div class="brand-text"><span class="brand-name">آدم للسياحة</span><span class="brand-latin" dir="ltr">ADAM THAI TOURS</span></div></a>
+  <nav class="header-nav"><a href="/">الرئيسية</a><a href="plan">خطّط رحلتك</a><a href="flights-hotels">طيران وفنادق</a><a href="phuket-guide">🌴 بوكيت</a><a href="bangkok-guide">🏙️ بانكوك</a><a href="krabi-guide">🏝️ كرابي</a><a href="koh-samui-guide">🌊 كوساموي</a><a href="pattaya-guide">🎡 باتايا</a><a href="hua-hin-guide">🐚 هواهين</a></nav>
+</div></header>
+
+<section class="guide-hero"><div class="wrap">
+  <span class="eyebrow">🌊 دليلك العربي لكوساموي</span>
+  <h1>كوساموي، جزيرة جوز الهند.</h1>
+  <p class="lead">جزيرة استوائية بشواطئ ناعمة، فيلات فخمة بمسابح خاصة، شلالات وسط الغابة، ومعابد فريدة — المكان المثالي لشهر العسل والعائلات.</p>
+  <div class="coords" dir="ltr">9.51° N &nbsp;·&nbsp; 100.01° E</div>
+</div></section>
+
+<section class="guide-section" id="discover"><div class="wrap">
+  <span class="eyebrow">اكتشف الأماكن</span>
+  <h2 class="h2">أبرز الأماكن بكوساموي</h2>
+  <p class="lead">جزيرة كاملة تلفّها بسيارة خلال ساعة — لكن فيها أماكن تستاهل أيام.</p>
+  <div class="guide-grid">
+    <a class="guide-card" href="https://maps.google.com/?q=Chaweng+Beach+Koh+Samui" target="_blank" rel="noopener">
+      <span class="tag">🏖️ شواطئ</span>
+      <h3>شاطئ تشاوينغ (Chaweng) 📍</h3>
+      <p>الشاطئ الرئيسي والأكثر حيوية — رمل أبيض، مياه صافية، مطاعم، بارات، وحياة ليلية. المنطقة الأفضل للسكن لأول مرة.</p>
+    </a>
+    <a class="guide-card" href="https://maps.google.com/?q=Lamai+Beach+Koh+Samui" target="_blank" rel="noopener">
+      <span class="tag">🏖️ شواطئ</span>
+      <h3>شاطئ لاماي (Lamai) 📍</h3>
+      <p>أهدأ من تشاوينغ — مناسب للعائلات والأزواج. فيه صخرتا «الجد والجدة» الشهيرتين وسوق ليلي ممتاز.</p>
+    </a>
+    <a class="guide-card" href="https://maps.google.com/?q=Bophut+Fisherman+Village+Koh+Samui" target="_blank" rel="noopener">
+      <span class="tag">🏖️ شواطئ</span>
+      <h3>قرية الصيادين بوفوت 📍</h3>
+      <p>أجواء بوهيمية ساحرة — بيوت خشبية، مطاعم على البحر، وسوق ليلي كل جمعة. المنطقة الأجمل للسكن الرومانسي.</p>
+    </a>
+    <a class="guide-card" href="https://maps.google.com/?q=Big+Buddha+Temple+Koh+Samui" target="_blank" rel="noopener">
+      <span class="tag">🛕 معالم</span>
+      <h3>بوذا الكبير (Big Buddha) 📍</h3>
+      <p>تمثال ذهبي ضخم بارتفاع ١٢ متر على جزيرة صغيرة متصلة بجسر. منظر خرافي وقت الغروب. البس محتشم.</p>
+    </a>
+    <a class="guide-card" href="https://maps.google.com/?q=Wat+Plai+Laem+Koh+Samui" target="_blank" rel="noopener">
+      <span class="tag">🛕 معالم</span>
+      <h3>وات بلاي لام 📍</h3>
+      <p>معبد ملون على بحيرة — تمثال غوانين بـ١٨ ذراع وبوذا الضاحك. من أجمل المعابد للتصوير.</p>
+    </a>
+    <a class="guide-card" href="https://maps.google.com/?q=Na+Muang+Waterfall+Koh+Samui" target="_blank" rel="noopener">
+      <span class="tag">🌿 طبيعة</span>
+      <h3>شلالات نا موانغ 📍</h3>
+      <p>شلالان وسط الغابة — الأول سهل الوصول والثاني يحتاج مشي ١٥ دقيقة بالغابة. ممكن تسبح تحت الشلال.</p>
+    </a>
+    <a class="guide-card" href="https://maps.google.com/?q=Ang+Thong+National+Marine+Park" target="_blank" rel="noopener">
+      <span class="tag">🤿 جزر</span>
+      <h3>حديقة أنغ ثونغ البحرية 📍</h3>
+      <p>أرخبيل من ٤٢ جزيرة — رحلة يومية بالقارب مع سنوركلنغ وكاياك وصعود لنقطة رؤية خرافية. من أجمل الرحلات.</p>
+    </a>
+    <a class="guide-card" href="https://maps.google.com/?q=Koh+Tao+Thailand" target="_blank" rel="noopener">
+      <span class="tag">🤿 جزر</span>
+      <h3>رحلة لكو تاو 📍</h3>
+      <p>«جزيرة السلحفاة» — من أفضل مواقع الغوص بالعالم. رحلة يومية بالقارب السريع من كوساموي (~١.٥ ساعة).</p>
+    </a>
+    <a class="guide-card" href="https://maps.google.com/?q=Chaweng+Walking+Street+Night+Market" target="_blank" rel="noopener">
+      <span class="tag">🍜 أكل وسهرات</span>
+      <h3>سوق تشاوينغ الليلي 📍</h3>
+      <p>أكل شارع طازج، عصائر فواكه، ومحلات هدايا. كل ليلة من ٥ العصر. جرّب الروتي بالموز والنوتيلا!</p>
+    </a>
+  </div>
+</div></section>
+
+<section class="guide-section"><div class="wrap">
+  <div class="tip-box">
+    <div class="tip-icon">💡</div>
+    <div>
+      <h3>نصيحة آدم</h3>
+      <p>كوساموي مثالية لشهر العسل — احجز فيلا بمسبح خاص (pool villa) وبتشكرني. أسعار الفيلات بكوساموي أرخص بكثير من بوكيت لنفس المستوى. وإذا عندك وقت، لا تفوّت رحلة أنغ ثونغ — من أجمل اللي شفت بحياتي بكل الـ١٨ زيارة لتايلاند.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="guide-section" id="apps"><div class="wrap">
+  <span class="eyebrow">📱 تطبيقات السفر</span>
+  <h2 class="h2">رفقاء رحلتك الرقميين</h2>
+  <div class="app-list">
+    <a class="app-item" href="https://www.grab.com/th/" target="_blank" rel="noopener"><div class="app-name">Grab</div><div class="app-desc">مواصلات وتوصيل أكل</div></a>
+    <a class="app-item" href="https://maps.google.com" target="_blank" rel="noopener"><div class="app-name">Google Maps</div><div class="app-desc">خرائط وملاحة</div></a>
+    <a class="app-item" href="https://translate.google.com" target="_blank" rel="noopener"><div class="app-name">Google Translate</div><div class="app-desc">ترجمة فورية بالكاميرا</div></a>
+    <a class="app-item" href="https://www.klook.com/en-PH/city/4-koh-samui-things-to-do/" target="_blank" rel="noopener"><div class="app-name">Klook</div><div class="app-desc">حجز جولات وتذاكر</div></a>
+  </div>
+  <h3 style="font-family:var(--kufi);margin-top:40px;color:var(--navy)">قائمة التجهيز</h3>
+  <ul class="checklist">
+    <li>احفظ موقع الفندق/الفيلا على Google Maps</li>
+    <li>احجز رحلة أنغ ثونغ أو كو تاو مسبقاً</li>
+    <li>استأجر سكوتر أو سيارة للتنقل (الجزيرة صغيرة)</li>
+    <li>كريم واقي شمس + أحذية ماء للشلالات</li>
+    <li>باوربانك + شريحة إنترنت محلية أو eSIM</li>
+  </ul>
+</div></section>
+
+<section class="cta-band"><div class="wrap">
+  <h2>تبي نرتّبلك رحلة كوساموي كاملة؟</h2>
+  <p>فيلا بمسبح خاص، جولات بالجزر، وكل التفاصيل — خلّيها علينا.</p>
+  <a href="https://wa.me/97258764319" target="_blank" rel="noopener" class="btn-wa">💬 تواصل عبر واتساب</a>
+</div></section>
+
+<footer class="site-footer wrap"><span>© 2026 Adam Thai Tours</span><a href="privacy">سياسة الخصوصية</a><a href="terms">الشروط والأحكام</a></footer>
+</div>
+<a href="https://wa.me/97258764319" target="_blank" rel="noopener" class="float-wa-guide" aria-label="تواصل عبر واتساب">💬</a>
+</body>
+</html>
