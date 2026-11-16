@@ -129,16 +129,18 @@
     returnInput.min = state.depart ? U.addDays(state.depart, 1) : departInput.min;
     flexSelect.value = String(state.flex);
 
-    var msg = [
+    // Only send the date lines once a date is picked, so the message never reads "not set yet".
+    var msgLines = [
       L.intro,
       L.dest + ': ' + d[0],
       L.type + ': ' + t,
-      L.travellers + ': ' + state.pax,
-      L.depart + ': ' + U.dateLine(state.depart),
-      L.ret + ': ' + U.dateLine(state.ret),
-      L.nights + ': ' + state.nights,
-      L.flex + ': ' + U.flexLine(state.flex)
-    ].join('\n');
+      L.travellers + ': ' + state.pax
+    ];
+    if (state.depart) msgLines.push(L.depart + ': ' + U.dateLine(state.depart));
+    if (state.ret) msgLines.push(L.ret + ': ' + U.dateLine(state.ret));
+    msgLines.push(L.nights + ': ' + state.nights);
+    if (state.depart || state.ret) msgLines.push(L.flex + ': ' + U.flexLine(state.flex));
+    var msg = msgLines.join('\n');
     var link = U.waLink(msg);
     U.setLead({ message: msg });
     $$('[data-wa-plan]').forEach(function (a) { a.href = link; });
